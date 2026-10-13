@@ -1,0 +1,409 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "scaleway.search.v1alpha1.Api (derived)",
+    "description": "Derived from scaleway/scaleway-sdk-js packages_generated/search/src/v1alpha1 — the portal publishes no OpenAPI document for these routes.",
+    "version": "v1alpha1"
+  },
+  "servers": [
+    {
+      "url": "https://api.scaleway.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "scaleway": {
+        "in": "header",
+        "name": "X-Auth-Token",
+        "type": "apiKey"
+      }
+    },
+    "schemas": {
+      "scaleway.search.v1alpha1.BrmServerInfo": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "IP address of the Baremetal server."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ObsDatasourceInfo": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ObsDatasourceInfoDataType",
+            "description": "Type of data handled by the OBS datasource."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ObsDatasourceInfoDataType": {
+        "type": "string",
+        "enum": [
+          "unknown_data_type",
+          "metrics",
+          "logs",
+          "traces"
+        ]
+      },
+      "scaleway.search.v1alpha1.ObsExporterInfo": {
+        "type": "object",
+        "properties": {
+          "destination_type": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ObsExporterInfoDestinationType",
+            "description": "Destination type of the OBS exporter."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ObsExporterInfoDestinationType": {
+        "type": "string",
+        "enum": [
+          "unknown_destination_type",
+          "datadog",
+          "otlp"
+        ]
+      },
+      "scaleway.search.v1alpha1.Resource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the resource."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the resource."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "ID of the Project the resource belongs to."
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "ID of the Organization the resource belongs to."
+          },
+          "type": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ResourceType",
+            "description": "Type of the resource."
+          },
+          "global": {
+            "type": "boolean",
+            "description": "Locality the resource is in if this is a global resource.\nOne-of ('locality'): at most one of 'global', 'zone', 'region' could be set."
+          },
+          "zone": {
+            "type": "string",
+            "description": "Locality the resource is in if this is a zonal resource.\nOne-of ('locality'): at most one of 'global', 'zone', 'region' could be set."
+          },
+          "region": {
+            "type": "string",
+            "description": "Locality the resource is in if this is a regional resource.\nOne-of ('locality'): at most one of 'global', 'zone', 'region' could be set."
+          },
+          "vpc_private_network_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.VpcPrivateNetworkInfo",
+            "description": "Additional information for a VPC Private Network.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "serverless_functions_function_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ServerlessFunctionsFunctionInfo",
+            "description": "Additional information for a Serverless Function.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "serverless_containers_container_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ServerlessContainersContainerInfo",
+            "description": "Additional information for a Serverless Container.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "serverless_sqldb_backup_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ServerlessSqldbBackupInfo",
+            "description": "Additional information for a Serverless SQL database backup.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "baremetal_server_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.BrmServerInfo",
+            "description": "Additional information for a Baremetal server.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "obs_datasource_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ObsDatasourceInfo",
+            "description": "Additional information for an OBS datasource.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "obs_exporter_info": {
+            "$ref": "#/components/schemas/scaleway.search.v1alpha1.ObsExporterInfo",
+            "description": "Additional information for an OBS exporter.\nOne-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation date."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update date."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ResourceType": {
+        "type": "string",
+        "enum": [
+          "unknown_type",
+          "instance_server",
+          "instance_volume",
+          "instance_image",
+          "instance_security_group",
+          "instance_private_nic",
+          "instance_snapshot",
+          "instance_placement_group",
+          "instance_template",
+          "k8s_cluster",
+          "k8s_pool",
+          "k8s_node",
+          "domain_domain",
+          "dns_zone",
+          "vpc_private_network",
+          "vpc_vpc",
+          "vpg_gateway",
+          "apple_silicon_server",
+          "rdb_instance",
+          "rdb_snapshot",
+          "rdb_backup",
+          "baremetal_server",
+          "tem_domain",
+          "lb_server",
+          "serverless_functions_function",
+          "serverless_containers_container",
+          "serverless_containers_namespace",
+          "serverless_containers_domain",
+          "serverless_containers_trigger",
+          "wbh_hosting",
+          "redis_cluster",
+          "sm_secret",
+          "kms_key",
+          "edg_pipeline",
+          "mnq_nats_account",
+          "sbs_volume",
+          "sbs_snapshot",
+          "serverless_job_definition",
+          "serverless_sqldb_database",
+          "serverless_sqldb_backup",
+          "datalab",
+          "mgdb_instance",
+          "mgdb_snapshot",
+          "ifr_deployment",
+          "ifr_model",
+          "gapi_batch",
+          "dtwh_deployment",
+          "obs_datasource",
+          "obs_exporter",
+          "svpn_vpn_gateway",
+          "svpn_customer_gateway",
+          "svpn_connection",
+          "svpn_routing_policy",
+          "kafk_cluster",
+          "sedb_cluster",
+          "autoscaling_group",
+          "wofl_definition",
+          "wofl_run"
+        ]
+      },
+      "scaleway.search.v1alpha1.SearchResourcesRequestOrderBy": {
+        "type": "string",
+        "enum": [
+          "relevance",
+          "created_at_asc",
+          "created_at_desc",
+          "modified_at_asc",
+          "modified_at_desc",
+          "name_asc",
+          "name_desc",
+          "type_asc",
+          "type_desc"
+        ]
+      },
+      "scaleway.search.v1alpha1.SearchResourcesResponse": {
+        "type": "object",
+        "properties": {
+          "resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.search.v1alpha1.Resource"
+            },
+            "description": "Top resources found."
+          },
+          "next_page_token": {
+            "type": "string",
+            "description": "If this string is empty, it means there are no more pages available."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ServerlessContainersContainerInfo": {
+        "type": "object",
+        "properties": {
+          "namespace_id": {
+            "type": "string",
+            "description": "ID of the Namespace the Serverless Container belongs to."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ServerlessFunctionsFunctionInfo": {
+        "type": "object",
+        "properties": {
+          "namespace_id": {
+            "type": "string",
+            "description": "ID of the Namespace the Serverless Function belongs to."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.ServerlessSqldbBackupInfo": {
+        "type": "object",
+        "properties": {
+          "database_id": {
+            "type": "string",
+            "description": "ID of the Serverless SQL Database the backup belongs to."
+          }
+        }
+      },
+      "scaleway.search.v1alpha1.VpcPrivateNetworkInfo": {
+        "type": "object",
+        "properties": {
+          "vpc_id": {
+            "type": "string",
+            "description": "ID of the VPC the Private Network belongs to."
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/search/v1alpha1/resources": {
+      "get": {
+        "operationId": "SearchResources",
+        "summary": "Search API.",
+        "description": "Derived from scaleway-sdk-js (`API.searchResources`): Scaleway publishes no OpenAPI document for this route.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "created_after",
+            "description": "Filter resources created after this timestamp.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "created_before",
+            "description": "Filter resources created before this timestamp.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "localities",
+            "description": "List of scopes (zones, regions, or global) to filter the resources by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "modified_after",
+            "description": "Filter resources modified after this timestamp.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "modified_before",
+            "description": "Filter resources modified before this timestamp.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "Sort order in the response.",
+            "schema": {
+              "$ref": "#/components/schemas/scaleway.search.v1alpha1.SearchResourcesRequestOrderBy"
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "description": "ID of the Organization to search in.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "description": "Number of resources to retrieve per page.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_token",
+            "description": "Leave empty or omit to fetch the first page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_ids",
+            "description": "List of Project IDs to filter the resources by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "query",
+            "description": "Search query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "types",
+            "description": "List of resource types to filter the resources by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/scaleway.search.v1alpha1.ResourceType"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaleway.search.v1alpha1.SearchResourcesResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scaleway": []
+          }
+        ]
+      }
+    }
+  }
+}
