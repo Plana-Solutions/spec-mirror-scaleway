@@ -989,7 +989,8 @@
           "embeddings",
           "vision",
           "audio_transcription",
-          "code"
+          "code",
+          "ocr"
         ],
         "default": "unknown_task"
       },

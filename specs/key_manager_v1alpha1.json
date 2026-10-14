@@ -2447,12 +2447,34 @@
                 "type": "object",
                 "properties": {
                   "digest": {
-                    "type": "string",
-                    "description": "Digest of the message to sign.\nThe digest must be generated using the same algorithm defined in the key’s algorithm settings."
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Pre-hashed digest of the message to sign.\nFor ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384).\nThe 64-byte bound only exists for the ML-DSA backward-compatibility case below.\nAlso accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA.",
+                    "x-one-of": "payload"
+                  },
+                  "msg": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Full message to sign as-is.\nOnly supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes.",
+                    "x-one-of": "payload"
+                  },
+                  "external_mu": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "ML-DSA pre-hashed μ message representative, exactly 64 bytes.\nMust equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API.",
+                    "x-one-of": "payload"
                   }
                 },
                 "x-properties-order": [
-                  "digest"
+                  "digest",
+                  "msg",
+                  "external_mu"
                 ]
               }
             }
@@ -2466,11 +2488,11 @@
         "x-codeSamples": [
           {
             "lang": "cURL",
-            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"digest\":\"string\"}' \\\n  \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/sign\""
+            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}' \\\n  \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/sign\""
           },
           {
             "lang": "HTTPie",
-            "source": "http POST \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/sign\" \\\n  X-Auth-Token:$SCW_SECRET_KEY \\\n  digest=\"string\""
+            "source": "http POST \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/sign\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
           }
         ]
       }
@@ -2685,8 +2707,20 @@
                 "type": "object",
                 "properties": {
                   "digest": {
-                    "type": "string",
-                    "description": "Digest of the original signed message.\nMust be generated using the same algorithm specified in the key’s configuration."
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Digest that was signed.\nFor ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm.",
+                    "x-one-of": "payload"
+                  },
+                  "msg": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Message that was signed.\nFor ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint.",
+                    "x-one-of": "payload"
                   },
                   "signature": {
                     "type": "string",
@@ -2695,6 +2729,7 @@
                 },
                 "x-properties-order": [
                   "digest",
+                  "msg",
                   "signature"
                 ]
               }
@@ -2709,11 +2744,11 @@
         "x-codeSamples": [
           {
             "lang": "cURL",
-            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"digest\":\"string\",\"signature\":\"string\"}' \\\n  \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/verify\""
+            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"signature\":\"string\"}' \\\n  \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/verify\""
           },
           {
             "lang": "HTTPie",
-            "source": "http POST \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/verify\" \\\n  X-Auth-Token:$SCW_SECRET_KEY \\\n  digest=\"string\" \\\n  signature=\"string\""
+            "source": "http POST \"https://api.scaleway.com/key-manager/v1alpha1/regions/{region}/keys/{key_id}/verify\" \\\n  X-Auth-Token:$SCW_SECRET_KEY \\\n  signature=\"string\""
           }
         ]
       }

@@ -349,7 +349,7 @@
     "output": "file_v1alpha1.json",
     "title": "File Storage API",
     "openapi": "3.1.0",
-    "paths": 4
+    "paths": 6
   },
   {
     "proto": "scaleway.flexible_ip.v1alpha1.Api",

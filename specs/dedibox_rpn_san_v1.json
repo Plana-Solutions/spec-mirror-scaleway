@@ -53,6 +53,10 @@
           "frequency": {
             "type": "number",
             "description": "Frequency of the CPU."
+          },
+          "bench": {
+            "type": "number",
+            "description": "Bench of the CPU."
           }
         }
       },
@@ -283,6 +287,13 @@
           "bandwidth_info": {
             "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferBandwidthInfo",
             "description": "Bandwidth info if it is a bandwidth offer.\nOne-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set."
+          },
+          "commitments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferCommitment"
+            },
+            "description": "Commitment info if it is a commitment offer."
           }
         }
       },
@@ -330,6 +341,31 @@
           "admin",
           "inactive"
         ]
+      },
+      "scaleway.dedibox.v1.OfferCommitment": {
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string",
+            "description": "Unit used for discount."
+          },
+          "value": {
+            "type": "number",
+            "description": "Value of the discount."
+          },
+          "free_setup_fees": {
+            "type": "boolean",
+            "description": "Is it free setup fees."
+          },
+          "duration": {
+            "type": "string",
+            "description": "Commitment's required duration."
+          },
+          "discounted_price": {
+            "$ref": "#/components/schemas/google.type.Money",
+            "description": "Discounted price of the commitment."
+          }
+        }
       },
       "scaleway.dedibox.v1.OfferFailoverBlockInfo": {
         "type": "object",
@@ -456,6 +492,26 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferServerInfoStock"
             }
+          },
+          "availability_by_datacenter": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferServerInfoAvailability"
+            }
+          },
+          "rpn_speed": {
+            "type": "number"
+          }
+        }
+      },
+      "scaleway.dedibox.v1.OfferServerInfoAvailability": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferServerInfoStock"
+          },
+          "quantity": {
+            "type": "number"
           }
         }
       },

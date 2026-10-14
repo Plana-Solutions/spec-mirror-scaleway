@@ -182,6 +182,17 @@
           "new_version_id"
         ]
       },
+      "scaleway.mongodb.v1.InfrastructureUpdate": {
+        "type": "object",
+        "properties": {
+          "kubernetes_version_name": {
+            "type": "string"
+          }
+        },
+        "x-properties-order": [
+          "kubernetes_version_name"
+        ]
+      },
       "scaleway.mongodb.v1.Instance": {
         "type": "object",
         "properties": {
@@ -705,7 +716,8 @@
           "planned",
           "done",
           "cancelled",
-          "ongoing"
+          "ongoing",
+          "error"
         ],
         "x-enum-descriptions": {
           "values": {
@@ -1081,11 +1093,23 @@
                 "type": "null"
               }
             ]
+          },
+          "infrastructure_update": {
+            "x-one-of": "workflow_type",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/scaleway.mongodb.v1.InfrastructureUpdate"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "x-properties-order": [
           "engine_upgrade",
-          "service_update"
+          "service_update",
+          "infrastructure_update"
         ]
       },
       "scaleway.std.File": {

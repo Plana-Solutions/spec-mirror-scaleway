@@ -329,6 +329,20 @@
           "partitioning_schema": {
             "description": "Partitioning schema.",
             "$ref": "#/components/schemas/scaleway.baremetal.v1.Schema"
+          },
+          "network_boot_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL of the network service to which the server should forward its boot request."
+          },
+          "network_boot_persistent": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "Defines whether the network boot forwarding should be applied at every reboot or only once."
           }
         },
         "x-properties-order": [
@@ -339,7 +353,9 @@
           "password",
           "service_user",
           "service_password",
-          "partitioning_schema"
+          "partitioning_schema",
+          "network_boot_url",
+          "network_boot_persistent"
         ]
       },
       "scaleway.baremetal.v1.Disk": {
@@ -717,6 +733,14 @@
             ],
             "description": "Defines the cloud-init API version used by this OS."
           },
+          "network_boot": {
+            "description": "Object defining the network boot requirements for booting server.",
+            "$ref": "#/components/schemas/scaleway.baremetal.v1.OS.OSField"
+          },
+          "network_boot_persistent_editable": {
+            "type": "boolean",
+            "description": "Defines if the network boot can be persisted or not."
+          },
           "zone": {
             "type": "string",
             "description": "Zone in which is the OS is available."
@@ -738,6 +762,8 @@
           "custom_partitioning_supported",
           "cloud_init_supported",
           "cloud_init_version",
+          "network_boot",
+          "network_boot_persistent_editable",
           "zone"
         ]
       },
@@ -1618,6 +1644,14 @@
           "partitioning_schema": {
             "description": "Partitioning schema.",
             "$ref": "#/components/schemas/scaleway.baremetal.v1.Schema"
+          },
+          "network_boot_url": {
+            "type": "string",
+            "description": "URL of the network service to which the server should forward its boot request."
+          },
+          "network_boot_persistent": {
+            "type": "boolean",
+            "description": "Defines whether the network boot forwarding should be applied at every reboot or only once."
           }
         },
         "x-properties-order": [
@@ -1628,7 +1662,9 @@
           "user",
           "service_user",
           "service_url",
-          "partitioning_schema"
+          "partitioning_schema",
+          "network_boot_url",
+          "network_boot_persistent"
         ]
       },
       "scaleway.baremetal.v1.Server.Install.Status": {
@@ -3555,6 +3591,20 @@
                     "description": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
                     "deprecated": true,
                     "$ref": "#/components/schemas/scaleway.std.File"
+                  },
+                  "network_boot_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "URL of the network service to which the server should forward its boot request."
+                  },
+                  "network_boot_persistent": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Defines whether the network boot forwarding should be applied at every reboot or only once."
                   }
                 },
                 "required": [
@@ -3571,7 +3621,9 @@
                   "service_user",
                   "service_password",
                   "partitioning_schema",
-                  "user_data"
+                  "user_data",
+                  "network_boot_url",
+                  "network_boot_persistent"
                 ]
               }
             }
