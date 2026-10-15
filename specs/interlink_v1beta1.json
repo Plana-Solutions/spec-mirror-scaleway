@@ -79,7 +79,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the dedicated connection."
+            "description": "The SRN of the dedicated connection.",
+            "pattern": "^srn://interlink\\.[^/]+/regions/[^/]+/dedicated-connections/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -200,7 +201,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the link."
+            "description": "The SRN of the link.",
+            "pattern": "^srn://interlink\\.[^/]+/regions/[^/]+/links/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -564,7 +566,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the partner."
+            "description": "The SRN of the partner.",
+            "pattern": "^srn://interlink\\.[^/]+/regions/[^/]+/partners/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -663,7 +666,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the pop."
+            "description": "The SRN of the pop.",
+            "pattern": "^srn://interlink\\.[^/]+/regions/[^/]+/pops/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -742,7 +746,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the routing policy."
+            "description": "The SRN of the routing policy.",
+            "pattern": "^srn://interlink\\.[^/]+/regions/[^/]+/routing-policies/[^/]+$"
           },
           "project_id": {
             "type": "string",

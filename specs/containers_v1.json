@@ -40,7 +40,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Container SRN."
+            "description": "Container SRN.",
+            "pattern": "^srn://containers\\.[^/]+/regions/[^/]+/containers/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -597,7 +598,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Domain SRN."
+            "description": "Domain SRN.",
+            "pattern": "^srn://containers\\.[^/]+/regions/[^/]+/domains/[^/]+$"
           },
           "container_id": {
             "type": "string",
@@ -816,7 +818,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Namespace SRN."
+            "description": "Namespace SRN.",
+            "pattern": "^srn://containers\\.[^/]+/regions/[^/]+/namespaces/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -954,7 +957,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Trigger SRN."
+            "description": "Trigger SRN.",
+            "pattern": "^srn://containers\\.[^/]+/regions/[^/]+/triggers/[^/]+$"
           },
           "name": {
             "type": "string",

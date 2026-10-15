@@ -186,7 +186,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the ingress rule."
+            "description": "The SRN of the ingress rule.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/ingress-rules/[^/]+$"
           },
           "vpc_id": {
             "type": "string",
@@ -491,7 +492,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the private network."
+            "description": "The SRN of the private network.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/private-networks/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -588,7 +590,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the route."
+            "description": "The SRN of the route.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/routes/[^/]+$"
           },
           "description": {
             "type": "string",
@@ -744,7 +747,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the subnet."
+            "description": "The SRN of the subnet.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/subnets/[^/]+$"
           },
           "created_at": {
             "type": [
@@ -811,7 +815,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the VPC."
+            "description": "The SRN of the VPC.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/vpcs/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -910,7 +915,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the VPC connector."
+            "description": "The SRN of the VPC connector.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/vpc-connectors/[^/]+$"
           },
           "name": {
             "type": "string",

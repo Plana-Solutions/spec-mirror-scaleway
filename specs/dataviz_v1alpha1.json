@@ -85,6 +85,10 @@
           "region": {
             "type": "string",
             "description": "Region of the deployment."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the deployment."
           }
         }
       },
@@ -116,6 +120,14 @@
               "$ref": "#/components/schemas/scaleway.dataviz.v1alpha1.EndpointService"
             },
             "description": "List of available services, their ports and URLs."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the endpoint."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the endpoint."
           },
           "public": {
             "$ref": "#/components/schemas/scaleway.dataviz.v1alpha1.EndpointPublicDetails",
@@ -317,6 +329,14 @@
               "$ref": "#/components/schemas/scaleway.dataviz.v1alpha1.NodeTypeVolumeType"
             },
             "description": "Available storage options for the node type."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the node type."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the node type."
           }
         }
       },
@@ -353,7 +373,20 @@
         "type": "object",
         "properties": {
           "username": {
-            "type": "string"
+            "type": "string",
+            "description": "Username of the deployment user."
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "ID of the deployment."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the user."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the user."
           }
         }
       },
@@ -376,6 +409,14 @@
           "beta": {
             "type": "boolean",
             "description": "Defines whether the version is in beta."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the version."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the version."
           }
         }
       },
@@ -389,6 +430,10 @@
           "size_bytes": {
             "type": "number",
             "description": "Size of the Volume."
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "ID of the deployment."
           }
         }
       },

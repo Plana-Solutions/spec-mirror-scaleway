@@ -60,7 +60,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the ACL rule."
+            "description": "The SRN of the ACL rule.",
+            "pattern": "^srn://k8s\\.[^/]+/regions/[^/]+/acl-rules/[^/]+$"
           },
           "ip": {
             "type": [
@@ -193,7 +194,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the cluster."
+            "description": "The SRN of the cluster.",
+            "pattern": "^srn://k8s\\.[^/]+/regions/[^/]+/clusters/[^/]+$"
           },
           "type": {
             "type": "string",
@@ -549,7 +551,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the cluster type."
+            "description": "The SRN of the cluster type.",
+            "pattern": "^srn://k8s\\.[^/]+/regions/[^/]+/cluster-types/[^/]+$"
           },
           "availability": {
             "description": "Cluster type availability.",
@@ -1354,7 +1357,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the node."
+            "description": "The SRN of the node.",
+            "pattern": "^srn://k8s\\.[^/]+/regions/[^/]+/nodes/[^/]+$"
           },
           "pool_id": {
             "type": "string",
@@ -1619,7 +1623,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the pool."
+            "description": "The SRN of the pool.",
+            "pattern": "^srn://k8s\\.[^/]+/regions/[^/]+/pools/[^/]+$"
           },
           "region": {
             "type": "string",
@@ -1979,7 +1984,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the version."
+            "description": "The SRN of the version.",
+            "pattern": "^srn://k8s\\.[^/]+/regions/[^/]+/versions/[^/]+$"
           },
           "label": {
             "type": "string",

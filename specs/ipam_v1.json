@@ -48,7 +48,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the IP."
+            "description": "The SRN of the IP.",
+            "pattern": "^(srn://ipam\\.[^/]+/zones/[^/]+/ips/[^/]+|srn://ipam\\.[^/]+/regions/[^/]+/ips/[^/]+)$"
           },
           "address": {
             "type": "string",

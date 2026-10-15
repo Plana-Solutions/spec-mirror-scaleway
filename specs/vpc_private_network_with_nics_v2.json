@@ -134,7 +134,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the private network."
+            "description": "The SRN of the private network.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/private-networks/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -252,7 +253,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the subnet."
+            "description": "The SRN of the subnet.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/subnets/[^/]+$"
           },
           "created_at": {
             "type": [

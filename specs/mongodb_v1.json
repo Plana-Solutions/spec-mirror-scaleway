@@ -290,7 +290,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Scaleway Resource Name of the Database Instance."
+            "description": "Scaleway Resource Name of the Database Instance.",
+            "pattern": "^srn://mongodb\\.[^/]+/regions/[^/]+/instances/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -674,7 +675,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the maintenance."
+            "description": "SRN of the maintenance.",
+            "pattern": "^srn://mongodb\\.[^/]+/regions/[^/]+/maintenances/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -917,7 +919,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Scaleway Resource Name of the snapshot."
+            "description": "Scaleway Resource Name of the snapshot.",
+            "pattern": "^srn://mongodb\\.[^/]+/regions/[^/]+/snapshots/[^/]+$"
           }
         },
         "x-properties-order": [

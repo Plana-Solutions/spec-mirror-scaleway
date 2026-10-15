@@ -76,7 +76,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the contract."
+            "description": "The SRN of the contract.",
+            "pattern": "^srn://account\\.[^/]+/contracts/[^/]+$"
           }
         },
         "x-properties-order": [

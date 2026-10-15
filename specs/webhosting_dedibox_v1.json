@@ -165,6 +165,11 @@
             "type": "string",
             "description": "ID of the Web Hosting plan."
           },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the Web Hosting plan.",
+            "pattern": "^srn://webhosting\\.[^/]+/regions/[^/]+/hostings/[^/]+$"
+          },
           "project_id": {
             "type": "string",
             "description": "ID of the Scaleway Project the Web Hosting plan belongs to."
@@ -253,6 +258,7 @@
         },
         "x-properties-order": [
           "id",
+          "srn",
           "project_id",
           "updated_at",
           "created_at",

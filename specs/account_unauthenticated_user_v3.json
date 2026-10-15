@@ -39,7 +39,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the account."
+            "description": "The SRN of the account.",
+            "pattern": "^srn://account\\.[^/]+/accounts/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -769,7 +770,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the usr."
+            "description": "The SRN of the usr.",
+            "pattern": "^srn://account\\.[^/]+/users/[^/]+$"
           }
         },
         "x-properties-order": [

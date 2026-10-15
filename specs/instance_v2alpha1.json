@@ -661,7 +661,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the placement group."
+            "description": "The SRN of the placement group.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/placement-groups/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -742,7 +743,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the private network interface."
+            "description": "The SRN of the private network interface.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/private-network-interfaces/[^/]+$"
           },
           "private_network_id": {
             "type": "string",
@@ -851,7 +853,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the private network interface."
+            "description": "The SRN of the private network interface.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/private-network-interfaces/[^/]+$"
           },
           "private_network_id": {
             "type": "string",
@@ -1038,7 +1041,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the security group."
+            "description": "The SRN of the security group.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/security-groups/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -1338,7 +1342,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the security group."
+            "description": "The SRN of the security group.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/security-groups/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -1428,7 +1433,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the server."
+            "description": "The SRN of the server.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/servers/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -1854,7 +1860,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the server."
+            "description": "The SRN of the server.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/servers/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -2148,7 +2155,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the template."
+            "description": "The SRN of the template.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/templates/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -2281,7 +2289,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the template."
+            "description": "The SRN of the template.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/templates/[^/]+$"
           },
           "name": {
             "type": "string",

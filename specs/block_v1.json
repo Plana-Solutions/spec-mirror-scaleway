@@ -353,7 +353,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the snapshot."
+            "description": "The SRN of the snapshot.",
+            "pattern": "^srn://block\\.[^/]+/zones/[^/]+/snapshots/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -543,7 +544,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the volume."
+            "description": "The SRN of the volume.",
+            "pattern": "^srn://block\\.[^/]+/zones/[^/]+/volumes/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -641,7 +643,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the volume type."
+            "description": "The SRN of the volume type.",
+            "pattern": "^srn://block\\.[^/]+/zones/[^/]+/volume-types/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -688,7 +691,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -823,7 +829,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           }
@@ -924,7 +933,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -990,7 +1002,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1094,7 +1109,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1155,7 +1173,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1248,7 +1269,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           }
@@ -1358,7 +1382,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1435,7 +1462,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1589,7 +1619,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           }
@@ -1728,7 +1761,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1794,7 +1830,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },
@@ -1908,7 +1947,10 @@
                 "nl-ams-3",
                 "pl-waw-1",
                 "pl-waw-2",
-                "pl-waw-3"
+                "pl-waw-3",
+                "it-mil-1",
+                "it-mil-2",
+                "it-mil-3"
               ]
             }
           },

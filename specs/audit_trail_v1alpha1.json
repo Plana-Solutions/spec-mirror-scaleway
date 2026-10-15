@@ -433,7 +433,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the alert rule."
+            "description": "The SRN of the alert rule.",
+            "pattern": "^srn://audit-trail\\.[^/]+/regions/[^/]+/custom-alert-rules/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -999,7 +1000,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the export job."
+            "description": "The SRN of the export job.",
+            "pattern": "^srn://audit-trail\\.[^/]+/regions/[^/]+/export-jobs/[^/]+$"
           },
           "organization_id": {
             "type": "string",
@@ -2478,6 +2480,7 @@
           "account_organization",
           "account_project",
           "account_contract_signature",
+          "instance_dedicated_pool",
           "instance_server",
           "instance_placement_group",
           "instance_security_group",

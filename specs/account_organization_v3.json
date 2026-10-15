@@ -295,7 +295,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the organization."
+            "description": "The SRN of the organization.",
+            "pattern": "^srn://account\\.[^/]+/organizations/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -767,7 +768,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the support plan."
+            "description": "The SRN of the support plan.",
+            "pattern": "^srn://account\\.[^/]+/support-plans/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -835,7 +837,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the TAM."
+            "description": "The SRN of the TAM.",
+            "pattern": "^srn://account\\.[^/]+/technical-account-managers/[^/]+$"
           }
         },
         "x-properties-order": [

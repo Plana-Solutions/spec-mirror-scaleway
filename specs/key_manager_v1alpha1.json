@@ -134,10 +134,7 @@
           "unknown_wrapping_algorithm",
           "rsa_oaep_2048_sha256",
           "rsa_oaep_3072_sha256",
-          "rsa_oaep_4096_sha256",
-          "rsa_aes_key_wrap_2048_sha256",
-          "rsa_aes_key_wrap_3072_sha256",
-          "rsa_aes_key_wrap_4096_sha256"
+          "rsa_oaep_4096_sha256"
         ],
         "default": "unknown_wrapping_algorithm"
       },
@@ -191,7 +188,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the key."
+            "description": "The SRN of the key.",
+            "pattern": "^srn://key-manager\\.[^/]+/regions/[^/]+/keys/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -1988,7 +1986,7 @@
                 "type": "object",
                 "properties": {
                   "wrapping_algorithm": {
-                    "description": "The wrapping algorithm the client will use to encrypt the key material.\nSupported values for direct RSA wrapping are: `rsa_oaep_2048_sha256`, `rsa_oaep_3072_sha256`, `rsa_oaep_4096_sha256`.\nSupported values for hybrid wrapping (RSA + AES Key Wrap) are: `rsa_aes_key_wrap_2048_sha256`, `rsa_aes_key_wrap_3072_sha256`, `rsa_aes_key_wrap_4096_sha256`.",
+                    "description": "The wrapping algorithm the client will use to encrypt the key material.\nSupported values are: `rsa_oaep_2048_sha256`, `rsa_oaep_3072_sha256`, `rsa_oaep_4096_sha256`.",
                     "$ref": "#/components/schemas/scaleway.key_manager.v1alpha1.GenerateKeyMaterialImportParametersRequest.WrappingAlgorithm"
                   }
                 },

@@ -112,7 +112,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the connection."
+            "description": "The SRN of the connection.",
+            "pattern": "^srn://s2s-vpn\\.[^/]+/regions/[^/]+/connections/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -544,7 +545,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the customer gateway."
+            "description": "The SRN of the customer gateway.",
+            "pattern": "^srn://s2s-vpn\\.[^/]+/regions/[^/]+/customer-gateways/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -844,7 +846,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the routing policy."
+            "description": "The SRN of the routing policy.",
+            "pattern": "^srn://s2s-vpn\\.[^/]+/regions/[^/]+/routing-policies/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -948,7 +951,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the VPN gateway."
+            "description": "The SRN of the VPN gateway.",
+            "pattern": "^srn://s2s-vpn\\.[^/]+/zones/[^/]+/vpn-gateways/[^/]+$"
           },
           "project_id": {
             "type": "string",

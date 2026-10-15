@@ -152,7 +152,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the API key."
+            "description": "The SRN of the API key.",
+            "pattern": "^srn://iam\\.[^/]+/api-keys/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -235,7 +236,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the application."
+            "description": "SRN of the application.",
+            "pattern": "^srn://iam\\.[^/]+/applications/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -604,7 +606,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the group."
+            "description": "The SRN of the group.",
+            "pattern": "^srn://iam\\.[^/]+/groups/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -690,7 +693,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the JWT."
+            "description": "The SRN of the JWT.",
+            "pattern": "^srn://iam\\.[^/]+/jwts/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1256,7 +1260,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the log."
+            "description": "The SRN of the log.",
+            "pattern": "^srn://iam\\.[^/]+/logs/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1568,7 +1573,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the policy."
+            "description": "The SRN of the policy.",
+            "pattern": "^srn://iam\\.[^/]+/policies/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1643,7 +1649,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the quotum."
+            "description": "The SRN of the quotum.",
+            "pattern": "^srn://iam\\.[^/]+/quota/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1759,7 +1766,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the rule."
+            "description": "The SRN of the rule.",
+            "pattern": "^srn://iam\\.[^/]+/rules/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1862,7 +1870,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the SSH key."
+            "description": "The SRN of the SSH key.",
+            "pattern": "^srn://iam\\.[^/]+/ssh-keys/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1903,7 +1912,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the SAML."
+            "description": "The SRN of the SAML.",
+            "pattern": "^srn://iam\\.[^/]+/saml/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1971,7 +1981,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the SAML certificate."
+            "description": "The SRN of the SAML certificate.",
+            "pattern": "^srn://iam\\.[^/]+/saml-certificates/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -2192,7 +2203,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the user."
+            "description": "The SRN of the user.",
+            "pattern": "^srn://iam\\.[^/]+/users/[^/]+$"
           }
         },
         "x-properties-order": [

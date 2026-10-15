@@ -138,7 +138,8 @@
             "description": "The zone you want to target"
           },
           "srn": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^srn://apple-silicon\\.[^/]+/zones/[^/]+/connectivity-diagnostics/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -455,7 +456,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the runner."
+            "description": "SRN of the runner.",
+            "pattern": "^srn://apple-silicon\\.[^/]+/zones/[^/]+/runners/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -677,7 +679,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the server."
+            "description": "SRN of the server.",
+            "pattern": "^srn://apple-silicon\\.[^/]+/zones/[^/]+/servers/[^/]+$"
           },
           "delivered": {
             "type": "boolean",

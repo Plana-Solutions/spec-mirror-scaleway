@@ -160,7 +160,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the JWT."
+            "description": "The SRN of the JWT.",
+            "pattern": "^srn://iam\\.[^/]+/jwts/[^/]+$"
           }
         },
         "x-properties-order": [

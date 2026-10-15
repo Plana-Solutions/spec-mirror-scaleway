@@ -134,7 +134,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the flexible ip."
+            "description": "The SRN of the flexible ip.",
+            "pattern": "^srn://flexible-ip\\.[^/]+/zones/[^/]+/flexible-ips/[^/]+$"
           }
         },
         "x-properties-order": [

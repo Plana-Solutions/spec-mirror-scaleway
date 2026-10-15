@@ -311,7 +311,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "Scaleway Resource Name of the Database Instance."
+            "description": "Scaleway Resource Name of the Database Instance.",
+            "pattern": "^srn://redis\\.[^/]+/zones/[^/]+/clusters/[^/]+$"
           }
         },
         "x-properties-order": [

@@ -309,7 +309,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the MFA OTP."
+            "description": "The SRN of the MFA OTP.",
+            "pattern": "^srn://account\\.[^/]+/mfas/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -344,7 +345,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the mailing list."
+            "description": "The SRN of the mailing list.",
+            "pattern": "^srn://account\\.[^/]+/mailing-list-subscriptions/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -502,7 +504,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the phone validation."
+            "description": "The SRN of the phone validation.",
+            "pattern": "^srn://account\\.[^/]+/phone-validations/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -730,7 +733,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the usr."
+            "description": "The SRN of the usr.",
+            "pattern": "^srn://account\\.[^/]+/users/[^/]+$"
           }
         },
         "x-properties-order": [

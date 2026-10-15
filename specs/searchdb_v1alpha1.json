@@ -102,6 +102,11 @@
           "region": {
             "type": "string",
             "description": "Region the Deployment is located."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the Deployment.",
+            "pattern": "^srn://searchdb\\.[^/]+/regions/[^/]+/deployments/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -119,7 +124,8 @@
           "created_at",
           "updated_at",
           "version",
-          "region"
+          "region",
+          "srn"
         ]
       },
       "scaleway.searchdb.v1alpha1.Deployment.Status": {
@@ -158,6 +164,15 @@
               "$ref": "#/components/schemas/scaleway.searchdb.v1alpha1.Endpoint.Service"
             }
           },
+          "region": {
+            "type": "string",
+            "description": "Region of the Endpoint."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the Endpoint.",
+            "pattern": "^srn://searchdb\\.[^/]+/regions/[^/]+/endpoints/[^/]+$"
+          },
           "public": {
             "x-one-of": "details",
             "oneOf": [
@@ -185,6 +200,8 @@
           "id",
           "dns_record",
           "services",
+          "region",
+          "srn",
           "public",
           "private_network"
         ]
@@ -437,6 +454,15 @@
             "items": {
               "$ref": "#/components/schemas/scaleway.searchdb.v1alpha1.NodeType.VolumeType"
             }
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the node type."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the node type.",
+            "pattern": "^srn://searchdb\\.[^/]+/regions/[^/]+/node-types/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -448,7 +474,9 @@
           "disabled",
           "beta",
           "instance_range",
-          "available_volume_types"
+          "available_volume_types",
+          "region",
+          "srn"
         ]
       },
       "scaleway.searchdb.v1alpha1.NodeType.StockStatus": {
@@ -498,11 +526,28 @@
         "type": "object",
         "properties": {
           "username": {
-            "type": "string"
+            "type": "string",
+            "description": "Username of the Deployment user."
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "ID of the Deployment."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the user."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the user.",
+            "pattern": "^srn://searchdb\\.[^/]+/regions/[^/]+/deployments/[^/]+/users/[^/]+$"
           }
         },
         "x-properties-order": [
-          "username"
+          "username",
+          "deployment_id",
+          "region",
+          "srn"
         ]
       },
       "scaleway.searchdb.v1alpha1.Version": {
@@ -528,13 +573,24 @@
           "beta": {
             "type": "boolean",
             "description": "Parameter that tell if the version is in beta."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the version."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the version.",
+            "pattern": "^srn://searchdb\\.[^/]+/regions/[^/]+/versions/[^/]+$"
           }
         },
         "x-properties-order": [
           "version",
           "end_of_life",
           "disabled",
-          "beta"
+          "beta",
+          "region",
+          "srn"
         ]
       },
       "scaleway.searchdb.v1alpha1.Volume": {
@@ -548,11 +604,16 @@
             "type": "integer",
             "description": "Define the size of the Volume. (in bytes)",
             "format": "uint64"
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "ID of the Deployment."
           }
         },
         "x-properties-order": [
           "type",
-          "size_bytes"
+          "size_bytes",
+          "deployment_id"
         ]
       },
       "scaleway.searchdb.v1alpha1.Volume.Type": {

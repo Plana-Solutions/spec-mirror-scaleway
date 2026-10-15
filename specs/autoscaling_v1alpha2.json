@@ -112,7 +112,8 @@
         "properties": {
           "srn": {
             "type": "string",
-            "description": "SRN of the Autoscaling Group."
+            "description": "SRN of the Autoscaling Group.",
+            "pattern": "^srn://autoscaling\\.[^/]+/zones/[^/]+/groups/[^/]+$"
           },
           "id": {
             "type": "string",
@@ -448,7 +449,8 @@
         "properties": {
           "srn": {
             "type": "string",
-            "description": "SRN of the Autoscaling Group."
+            "description": "SRN of the Autoscaling Group.",
+            "pattern": "^srn://autoscaling\\.[^/]+/zones/[^/]+/groups/[^/]+$"
           },
           "project_id": {
             "type": "string",

@@ -112,7 +112,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the cron."
+            "description": "SRN of the cron.",
+            "pattern": "^srn://functions\\.[^/]+/regions/[^/]+/crons/[^/]+$"
           },
           "function_id": {
             "type": "string",
@@ -177,7 +178,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the domain."
+            "description": "SRN of the domain.",
+            "pattern": "^srn://functions\\.[^/]+/regions/[^/]+/domains/[^/]+$"
           },
           "hostname": {
             "type": "string",
@@ -260,7 +262,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the function."
+            "description": "SRN of the function.",
+            "pattern": "^srn://functions\\.[^/]+/regions/[^/]+/functions/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -755,7 +758,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the namespace."
+            "description": "SRN of the namespace.",
+            "pattern": "^srn://functions\\.[^/]+/regions/[^/]+/namespaces/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -1054,7 +1058,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "SRN of the trigger."
+            "description": "SRN of the trigger.",
+            "pattern": "^srn://functions\\.[^/]+/regions/[^/]+/triggers/[^/]+$"
           },
           "name": {
             "type": "string",

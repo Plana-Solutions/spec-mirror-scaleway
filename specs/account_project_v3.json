@@ -106,7 +106,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the Project."
+            "description": "The SRN of the Project.",
+            "pattern": "^srn://account\\.[^/]+/projects/[^/]+$"
           }
         },
         "x-properties-order": [

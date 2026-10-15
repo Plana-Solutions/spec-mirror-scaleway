@@ -151,7 +151,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the snapshot."
+            "description": "The SRN of the snapshot.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/snapshots/[^/]+$"
           },
           "project_id": {
             "type": "string",
@@ -276,7 +277,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the volume."
+            "description": "The SRN of the volume.",
+            "pattern": "^srn://instance\\.[^/]+/zones/[^/]+/volumes/[^/]+$"
           },
           "project_id": {
             "type": "string",

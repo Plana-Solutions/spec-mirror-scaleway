@@ -54,7 +54,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the route."
+            "description": "The SRN of the route.",
+            "pattern": "^srn://vpc\\.[^/]+/regions/[^/]+/routes/[^/]+$"
           },
           "description": {
             "type": "string",

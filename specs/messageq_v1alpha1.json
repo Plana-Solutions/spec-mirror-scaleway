@@ -96,6 +96,11 @@
           "region": {
             "type": "string",
             "description": "Region of the deployment."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the deployment.",
+            "pattern": "^srn://messageq\\.[^/]+/regions/[^/]+/deployments/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -112,7 +117,8 @@
           "created_at",
           "updated_at",
           "version",
-          "region"
+          "region",
+          "srn"
         ]
       },
       "scaleway.messageq.v1alpha1.Deployment.Status": {
@@ -151,6 +157,15 @@
               "$ref": "#/components/schemas/scaleway.messageq.v1alpha1.Endpoint.Service"
             }
           },
+          "region": {
+            "type": "string",
+            "description": "Region of the endpoint."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the endpoint.",
+            "pattern": "^srn://messageq\\.[^/]+/regions/[^/]+/endpoints/[^/]+$"
+          },
           "public": {
             "x-one-of": "details",
             "oneOf": [
@@ -178,6 +193,8 @@
           "id",
           "dns_record",
           "services",
+          "region",
+          "srn",
           "public",
           "private_network"
         ]
@@ -428,6 +445,15 @@
             "items": {
               "$ref": "#/components/schemas/scaleway.messageq.v1alpha1.NodeType.VolumeType"
             }
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the node type."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the node type.",
+            "pattern": "^srn://messageq\\.[^/]+/regions/[^/]+/node-types/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -439,7 +465,9 @@
           "disabled",
           "beta",
           "instance_range",
-          "available_volume_types"
+          "available_volume_types",
+          "region",
+          "srn"
         ]
       },
       "scaleway.messageq.v1alpha1.NodeType.StockStatus": {
@@ -489,11 +517,28 @@
         "type": "object",
         "properties": {
           "username": {
-            "type": "string"
+            "type": "string",
+            "description": "Username of the deployment user."
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "ID of the deployment."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the user."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the user.",
+            "pattern": "^srn://messageq\\.[^/]+/regions/[^/]+/deployments/[^/]+/users/[^/]+$"
           }
         },
         "x-properties-order": [
-          "username"
+          "username",
+          "deployment_id",
+          "region",
+          "srn"
         ]
       },
       "scaleway.messageq.v1alpha1.Version": {
@@ -519,13 +564,24 @@
           "beta": {
             "type": "boolean",
             "description": "Defines whether the version is in beta."
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the version."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the version.",
+            "pattern": "^srn://messageq\\.[^/]+/regions/[^/]+/versions/[^/]+$"
           }
         },
         "x-properties-order": [
           "version",
           "end_of_life",
           "disabled",
-          "beta"
+          "beta",
+          "region",
+          "srn"
         ]
       },
       "scaleway.messageq.v1alpha1.Volume": {
@@ -539,11 +595,16 @@
             "type": "integer",
             "description": "Size of the Volume. (in bytes)",
             "format": "uint64"
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "ID of the deployment."
           }
         },
         "x-properties-order": [
           "type",
-          "size_bytes"
+          "size_bytes",
+          "deployment_id"
         ]
       },
       "scaleway.messageq.v1alpha1.Volume.Type": {

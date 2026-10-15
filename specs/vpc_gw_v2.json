@@ -66,7 +66,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the gateway."
+            "description": "The SRN of the gateway.",
+            "pattern": "^srn://public-gateway\\.[^/]+/zones/[^/]+/gateways/[^/]+$"
           },
           "organization_id": {
             "type": "string",
@@ -226,7 +227,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the gateway network."
+            "description": "The SRN of the gateway network.",
+            "pattern": "^srn://public-gateway\\.[^/]+/zones/[^/]+/gateway-networks/[^/]+$"
           },
           "created_at": {
             "type": [
@@ -345,7 +347,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the ip."
+            "description": "The SRN of the ip.",
+            "pattern": "^srn://public-gateway\\.[^/]+/zones/[^/]+/ips/[^/]+$"
           },
           "organization_id": {
             "type": "string",
@@ -576,7 +579,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the PAT rule."
+            "description": "The SRN of the PAT rule.",
+            "pattern": "^srn://public-gateway\\.[^/]+/zones/[^/]+/pat-rules/[^/]+$"
           },
           "gateway_id": {
             "type": "string",

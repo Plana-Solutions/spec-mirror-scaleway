@@ -32,7 +32,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the database."
+            "description": "The SRN of the database.",
+            "pattern": "^srn://serverless-db\\.[^/]+/regions/[^/]+/databases/[^/]+$"
           },
           "name": {
             "type": "string",
@@ -137,7 +138,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the database backup."
+            "description": "The SRN of the database backup.",
+            "pattern": "^srn://serverless-db\\.[^/]+/regions/[^/]+/backups/[^/]+$"
           },
           "status": {
             "description": "Status of the Serverless SQL Database backup. One of `unknown_status` | `error` | `ready` | `locked`.",
@@ -326,7 +328,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the version."
+            "description": "The SRN of the version.",
+            "pattern": "^srn://serverless-db\\.[^/]+/regions/[^/]+/versions/[^/]+$"
           },
           "end_of_life_at": {
             "type": [

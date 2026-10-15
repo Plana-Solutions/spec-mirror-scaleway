@@ -61,7 +61,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the database."
+            "description": "The SRN of the database.",
+            "pattern": "^srn://datawarehouse\\.[^/]+/regions/[^/]+/deployments/[^/]+/databases/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -170,7 +171,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the deployment."
+            "description": "The SRN of the deployment.",
+            "pattern": "^srn://datawarehouse\\.[^/]+/regions/[^/]+/deployments/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -262,7 +264,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the endpoint."
+            "description": "The SRN of the endpoint.",
+            "pattern": "^srn://datawarehouse\\.[^/]+/regions/[^/]+/endpoints/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -601,7 +604,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the user."
+            "description": "The SRN of the user.",
+            "pattern": "^srn://datawarehouse\\.[^/]+/regions/[^/]+/deployments/[^/]+/users/[^/]+$"
           }
         },
         "x-properties-order": [

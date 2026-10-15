@@ -86,7 +86,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the attachment."
+            "description": "The SRN of the attachment.",
+            "pattern": "^srn://file\\.[^/]+/regions/[^/]+/attachments/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -179,7 +180,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the filesystem."
+            "description": "The SRN of the filesystem.",
+            "pattern": "^srn://file\\.[^/]+/regions/[^/]+/file-systems/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -428,7 +430,8 @@
           },
           "srn": {
             "type": "string",
-            "description": "The SRN of the snapshot."
+            "description": "The SRN of the snapshot.",
+            "pattern": "^srn://file\\.[^/]+/regions/[^/]+/snapshots/[^/]+$"
           }
         },
         "x-properties-order": [
