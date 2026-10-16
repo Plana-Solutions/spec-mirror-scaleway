@@ -407,6 +407,13 @@
               "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferCommitment"
             },
             "description": "Commitment info if it is a commitment offer."
+          },
+          "available_os": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.OS"
+            },
+            "description": "Available OS info if it is a available OS offer."
           }
         }
       },

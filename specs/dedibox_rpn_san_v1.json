@@ -294,6 +294,13 @@
               "$ref": "#/components/schemas/scaleway.dedibox.v1.OfferCommitment"
             },
             "description": "Commitment info if it is a commitment offer."
+          },
+          "available_os": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.OS"
+            },
+            "description": "Available OS info if it is a available OS offer."
           }
         }
       },
@@ -574,6 +581,151 @@
             "type": "number"
           }
         }
+      },
+      "scaleway.dedibox.v1.OS": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the OS."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the OS."
+          },
+          "type": {
+            "$ref": "#/components/schemas/scaleway.dedibox.v1.OSType",
+            "description": "Type of the OS."
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the OS."
+          },
+          "arch": {
+            "$ref": "#/components/schemas/scaleway.dedibox.v1.OSArch",
+            "description": "Architecture of the OS."
+          },
+          "allow_custom_partitioning": {
+            "type": "boolean",
+            "description": "True if the OS allow custom partitioning."
+          },
+          "allow_ssh_keys": {
+            "type": "boolean",
+            "description": "True if the OS allow SSH Keys."
+          },
+          "requires_user": {
+            "type": "boolean",
+            "description": "True if the OS requires user."
+          },
+          "requires_admin_password": {
+            "type": "boolean",
+            "description": "True if the OS requires admin password."
+          },
+          "requires_panel_password": {
+            "type": "boolean",
+            "description": "True if the OS requires panel password."
+          },
+          "allowed_filesystems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.PartitionFileSystem"
+            },
+            "description": "True if the OS allow file systems."
+          },
+          "requires_license": {
+            "type": "boolean",
+            "description": "True if the OS requires license."
+          },
+          "license_offers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.Offer"
+            },
+            "description": "License offers available with the OS."
+          },
+          "max_partitions": {
+            "type": "number",
+            "description": "Maximum number of partitions which can be created."
+          },
+          "display_name": {
+            "type": "string",
+            "description": "Display name of the OS."
+          },
+          "password_regex": {
+            "type": "string",
+            "description": "Regex used to validate the installation passwords."
+          },
+          "panel_password_regex": {
+            "type": "string",
+            "description": "Regex used to validate the panel installation password."
+          },
+          "requires_valid_hostname": {
+            "type": "boolean",
+            "description": "If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid."
+          },
+          "hostname_regex": {
+            "type": "string",
+            "description": "If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid."
+          },
+          "hostname_max_length": {
+            "type": "number",
+            "description": "Hostname max length."
+          },
+          "released_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "OS release date."
+          },
+          "beta": {
+            "type": "string",
+            "description": "Is it a beta OS."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the OS."
+          },
+          "official_website": {
+            "type": "string",
+            "description": "URL to OS official website."
+          }
+        }
+      },
+      "scaleway.dedibox.v1.OSArch": {
+        "type": "string",
+        "enum": [
+          "unknown_arch",
+          "amd64",
+          "x86",
+          "arm",
+          "arm64"
+        ]
+      },
+      "scaleway.dedibox.v1.OSType": {
+        "type": "string",
+        "enum": [
+          "unknown_type",
+          "server",
+          "virtu",
+          "panel",
+          "desktop",
+          "custom",
+          "rescue"
+        ]
+      },
+      "scaleway.dedibox.v1.PartitionFileSystem": {
+        "type": "string",
+        "enum": [
+          "unknown",
+          "efi",
+          "swap",
+          "ext4",
+          "ext3",
+          "ext2",
+          "xfs",
+          "ntfs",
+          "fat32",
+          "ufs"
+        ]
       },
       "scaleway.dedibox.v1.PersistentMemory": {
         "type": "object",

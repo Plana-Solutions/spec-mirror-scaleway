@@ -638,6 +638,10 @@
             "description": "Initially installed OS.\nInitially installed OS, this does not necessarily reflect the current OS version.",
             "$ref": "#/components/schemas/scaleway.apple_silicon.v1alpha1.OS"
           },
+          "full_os_version": {
+            "type": "string",
+            "description": "Detailed initial installed OS version (<major>.<minor>.<patch>-<build>).\nInitially installed OS, this does not necessarily reflect the current OS version."
+          },
           "status": {
             "description": "Current status of the server.",
             "$ref": "#/components/schemas/scaleway.apple_silicon.v1alpha1.Server.Status"
@@ -735,6 +739,7 @@
           "sudo_password",
           "vnc_port",
           "os",
+          "full_os_version",
           "status",
           "created_at",
           "updated_at",
