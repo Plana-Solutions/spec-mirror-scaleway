@@ -30,7 +30,7 @@
     "output": "account_organization_v3.json",
     "title": "Organization API",
     "openapi": "3.1.0",
-    "paths": 11
+    "paths": 10
   },
   {
     "proto": "scaleway.account.v3.ProjectApi",
@@ -52,7 +52,7 @@
     "output": "account_unauthenticated_user_v3.json",
     "title": "Unauthenticated User API",
     "openapi": "3.1.0",
-    "paths": 20
+    "paths": 19
   },
   {
     "proto": "scaleway.account.v3.UnauthenticatedApi",
@@ -748,6 +748,17 @@
     "paths": 15
   },
   {
+    "proto": "scaleway.search.v1alpha1.Api",
+    "product": "search",
+    "version": "v1alpha1",
+    "api": "Api",
+    "url": "https://www.scaleway.com/en/developers/api/search/v1alpha1/schema.yml",
+    "output": "search_v1alpha1.json",
+    "title": "Search API",
+    "openapi": "3.1.0",
+    "paths": 1
+  },
+  {
     "proto": "scaleway.searchdb.v1alpha1.Api",
     "product": "searchdb",
     "version": "v1alpha1",
@@ -1109,17 +1120,5 @@
     "paths": 3,
     "source": "scaleway-sdk-js",
     "mergeInto": "edge_services_v1beta1"
-  },
-  {
-    "proto": "scaleway.search.v1alpha1.Api",
-    "product": "search",
-    "version": "v1alpha1",
-    "api": "Api",
-    "url": "https://raw.githubusercontent.com/scaleway/scaleway-sdk-js/main/packages_generated/search/src/v1alpha1",
-    "output": "search_v1alpha1.json",
-    "title": "scaleway.search.v1alpha1.Api (derived)",
-    "openapi": "3.1.0",
-    "paths": 1,
-    "source": "scaleway-sdk-js"
   }
 ]

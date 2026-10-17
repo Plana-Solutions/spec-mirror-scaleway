@@ -3462,6 +3462,24 @@
                 "it-mil-1"
               ]
             }
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "description": "Organization ID to filter resource counts.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "project_identifier"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "description": "Project ID to filter resource counts.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "project_identifier"
+            }
           }
         ],
         "responses": {
@@ -5015,6 +5033,69 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "delete_all_ips",
+            "description": "Whether to delete all IPs attached to the server.",
+            "schema": {
+              "type": "boolean",
+              "x-one-of": "ips"
+            }
+          },
+          {
+            "in": "query",
+            "name": "delete_ip_ids",
+            "description": "List of IP IDs to delete.",
+            "schema": {
+              "type": "array",
+              "x-one-of": "ips",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "delete_all_volumes",
+            "description": "Whether to delete all volumes attached to the server. Deletion of SBS volumes is not supported yet.",
+            "schema": {
+              "type": "boolean",
+              "x-one-of": "volumes"
+            }
+          },
+          {
+            "in": "query",
+            "name": "delete_volume_ids",
+            "description": "List of volume IDs to delete. Deletion of SBS volumes is not supported yet.",
+            "schema": {
+              "type": "array",
+              "x-one-of": "volumes",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "keep_all_private_nics",
+            "description": "Whether to keep all private network interfaces.",
+            "schema": {
+              "type": "boolean",
+              "x-one-of": "private_nics"
+            }
+          },
+          {
+            "in": "query",
+            "name": "delete_private_nic_ids",
+            "description": "List of private network interface IDs to delete.",
+            "schema": {
+              "type": "array",
+              "x-one-of": "private_nics",
+              "items": {
+                "type": "string"
+              }
             }
           }
         ],

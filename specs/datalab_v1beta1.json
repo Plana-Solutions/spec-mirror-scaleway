@@ -764,7 +764,8 @@
             "name": "name",
             "description": "The name of the cluster you want to list.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[A-Za-z0-9-_. ]+$"
             }
           },
           {
@@ -879,7 +880,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "The name of the cluster."
+                    "description": "The name of the cluster.",
+                    "pattern": "^[A-Za-z0-9-_. ]+$"
                   },
                   "description": {
                     "type": "string",

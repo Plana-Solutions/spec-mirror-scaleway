@@ -428,7 +428,8 @@
           },
           "username": {
             "type": "string",
-            "description": "The member's username."
+            "description": "The member's username.",
+            "pattern": "^[a-zA-Z0-9@._+-]+$"
           },
           "password": {
             "type": "string",
@@ -2388,6 +2389,26 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "in": "query",
+            "name": "application_id",
+            "description": "ID of application that bears the API key.",
+            "schema": {
+              "type": "string",
+              "deprecated": true,
+              "x-one-of": "bearer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "user_id",
+            "description": "ID of user that bears the API key.",
+            "schema": {
+              "type": "string",
+              "deprecated": true,
+              "x-one-of": "bearer"
+            }
           }
         ],
         "responses": {
@@ -2722,7 +2743,8 @@
             "name": "name",
             "description": "Name of the application to filter.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
             }
           },
           {
@@ -2817,7 +2839,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the application to create (max length is 64 characters)."
+                    "description": "Name of the application to create (max length is 64 characters).",
+                    "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
                   },
                   "organization_id": {
                     "type": "string",
@@ -2831,7 +2854,8 @@
                     "type": "array",
                     "description": "Tags associated with the application (maximum of 10 tags).",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
                     }
                   }
                 },
@@ -2954,7 +2978,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "New name for the application (max length is 64 chars)."
+                    "description": "New name for the application (max length is 64 chars).",
+                    "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
                   },
                   "description": {
                     "type": [
@@ -3289,7 +3314,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the group to create (max length is 64 chars). MUST be unique inside an Organization."
+                    "description": "Name of the group to create (max length is 64 chars). MUST be unique inside an Organization.",
+                    "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
                   },
                   "description": {
                     "type": "string",
@@ -3299,7 +3325,8 @@
                     "type": "array",
                     "description": "Tags associated with the group (maximum of 10 tags).",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
                     }
                   }
                 },
@@ -3423,7 +3450,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "New name for the group (max length is 64 chars). MUST be unique inside an Organization."
+                    "description": "New name for the group (max length is 64 chars). MUST be unique inside an Organization.",
+                    "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
                   },
                   "description": {
                     "type": [
@@ -4233,7 +4261,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "Alias of the Organization."
+                    "description": "Alias of the Organization.",
+                    "pattern": "^[a-z0-9]+$"
                   }
                 },
                 "x-properties-order": [
@@ -4954,7 +4983,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the policy to create (max length is 64 characters)."
+                    "description": "Name of the policy to create (max length is 64 characters).",
+                    "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
                   },
                   "description": {
                     "type": "string",
@@ -4975,7 +5005,8 @@
                     "type": "array",
                     "description": "Tags associated with the policy (maximum of 10 tags).",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
                     }
                   },
                   "user_id": {
@@ -5135,7 +5166,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "New name for the policy (max length is 64 characters)."
+                    "description": "New name for the policy (max length is 64 characters).",
+                    "pattern": "^[\\w().\\-]+( +[\\w().\\-]+)*$"
                   },
                   "description": {
                     "type": [
@@ -6619,7 +6651,8 @@
                     "type": "array",
                     "description": "Tags associated with the user.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
                     }
                   },
                   "member": {
@@ -7394,7 +7427,8 @@
                 "properties": {
                   "username": {
                     "type": "string",
-                    "description": "The new username."
+                    "description": "The new username.",
+                    "pattern": "^[a-zA-Z0-9@._+-]+$"
                   }
                 },
                 "required": [
@@ -7463,7 +7497,8 @@
                 "properties": {
                   "one_time_password": {
                     "type": "string",
-                    "description": "A password generated using the OTP."
+                    "description": "A password generated using the OTP.",
+                    "pattern": "^[0-9]{6}$"
                   }
                 },
                 "x-properties-order": [

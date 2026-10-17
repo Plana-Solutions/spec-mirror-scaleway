@@ -651,6 +651,35 @@
             "schema": {
               "$ref": "#/components/schemas/scaleway.marketplace.v2.LocalImage.Type"
             }
+          },
+          {
+            "in": "query",
+            "name": "image_id",
+            "description": "Filter by image id. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "version_id",
+            "description": "Filter by version id. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "image_label",
+            "description": "Filter by image label.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "scope"
+            }
           }
         ],
         "responses": {

@@ -1075,17 +1075,20 @@
         "type": "object",
         "properties": {
           "bucket": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]{2,}$"
           },
           "region": {
             "type": "string",
-            "description": "The region you want to target"
+            "description": "The region you want to target",
+            "pattern": "^[a-z]{2}-[a-z]{3}$"
           },
           "prefix": {
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "pattern": "^[a-zA-Z0-9\\._\\-]+(?:\\/[a-zA-Z0-9\\._\\-]+)*$"
           },
           "project_id": {
             "type": [
@@ -3951,7 +3954,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the custom alert rule."
+                    "description": "Name of the custom alert rule.",
+                    "pattern": "^[a-zA-Z0-9]([-_.a-zA-Z0-9]*[a-zA-Z0-9])?$"
                   },
                   "description": {
                     "type": [
@@ -4142,7 +4146,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "(Optional) New name for the custom alert rule."
+                    "description": "(Optional) New name for the custom alert rule.",
+                    "pattern": "^[a-zA-Z0-9]([-_.a-zA-Z0-9]*[a-zA-Z0-9])?$"
                   },
                   "description": {
                     "type": [
@@ -4594,7 +4599,8 @@
             "name": "method_name",
             "description": "(Optional) Name of the method of the API call performed.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
             }
           },
           {
@@ -4653,7 +4659,8 @@
             "name": "product_name",
             "description": "(Optional) Name of the Scaleway product in a hyphenated format.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
             }
           },
           {
@@ -4661,7 +4668,8 @@
             "name": "service_name",
             "description": "(Optional) Name of the service of the API call performed.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^scaleway(\\.[a-zA-Z0-9_-]*)*$"
             }
           },
           {
@@ -4669,7 +4677,8 @@
             "name": "resource_id",
             "description": "(Optional) ID of the Scaleway resource.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9._-]+$"
             }
           },
           {
@@ -4759,7 +4768,8 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@: ]+$"
               }
             }
           },
@@ -4862,7 +4872,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the export."
+                    "description": "Name of the export.",
+                    "pattern": "^[a-zA-Z0-9]([-_.a-zA-Z0-9]*[a-zA-Z0-9])?$"
                   },
                   "s3": {
                     "description": "The configuration specifying the bucket where the audit trail events will be exported.",
@@ -4880,7 +4891,8 @@
                     "type": "array",
                     "description": "Tags of the export.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@: ]+$"
                     }
                   }
                 },

@@ -55,7 +55,8 @@
             "type": "array",
             "description": "List of tags applied to the deployment.",
             "items": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
             }
           },
           "node_type_name": {
@@ -398,7 +399,8 @@
             "type": "array",
             "description": "List of tags applied to the model.",
             "items": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
             }
           },
           "status": {
@@ -785,7 +787,8 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
               }
             }
           }
@@ -860,7 +863,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the deployment."
+                    "description": "Name of the deployment.",
+                    "pattern": "^[A-Za-z0-9-_]+$"
                   },
                   "project_id": {
                     "type": "string",
@@ -887,7 +891,8 @@
                     "type": "array",
                     "description": "List of tags to apply to the deployment.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
                     }
                   },
                   "min_size": {
@@ -1073,7 +1078,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the deployment."
+                    "description": "Name of the deployment.",
+                    "pattern": "^[A-Za-z0-9-_]+$"
                   },
                   "tags": {
                     "type": [
@@ -1554,7 +1560,8 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9\\._\\-\\/=+@ ]+$"
               }
             }
           }
@@ -1629,7 +1636,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the model."
+                    "description": "Name of the model.",
+                    "pattern": "^[A-Za-z0-9-_/.:]+$"
                   },
                   "project_id": {
                     "type": "string",

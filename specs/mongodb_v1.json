@@ -1304,7 +1304,8 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[0-9A-Za-z_\\-=]+$"
               }
             }
           },
@@ -1313,7 +1314,8 @@
             "name": "name",
             "description": "Lists Database Instances that match a name pattern.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]+$"
             }
           },
           {
@@ -1439,17 +1441,20 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the Database Instance."
+                    "description": "Name of the Database Instance.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "version": {
                     "type": "string",
-                    "description": "Major version of the MongoDB® engine."
+                    "description": "Major version of the MongoDB® engine.",
+                    "pattern": "^[0-9]+\\.[0-9]+$"
                   },
                   "tags": {
                     "type": "array",
                     "description": "Tags to apply to the Database Instance.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[0-9A-Za-z_\\-=]+$"
                     }
                   },
                   "node_amount": {
@@ -1459,11 +1464,13 @@
                   },
                   "node_type": {
                     "type": "string",
-                    "description": "Type of node to use for the Database Instance."
+                    "description": "Type of node to use for the Database Instance.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "user_name": {
                     "type": "string",
-                    "description": "Username created when the Database Instance is created."
+                    "description": "Username created when the Database Instance is created.",
+                    "pattern": "^[a-zA-Z0-9_\\-]*$"
                   },
                   "password": {
                     "type": "string",
@@ -1634,7 +1641,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the Database Instance."
+                    "description": "Name of the Database Instance.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "tags": {
                     "type": [
@@ -1949,7 +1957,8 @@
                 "properties": {
                   "user_name": {
                     "type": "string",
-                    "description": "Name of the database user."
+                    "description": "Name of the database user.",
+                    "pattern": "^[a-zA-Z0-9_\\-]*$"
                   },
                   "roles": {
                     "type": "array",
@@ -2050,6 +2059,7 @@
                       "null"
                     ],
                     "description": "MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`).",
+                    "pattern": "^[0-9]+\\.[0-9]+$",
                     "x-one-of": "upgrade_target"
                   }
                 },
@@ -2113,7 +2123,8 @@
             "name": "name",
             "description": "Name of the user.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-]*$"
             }
           },
           {
@@ -2220,7 +2231,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the database user."
+                    "description": "Name of the database user.",
+                    "pattern": "^[a-zA-Z0-9_\\-]*$"
                   },
                   "password": {
                     "type": "string",
@@ -2288,7 +2300,8 @@
             "description": "Name of the database user.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-]*$"
             }
           }
         ],
@@ -2377,7 +2390,8 @@
             "description": "Name of the database user.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-]*$"
             }
           }
         ],
@@ -2734,7 +2748,8 @@
             "name": "name",
             "description": "Lists database snapshots that match a name pattern.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]+$"
             }
           },
           {
@@ -2852,7 +2867,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the snapshot."
+                    "description": "Name of the snapshot.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "expires_at": {
                     "type": [
@@ -3006,7 +3022,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the snapshot."
+                    "description": "Name of the snapshot.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "expires_at": {
                     "type": [
@@ -3153,7 +3170,8 @@
                 "properties": {
                   "instance_name": {
                     "type": "string",
-                    "description": "Name of the new Database Instance."
+                    "description": "Name of the new Database Instance.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "node_type": {
                     "type": "string",
@@ -3226,7 +3244,8 @@
             "in": "query",
             "name": "version",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[0-9]+\\.[0-9]+$"
             }
           },
           {

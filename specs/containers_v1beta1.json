@@ -440,7 +440,8 @@
         "properties": {
           "subject": {
             "type": "string",
-            "description": "Name of the NATS subject the trigger should listen to."
+            "description": "Name of the NATS subject the trigger should listen to.",
+            "pattern": "^[^\\s]+$"
           },
           "mnq_nats_account_id": {
             "type": "string",
@@ -3589,6 +3590,33 @@
             "description": "Order in which to return results.",
             "schema": {
               "$ref": "#/components/schemas/scaleway.containers.v1beta1.ListTriggersRequest.OrderBy"
+            }
+          },
+          {
+            "in": "query",
+            "name": "container_id",
+            "description": "ID of the container the triggers belongs to.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace_id",
+            "description": "ID of the namespace the triggers belongs to.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "description": "ID of the project the triggers belongs to.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "scope"
             }
           }
         ],

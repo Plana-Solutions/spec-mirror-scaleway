@@ -620,7 +620,8 @@
                 "properties": {
                   "one_time_password": {
                     "type": "string",
-                    "description": "Either a one time password or a recovery code for the OTP method registered."
+                    "description": "Either a one time password or a recovery code for the OTP method registered.",
+                    "pattern": "^([0-9]{6})|([A-Z0-9]{32})$"
                   }
                 },
                 "x-properties-order": [
@@ -1180,6 +1181,27 @@
         ],
         "operationId": "SearchOrganization",
         "summary": "Search for an organization",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "organization_id",
+            "description": "Search for an organization using its ID.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "filter"
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization_alias",
+            "description": "Search for an organization using its alias.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+$",
+              "x-one-of": "filter"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",

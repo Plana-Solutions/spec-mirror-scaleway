@@ -871,7 +871,8 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[0-9A-Za-z_\\-=]+$"
               }
             }
           },
@@ -880,7 +881,8 @@
             "name": "name",
             "description": "Lists Kafka clusters that match a name pattern.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]+$"
             }
           },
           {
@@ -998,17 +1000,20 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the Kafka cluster."
+                    "description": "Name of the Kafka cluster.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "version": {
                     "type": "string",
-                    "description": "Version of Kafka."
+                    "description": "Version of Kafka.",
+                    "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
                   },
                   "tags": {
                     "type": "array",
                     "description": "Tags to apply to the Kafka cluster.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[0-9A-Za-z_\\-=]+$"
                     }
                   },
                   "node_amount": {
@@ -1018,7 +1023,8 @@
                   },
                   "node_type": {
                     "type": "string",
-                    "description": "Type of node to use for the Kafka cluster."
+                    "description": "Type of node to use for the Kafka cluster.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "volume": {
                     "description": "Kafka volume information.",
@@ -1036,7 +1042,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Username for the kafka user."
+                    "description": "Username for the kafka user.",
+                    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
                   },
                   "password": {
                     "type": [
@@ -1223,7 +1230,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the Kafka Cluster."
+                    "description": "Name of the Kafka Cluster.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "tags": {
                     "type": [
@@ -1237,7 +1245,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Version of Kafka."
+                    "description": "Version of Kafka.",
+                    "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
                   }
                 },
                 "x-properties-order": [
@@ -1502,7 +1511,8 @@
             "in": "query",
             "name": "name",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
             }
           }
         ],
@@ -1570,7 +1580,8 @@
             "description": "Username of the Kafka cluster user.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
             }
           }
         ],
@@ -1857,7 +1868,8 @@
             "name": "version",
             "description": "Kafka version to filter for.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
             }
           },
           {

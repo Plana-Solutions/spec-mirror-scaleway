@@ -941,7 +941,8 @@
           },
           "host_header": {
             "type": "string",
-            "description": "HTTP host header used for the health check.\nThe HTTP host header used when performing a health check on backend servers."
+            "description": "HTTP host header used for the health check.\nThe HTTP host header used when performing a health check on backend servers.",
+            "pattern": "^[^\\s]+$"
           }
         },
         "x-properties-order": [
@@ -972,7 +973,8 @@
           },
           "host_header": {
             "type": "string",
-            "description": "HTTP host header used for the health check.\nThe HTTP host header used when performing a health check on backend servers."
+            "description": "HTTP host header used for the health check.\nThe HTTP host header used when performing a health check on backend servers.",
+            "pattern": "^[^\\s]+$"
           },
           "sni": {
             "type": "string",

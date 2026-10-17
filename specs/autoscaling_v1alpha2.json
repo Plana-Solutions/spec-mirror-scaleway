@@ -964,6 +964,22 @@
               "type": "integer",
               "format": "uint32"
             }
+          },
+          {
+            "in": "query",
+            "name": "group_id",
+            "schema": {
+              "type": "string",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "schema": {
+              "type": "string",
+              "x-one-of": "scope"
+            }
           }
         ],
         "responses": {

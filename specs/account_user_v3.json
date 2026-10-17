@@ -1389,7 +1389,8 @@
                 "properties": {
                   "otp": {
                     "type": "string",
-                    "description": "One time password of the MFA OTP."
+                    "description": "One time password of the MFA OTP.",
+                    "pattern": "^[0-9]+$"
                   }
                 },
                 "x-properties-order": [
@@ -1510,7 +1511,8 @@
                 "properties": {
                   "code": {
                     "type": "string",
-                    "description": "Code required to validate the phone number."
+                    "description": "Code required to validate the phone number.",
+                    "pattern": "^[0-9]+$"
                   }
                 },
                 "x-properties-order": [

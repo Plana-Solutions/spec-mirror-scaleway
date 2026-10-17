@@ -1293,6 +1293,13 @@
             "items": {
               "$ref": "#/components/schemas/scaleway.dedibox.v1.Offer.Commitment"
             }
+          },
+          "available_os": {
+            "type": "array",
+            "description": "Available OS info if it is a available OS offer.",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.dedibox.v1.OS"
+            }
           }
         },
         "x-properties-order": [
@@ -1314,7 +1321,8 @@
           "failover_ip_info",
           "failover_block_info",
           "bandwidth_info",
-          "commitments"
+          "commitments",
+          "available_os"
         ]
       },
       "scaleway.dedibox.v1.Offer.AntiDosInfo": {
@@ -3525,6 +3533,26 @@
             "description": "Project ID.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "server_id",
+            "description": "Filter OS by compatible server ID.",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "x-one-of": "offer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offer_id",
+            "description": "Filter OS by compatible offer ID.",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "x-one-of": "offer"
             }
           }
         ],

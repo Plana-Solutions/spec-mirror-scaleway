@@ -723,7 +723,8 @@
             "name": "name",
             "description": "Deployment name to filter for, only deployments with this string within their name will be returned.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]+$"
             }
           }
         ],
@@ -800,13 +801,15 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the deployment."
+                    "description": "Name of the deployment.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "tags": {
                     "type": "array",
                     "description": "Tags.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[0-9A-Za-z_\\-=]+$"
                     }
                   },
                   "node_count": {
@@ -816,14 +819,16 @@
                   },
                   "node_type": {
                     "type": "string",
-                    "description": "Node type to use."
+                    "description": "Node type to use.",
+                    "pattern": "^[A-Za-z0-9\\-_]+$"
                   },
                   "user_name": {
                     "type": [
                       "string",
                       "null"
                     ],
-                    "description": "Username for the deployment user."
+                    "description": "Username for the deployment user.",
+                    "pattern": "^[a-zA-Z0-9_$-]*$"
                   },
                   "password": {
                     "type": [
@@ -845,7 +850,8 @@
                   },
                   "version": {
                     "type": "string",
-                    "description": "The MessageQ version to use."
+                    "description": "The MessageQ version to use.",
+                    "pattern": "^[0-9]+\\.[0-9]+$"
                   }
                 },
                 "x-properties-order": [
@@ -1288,7 +1294,8 @@
             "in": "query",
             "name": "name",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-]*$"
             }
           }
         ],
@@ -1370,7 +1377,8 @@
                 "properties": {
                   "username": {
                     "type": "string",
-                    "description": "Username of the deployment user."
+                    "description": "Username of the deployment user.",
+                    "pattern": "^[a-zA-Z0-9_$-]*$"
                   },
                   "password": {
                     "type": "string",
@@ -1437,7 +1445,8 @@
             "description": "Username of the deployment user.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_$-]*$"
             }
           }
         ],
@@ -1525,7 +1534,8 @@
             "description": "Username of the deployment user.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_$-]*$"
             }
           }
         ],

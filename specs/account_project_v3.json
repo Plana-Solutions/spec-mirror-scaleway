@@ -505,7 +505,8 @@
             "name": "name",
             "description": "Name of the Project.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\._\\- ]+$"
             }
           },
           {
@@ -602,7 +603,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the Project."
+                    "description": "Name of the Project.",
+                    "pattern": "^[a-zA-Z0-9\\._\\- ]+$"
                   },
                   "organization_id": {
                     "type": "string",
@@ -728,7 +730,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the Project."
+                    "description": "Name of the Project.",
+                    "pattern": "^[a-zA-Z0-9\\._\\- ]+$"
                   },
                   "description": {
                     "type": [

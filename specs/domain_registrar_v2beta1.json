@@ -30,19 +30,6 @@
   ],
   "components": {
     "schemas": {
-      "google.protobuf.BoolValue": {
-        "type": [
-          "boolean",
-          "null"
-        ]
-      },
-      "google.protobuf.Int32Value": {
-        "type": [
-          "integer",
-          "null"
-        ],
-        "format": "int32"
-      },
       "google.protobuf.StringValue": {
         "type": [
           "string",
@@ -74,12 +61,15 @@
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "The domain name."
           },
           "available": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the domain is available for registration."
           },
           "tld": {
+            "description": "TLD information of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Tld"
           }
         },
@@ -93,15 +83,19 @@
         "type": "object",
         "properties": {
           "compatible": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether all contacts are compatible with the domains or TLDs."
           },
           "owner_check_result": {
+            "description": "Compatibility check result for the owner contact.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.CheckContactsCompatibilityResponse.ContactCheckResult"
           },
           "administrative_check_result": {
+            "description": "Compatibility check result for the administrative contact.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.CheckContactsCompatibilityResponse.ContactCheckResult"
           },
           "technical_check_result": {
+            "description": "Compatibility check result for the technical contact.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.CheckContactsCompatibilityResponse.ContactCheckResult"
           }
         },
@@ -131,81 +125,107 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The unique identifier of the contact."
           },
           "legal_form": {
+            "description": "Legal form of the contact (individual, corporate, association, other).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.LegalForm"
           },
           "firstname": {
-            "type": "string"
+            "type": "string",
+            "description": "First name of the contact."
           },
           "lastname": {
-            "type": "string"
+            "type": "string",
+            "description": "Last name of the contact."
           },
           "company_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Company name of the contact (required for corporate legal forms)."
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address of the contact."
           },
           "email_alt": {
-            "type": "string"
+            "type": "string",
+            "description": "Alternative email address of the contact."
           },
           "phone_number": {
-            "type": "string"
+            "type": "string",
+            "description": "Phone number of the contact."
           },
           "fax_number": {
-            "type": "string"
+            "type": "string",
+            "description": "Fax number of the contact."
           },
           "address_line_1": {
-            "type": "string"
+            "type": "string",
+            "description": "First line of the contact's address."
           },
           "address_line_2": {
-            "type": "string"
+            "type": "string",
+            "description": "Second line of the contact's address."
           },
           "zip": {
-            "type": "string"
+            "type": "string",
+            "description": "Postal code of the contact."
           },
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City of the contact."
           },
           "country": {
-            "type": "string"
+            "type": "string",
+            "description": "Country code of the contact (ISO 3166-1 alpha-2 format)."
           },
           "vat_identification_code": {
-            "type": "string"
+            "type": "string",
+            "description": "VAT identification code of the contact."
           },
           "company_identification_code": {
-            "type": "string"
+            "type": "string",
+            "description": "Company identification code (e.g. SIRET/SIREN) of the contact."
           },
           "lang": {
+            "description": "Preferred language of the contact.",
             "$ref": "#/components/schemas/scaleway.std.LanguageCode"
           },
           "resale": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact's information can be resold."
           },
           "extension_fr": {
+            "description": "Additional information required for .fr domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR"
           },
           "extension_eu": {
+            "description": "Additional information required for .eu domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionEU"
           },
           "whois_opt_in": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact's information is published in the WHOIS database."
           },
           "email_status": {
+            "description": "Email validation status of the contact.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.EmailStatus"
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "State or region of the contact."
           },
           "extension_nl": {
+            "description": "Additional information required for .nl domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionNL"
           },
           "status": {
+            "description": "Status of the contact.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.Status"
           },
           "extension_it": {
+            "description": "Additional information required for .it domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionIT"
           },
           "questions": {
@@ -589,12 +609,15 @@
         "type": "object",
         "properties": {
           "contact": {
+            "description": "The contact information.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact"
           },
           "roles": {
             "type": "object",
+            "description": "Map of domain names to the contact's roles on each domain.",
             "properties": {
               "<roleKey>": {
+                "description": "Map of domain names to the contact's roles on each domain.",
                 "$ref": "#/components/schemas/scaleway.domain.v2beta1.ContactRoles.Roles"
               }
             },
@@ -610,13 +633,16 @@
         "type": "object",
         "properties": {
           "is_owner": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact is the owner of the domain."
           },
           "is_administrative": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact is the administrative contact of the domain."
           },
           "is_technical": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact is the technical contact of the domain."
           }
         },
         "x-properties-order": [
@@ -715,12 +741,15 @@
         "properties": {
           "key_id": {
             "type": "integer",
+            "description": "The key tag of the DS record.",
             "format": "uint32"
           },
           "algorithm": {
+            "description": "The cryptographic algorithm used for the DS record.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord.Algorithm"
           },
           "digest": {
+            "description": "The digest of the DS record.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -732,6 +761,7 @@
             ]
           },
           "public_key": {
+            "description": "The public key of the DS record.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -790,12 +820,15 @@
         "type": "object",
         "properties": {
           "type": {
+            "description": "The digest type of the DS record.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord.Digest.Type"
           },
           "digest": {
-            "type": "string"
+            "type": "string",
+            "description": "The digest string of the DS record."
           },
           "public_key": {
+            "description": "The public key associated with the digest.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord.PublicKey"
           }
         },
@@ -827,7 +860,8 @@
         "type": "object",
         "properties": {
           "key": {
-            "type": "string"
+            "type": "string",
+            "description": "The public key string."
           }
         },
         "x-properties-order": [
@@ -841,13 +875,16 @@
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "The domain name."
           },
           "organization_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The organization ID associated with the domain."
           },
           "project_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The project ID associated with the domain."
           },
           "auto_renew_status": {
             "description": "Status of the automatic renewal of the domain.",
@@ -883,7 +920,8 @@
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "registrar": {
-            "type": "string"
+            "type": "string",
+            "description": "The registrar managing the domain."
           },
           "is_external": {
             "type": "boolean",
@@ -979,10 +1017,12 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "Status of the DNSSEC configuration of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.FeatureStatus"
           },
           "ds_records": {
             "type": "array",
+            "description": "List of the domain's DS records.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord"
             }
@@ -1017,7 +1057,8 @@
         "type": "object",
         "properties": {
           "validation_token": {
-            "type": "string"
+            "type": "string",
+            "description": "Validation token for the external domain registration."
           }
         },
         "x-properties-order": [
@@ -1028,13 +1069,16 @@
         "type": "object",
         "properties": {
           "status": {
+            "description": "Status of the domain transfer.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.RegistrationStatusTransfer.Status"
           },
           "vote_current_owner": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the current owner has voted for the transfer."
           },
           "vote_new_owner": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the new owner has voted for the transfer."
           }
         },
         "x-properties-order": [
@@ -1107,19 +1151,28 @@
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "The domain name."
           },
           "project_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The project ID associated with the domain."
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "The organization ID associated with the domain."
           },
           "auto_renew_status": {
+            "description": "Status of the automatic renewal of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.FeatureStatus"
           },
           "dnssec_status": {
+            "description": "Status of the DNSSEC configuration of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.FeatureStatus"
           },
           "epp_code": {
             "type": "array",
+            "description": "List of the domain's EPP codes.",
             "items": {
               "type": "string"
             }
@@ -1129,7 +1182,7 @@
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "Date of expiration of the domain. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           },
@@ -1138,20 +1191,33 @@
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "Domain's last modification date. (RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "created_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Domain's creation date. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "registrar": {
-            "type": "string"
+            "type": "string",
+            "description": "The registrar managing the domain."
           },
           "is_external": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether Scaleway is the domain's registrar."
           },
           "status": {
+            "description": "Status of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.Status"
           },
           "external_domain_registration_status": {
+            "description": "Registration status of an external domain, if available.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -1163,6 +1229,7 @@
             ]
           },
           "transfer_registration_status": {
+            "description": "Status of a domain, when available for transfer.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -1173,37 +1240,26 @@
               }
             ]
           },
-          "organization_id": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "(RFC 3339 format)",
-            "format": "date-time",
-            "example": "2022-03-22T12:34:56.123456Z"
-          },
           "pending_trade": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if a trade is ongoing."
           }
         },
         "x-properties-order": [
           "domain",
           "project_id",
+          "organization_id",
           "auto_renew_status",
           "dnssec_status",
           "epp_code",
           "expired_at",
           "updated_at",
+          "created_at",
           "registrar",
           "is_external",
           "status",
           "external_domain_registration_status",
           "transfer_registration_status",
-          "organization_id",
-          "created_at",
           "pending_trade"
         ]
       },
@@ -1211,7 +1267,8 @@
         "type": "object",
         "properties": {
           "auth_code": {
-            "type": "string"
+            "type": "string",
+            "description": "The authorization code to transfer the domain."
           }
         },
         "x-properties-order": [
@@ -1222,14 +1279,16 @@
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "The domain name associated with the hostname."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The hostname."
           },
           "ips": {
             "type": "array",
-            "description": "(IP address)",
+            "description": "List of glue IP addresses associated with the hostname. (IP address)",
             "example": [
               "1.2.3.4"
             ],
@@ -1238,6 +1297,7 @@
             }
           },
           "status": {
+            "description": "Status of the hostname.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Host.Status"
           }
         },
@@ -1369,6 +1429,24 @@
         },
         "default": "unknown_product"
       },
+      "scaleway.domain.v2beta1.ListContactsRequest.OrderBy": {
+        "type": "string",
+        "enum": [
+          "created_at_asc",
+          "created_at_desc",
+          "email_asc",
+          "email_desc"
+        ],
+        "x-enum-descriptions": {
+          "values": {
+            "created_at_asc": "Order by creation date (ascending)",
+            "created_at_desc": "Order by creation date (descending)",
+            "email_asc": "Order by email (ascending)",
+            "email_desc": "Order by email (descending)"
+          }
+        },
+        "default": "created_at_asc"
+      },
       "scaleway.domain.v2beta1.ListContactsRequest.Role": {
         "type": "string",
         "enum": [
@@ -1391,10 +1469,12 @@
         "properties": {
           "total_count": {
             "type": "integer",
+            "description": "Total count of contacts matching the request.",
             "format": "uint32"
           },
           "contacts": {
             "type": "array",
+            "description": "List of contacts with their associated roles.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.ContactRoles"
             }
@@ -1410,10 +1490,12 @@
         "properties": {
           "total_count": {
             "type": "integer",
+            "description": "Total count of hostnames matching the request.",
             "format": "uint32"
           },
           "hosts": {
             "type": "array",
+            "description": "List of hostnames matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.Host"
             }
@@ -1443,10 +1525,12 @@
         "properties": {
           "total_count": {
             "type": "integer",
+            "description": "Total count of domains matching the request.",
             "format": "uint32"
           },
           "domains": {
             "type": "array",
+            "description": "List of domains matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.DomainSummary"
             }
@@ -1462,10 +1546,12 @@
         "properties": {
           "total_count": {
             "type": "integer",
+            "description": "Total count of inbound transfers matching the request.",
             "format": "uint32"
           },
           "inbound_transfers": {
             "type": "array",
+            "description": "List of inbound transfers matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.InboundTransfer"
             }
@@ -1495,10 +1581,12 @@
         "properties": {
           "total_count": {
             "type": "integer",
+            "description": "Total count of renewable domains matching the request.",
             "format": "uint32"
           },
           "domains": {
             "type": "array",
+            "description": "List of renewable domains matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.RenewableDomain"
             }
@@ -1540,10 +1628,12 @@
         "properties": {
           "total_count": {
             "type": "integer",
+            "description": "Total count of tasks matching the request.",
             "format": "uint32"
           },
           "tasks": {
             "type": "array",
+            "description": "List of tasks matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.Task"
             }
@@ -1593,72 +1683,116 @@
         "type": "object",
         "properties": {
           "legal_form": {
+            "description": "Legal form of the contact (individual, corporate, association, other).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.LegalForm"
           },
           "firstname": {
-            "type": "string"
+            "type": "string",
+            "description": "First name of the contact."
           },
           "lastname": {
-            "type": "string"
+            "type": "string",
+            "description": "Last name of the contact."
           },
           "company_name": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Company name of the contact (required for corporate legal forms)."
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address of the contact."
           },
           "email_alt": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Alternative email address of the contact."
           },
           "phone_number": {
-            "type": "string"
+            "type": "string",
+            "description": "Phone number of the contact."
           },
           "fax_number": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Fax number of the contact."
           },
           "address_line_1": {
-            "type": "string"
+            "type": "string",
+            "description": "First line of the contact's address."
           },
           "address_line_2": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Second line of the contact's address."
           },
           "zip": {
-            "type": "string"
+            "type": "string",
+            "description": "Postal code of the contact."
           },
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City of the contact."
           },
           "country": {
-            "type": "string"
+            "type": "string",
+            "description": "Country code of the contact (ISO 3166-1 alpha-2 format)."
           },
           "vat_identification_code": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "VAT identification code of the contact."
           },
           "company_identification_code": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Company identification code (e.g. SIRET/SIREN) of the contact."
           },
           "lang": {
+            "description": "Preferred language of the contact.",
             "$ref": "#/components/schemas/scaleway.std.LanguageCode"
           },
           "resale": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact's information can be resold."
           },
           "extension_fr": {
+            "description": "Additional information required for .fr domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR"
           },
           "extension_eu": {
+            "description": "Additional information required for .eu domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionEU"
           },
           "whois_opt_in": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the contact's information is published in the WHOIS database."
           },
           "state": {
-            "$ref": "#/components/schemas/google.protobuf.StringValue"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "State or region of the contact."
           },
           "extension_nl": {
+            "description": "Additional information required for .nl domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionNL"
           },
           "extension_it": {
+            "description": "Additional information required for .it domains.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionIT"
           },
           "questions": {
@@ -1701,25 +1835,29 @@
         "properties": {
           "domains": {
             "type": "array",
+            "description": "List of domains in the order.",
             "items": {
               "type": "string"
             }
           },
           "organization_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The organization ID associated with the order."
           },
           "project_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The project ID associated with the order."
           },
           "task_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The unique identifier of the task associated with the order."
           },
           "created_at": {
             "type": [
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "The creation date of the order. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           }
@@ -1736,59 +1874,72 @@
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "The external domain name registered."
           },
           "organization_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The organization ID associated with the external domain."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "The project ID associated with the external domain."
           },
           "validation_token": {
-            "type": "string"
+            "type": "string",
+            "description": "The validation token to use to validate the external domain."
           },
           "created_at": {
             "type": [
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "The creation date of the external domain registration. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
-          },
-          "project_id": {
-            "type": "string"
           }
         },
         "x-properties-order": [
           "domain",
           "organization_id",
+          "project_id",
           "validation_token",
-          "created_at",
-          "project_id"
+          "created_at"
         ]
       },
       "scaleway.domain.v2beta1.RenewableDomain": {
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "The domain name."
           },
           "project_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The project ID associated with the domain."
           },
           "organization_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The organization ID associated with the domain."
           },
           "status": {
+            "description": "The renewal status of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.RenewableDomain.Status"
           },
           "renewable_duration_in_years": {
-            "$ref": "#/components/schemas/google.protobuf.Int32Value"
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Duration in years for which the domain can be renewed.",
+            "format": "int32"
           },
           "expired_at": {
             "type": [
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "Date of expiration of the domain. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           },
@@ -1797,7 +1948,7 @@
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "Deadline to renew the domain before it enters the late renewal period. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           },
@@ -1806,7 +1957,7 @@
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "Deadline to renew the domain before it enters the redemption period. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           },
@@ -1815,11 +1966,12 @@
               "string",
               "null"
             ],
-            "description": "(RFC 3339 format)",
+            "description": "Estimated date at which the domain will be deleted. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "tld": {
+            "description": "TLD information of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Tld"
           }
         },
@@ -2037,26 +2189,33 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The TLD name."
           },
           "dnssec_support": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the TLD supports DNSSEC."
           },
           "duration_in_years_min": {
             "type": "integer",
+            "description": "Minimum registration duration in years for the TLD.",
             "format": "uint32"
           },
           "duration_in_years_max": {
             "type": "integer",
+            "description": "Maximum registration duration in years for the TLD.",
             "format": "uint32"
           },
           "idn_support": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the TLD supports internationalized domain names (IDN)."
           },
           "offers": {
             "type": "object",
+            "description": "Available offers (create, renew, transfer, etc.) for the TLD.",
             "properties": {
               "<offerKey>": {
+                "description": "Available offers (create, renew, transfer, etc.) for the TLD.",
                 "$ref": "#/components/schemas/scaleway.domain.v2beta1.Tld.Offer"
               }
             },
@@ -2064,9 +2223,11 @@
           },
           "specifications": {
             "type": "object",
+            "description": "Additional specifications of the TLD.",
             "properties": {
               "<specificationKey>": {
-                "type": "string"
+                "type": "string",
+                "description": "Additional specifications of the TLD."
               }
             },
             "additionalProperties": true
@@ -2086,12 +2247,15 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string"
+            "type": "string",
+            "description": "The action of the offer (create, renew, transfer, etc.)."
           },
           "operation_path": {
-            "type": "string"
+            "type": "string",
+            "description": "The operation path of the offer."
           },
           "price": {
+            "description": "The price of the offer.",
             "$ref": "#/components/schemas/google.type.Money"
           }
         },
@@ -2140,12 +2304,6 @@
           "de_DE"
         ],
         "default": "unknown_language_code"
-      },
-      "scaleway.std.StringsValue": {
-        "type": [
-          "array",
-          "null"
-        ]
       }
     },
     "securitySchemes": {
@@ -2186,25 +2344,30 @@
                 "properties": {
                   "domains": {
                     "type": "array",
+                    "description": "List of domains to purchase.",
                     "items": {
                       "type": "string"
                     }
                   },
                   "duration_in_years": {
                     "type": "integer",
+                    "description": "Duration in years for the domain registration.",
                     "format": "uint32"
                   },
                   "project_id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Project ID to create the domains in."
                   },
                   "owner_contact_id": {
                     "type": [
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's owner.",
                     "x-one-of": "owner_contact_type"
                   },
                   "owner_contact": {
+                    "description": "New contact to create and use as the domain's owner.",
                     "x-one-of": "owner_contact_type",
                     "oneOf": [
                       {
@@ -2220,9 +2383,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
+                    "description": "New contact to create and use as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -2238,9 +2403,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's technical contact.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
+                    "description": "New contact to create and use as the domain's technical contact.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {
@@ -2321,12 +2488,14 @@
                 "properties": {
                   "domains": {
                     "type": "array",
+                    "description": "List of domains to check contacts compatibility against.",
                     "items": {
                       "type": "string"
                     }
                   },
                   "tlds": {
                     "type": "array",
+                    "description": "List of TLDs to check contacts compatibility against.",
                     "items": {
                       "type": "string"
                     }
@@ -2336,9 +2505,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to check as the domain's owner.",
                     "x-one-of": "owner_contact_type"
                   },
                   "owner_contact": {
+                    "description": "New contact to check as the domain's owner.",
                     "x-one-of": "owner_contact_type",
                     "oneOf": [
                       {
@@ -2354,9 +2525,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to check as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
+                    "description": "New contact to check as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -2372,9 +2545,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to check as the domain's technical contact.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
+                    "description": "New contact to check as the domain's technical contact.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {
@@ -2429,13 +2604,16 @@
           {
             "in": "query",
             "name": "page",
+            "description": "Page number for the returned contacts.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
             "in": "query",
             "name": "page_size",
+            "description": "Maximum number of contacts per page.",
             "schema": {
               "type": "integer",
               "format": "uint32"
@@ -2444,27 +2622,31 @@
           {
             "in": "query",
             "name": "domain",
+            "description": "Filter contacts by domain name.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "project_id",
+            "description": "Filter contacts by project ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "organization_id",
+            "description": "Filter contacts by organization ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "role",
+            "description": "Filter contacts by role (owner, administrative, technical).",
             "schema": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.ListContactsRequest.Role"
             }
@@ -2472,8 +2654,49 @@
           {
             "in": "query",
             "name": "email_status",
+            "description": "Filter contacts by email validation status.",
             "schema": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.EmailStatus"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "Sort order of the returned contacts.",
+            "schema": {
+              "$ref": "#/components/schemas/scaleway.domain.v2beta1.ListContactsRequest.OrderBy"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "Filter by contact status.",
+            "schema": {
+              "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.Status"
+            }
+          },
+          {
+            "in": "query",
+            "name": "legal_form",
+            "description": "Filter by legal form.",
+            "schema": {
+              "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.LegalForm"
+            }
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "Filter by email address.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "Fuzzy search in firstname, lastname, email, and company_name.",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -2518,6 +2741,7 @@
           {
             "in": "path",
             "name": "contact_id",
+            "description": "ID of the contact to retrieve.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2563,6 +2787,7 @@
           {
             "in": "path",
             "name": "contact_id",
+            "description": "ID of the contact to update.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2589,61 +2814,122 @@
                 "type": "object",
                 "properties": {
                   "email": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Email address of the contact."
                   },
                   "email_alt": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Alternative email address of the contact."
                   },
                   "phone_number": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Phone number of the contact."
                   },
                   "fax_number": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Fax number of the contact."
                   },
                   "address_line_1": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "First line of the contact's address."
                   },
                   "address_line_2": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Second line of the contact's address."
                   },
                   "zip": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Postal code of the contact."
                   },
                   "city": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "City of the contact."
                   },
                   "country": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Country code of the contact (ISO 3166-1 alpha-2 format)."
                   },
                   "vat_identification_code": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "VAT identification code of the contact."
                   },
                   "company_identification_code": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Company identification code (e.g. SIRET/SIREN) of the contact."
                   },
                   "lang": {
+                    "description": "Preferred language of the contact.",
                     "$ref": "#/components/schemas/scaleway.std.LanguageCode"
                   },
                   "resale": {
-                    "$ref": "#/components/schemas/google.protobuf.BoolValue"
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Indicates whether the contact's information can be resold."
                   },
                   "extension_fr": {
+                    "description": "Additional information required for .fr domains.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR"
                   },
                   "extension_eu": {
+                    "description": "Additional information required for .eu domains.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionEU"
                   },
                   "extension_nl": {
+                    "description": "Additional information required for .nl domains.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionNL"
                   },
                   "extension_it": {
+                    "description": "Additional information required for .it domains.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionIT"
                   },
                   "whois_opt_in": {
-                    "$ref": "#/components/schemas/google.protobuf.BoolValue"
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Indicates whether the contact's information is published in the WHOIS database."
                   },
                   "state": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "State or region of the contact."
                   },
                   "questions": {
                     "type": "array",
@@ -2708,13 +2994,16 @@
           {
             "in": "query",
             "name": "page",
+            "description": "Page number for the returned domains.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
             "in": "query",
             "name": "page_size",
+            "description": "Maximum number of domains per page.",
             "schema": {
               "type": "integer",
               "format": "uint32"
@@ -2723,6 +3012,7 @@
           {
             "in": "query",
             "name": "order_by",
+            "description": "Sort order of the returned domains.",
             "schema": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.ListDomainsRequest.OrderBy"
             }
@@ -2730,13 +3020,15 @@
           {
             "in": "query",
             "name": "registrar",
+            "description": "Filter domains by registrar.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "status",
+            "description": "Filter domains by status.",
             "schema": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.Status"
             }
@@ -2744,29 +3036,33 @@
           {
             "in": "query",
             "name": "project_id",
+            "description": "Filter domains by project ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "organization_id",
+            "description": "Filter domains by organization ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "is_external",
+            "description": "Filter domains by external status.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.BoolValue"
+              "type": "boolean"
             }
           },
           {
             "in": "query",
             "name": "domain",
+            "description": "Filter domains by domain name.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           }
         ],
@@ -2811,6 +3107,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to retrieve.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2856,6 +3153,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to update.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2886,9 +3184,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's technical contact.",
                     "x-one-of": "technical_contact_info"
                   },
                   "technical_contact": {
+                    "description": "New contact to create and use as the domain's technical contact.",
                     "x-one-of": "technical_contact_info",
                     "oneOf": [
                       {
@@ -2904,10 +3204,12 @@
                       "string",
                       "null"
                     ],
+                    "description": "Deprecated. ID of the existing contact to use as the domain's owner.",
                     "deprecated": true,
                     "x-one-of": "owner_contact_info"
                   },
                   "owner_contact": {
+                    "description": "Deprecated. New contact to create and use as the domain's owner.",
                     "deprecated": true,
                     "x-one-of": "owner_contact_info",
                     "oneOf": [
@@ -2924,9 +3226,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_info"
                   },
                   "administrative_contact": {
+                    "description": "New contact to create and use as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_info",
                     "oneOf": [
                       {
@@ -2979,6 +3283,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to retrieve the authorization code for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3026,6 +3331,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to disable auto renew for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3083,6 +3389,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to disable DNSSEC for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3140,6 +3447,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to enable auto renew for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3197,6 +3505,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to enable DNSSEC for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3223,6 +3532,7 @@
                 "type": "object",
                 "properties": {
                   "ds_record": {
+                    "description": "The DS record to configure for DNSSEC. If omitted, the DS record will be automatically generated.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord"
                   }
                 },
@@ -3262,6 +3572,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to list hostnames for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3270,13 +3581,16 @@
           {
             "in": "query",
             "name": "page",
+            "description": "Page number for the returned hostnames.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
             "in": "query",
             "name": "page_size",
+            "description": "Maximum number of hostnames per page.",
             "schema": {
               "type": "integer",
               "format": "uint32"
@@ -3322,6 +3636,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to create the hostname for.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3348,11 +3663,12 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The hostname to create."
                   },
                   "ips": {
                     "type": "array",
-                    "description": "(IP address)",
+                    "description": "List of glue IP addresses associated with the hostname. (IP address)",
                     "example": [
                       "1.2.3.4"
                     ],
@@ -3398,6 +3714,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name of the hostname to update.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3406,6 +3723,7 @@
           {
             "in": "path",
             "name": "name",
+            "description": "The hostname to update.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3432,7 +3750,11 @@
                 "type": "object",
                 "properties": {
                   "ips": {
-                    "$ref": "#/components/schemas/scaleway.std.StringsValue"
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "description": "New list of glue IP addresses associated with the hostname."
                   }
                 },
                 "x-properties-order": [
@@ -3468,6 +3790,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name of the hostname to delete.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3476,6 +3799,7 @@
           {
             "in": "path",
             "name": "name",
+            "description": "The hostname to delete.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3523,6 +3847,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to lock for transfer.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3580,6 +3905,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to trade.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3606,16 +3932,22 @@
                 "type": "object",
                 "properties": {
                   "project_id": {
-                    "$ref": "#/components/schemas/google.protobuf.StringValue"
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Project ID to associate with the domain after the trade."
                   },
                   "new_owner_contact_id": {
                     "type": [
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's new owner.",
                     "x-one-of": "new_owner_contact_type"
                   },
                   "new_owner_contact": {
+                    "description": "New contact to create and use as the domain's new owner.",
                     "x-one-of": "new_owner_contact_type",
                     "oneOf": [
                       {
@@ -3665,6 +3997,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The domain name to unlock for transfer.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3739,21 +4072,25 @@
                 "properties": {
                   "domains": {
                     "type": "array",
+                    "description": "List of domains to transfer in, each with its auth code.",
                     "items": {
                       "$ref": "#/components/schemas/scaleway.domain.v2beta1.TransferInDomainRequest.TransferRequest"
                     }
                   },
                   "project_id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Project ID to transfer the domains into."
                   },
                   "owner_contact_id": {
                     "type": [
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's owner.",
                     "x-one-of": "owner_contact_type"
                   },
                   "owner_contact": {
+                    "description": "New contact to create and use as the domain's owner.",
                     "x-one-of": "owner_contact_type",
                     "oneOf": [
                       {
@@ -3769,9 +4106,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
+                    "description": "New contact to create and use as the domain's administrative contact.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -3787,9 +4126,11 @@
                       "string",
                       "null"
                     ],
+                    "description": "ID of the existing contact to use as the domain's technical contact.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
+                    "description": "New contact to create and use as the domain's technical contact.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {
@@ -3863,12 +4204,17 @@
                 "type": "object",
                 "properties": {
                   "domain": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The external domain name to register."
                   },
                   "project_id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Project ID to register the external domain in."
                   }
                 },
+                "required": [
+                  "domain"
+                ],
                 "x-properties-order": [
                   "domain",
                   "project_id"
@@ -3906,6 +4252,7 @@
           {
             "in": "path",
             "name": "domain",
+            "description": "The external domain name to delete.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3953,6 +4300,7 @@
           {
             "in": "query",
             "name": "page",
+            "description": "Page number for the returned inbound transfers.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -3962,6 +4310,7 @@
           {
             "in": "query",
             "name": "page_size",
+            "description": "Maximum number of inbound transfers per page.",
             "schema": {
               "type": "integer",
               "format": "uint32"
@@ -3970,6 +4319,7 @@
           {
             "in": "query",
             "name": "project_id",
+            "description": "Filter inbound transfers by project ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3978,6 +4328,7 @@
           {
             "in": "query",
             "name": "organization_id",
+            "description": "Filter inbound transfers by organization ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -3986,6 +4337,7 @@
           {
             "in": "query",
             "name": "domain",
+            "description": "Filter inbound transfers by domain name.",
             "required": true,
             "schema": {
               "type": "string"
@@ -4050,16 +4402,22 @@
                 "properties": {
                   "domains": {
                     "type": "array",
+                    "description": "List of domains to renew.",
                     "items": {
                       "type": "string"
                     }
                   },
                   "duration_in_years": {
                     "type": "integer",
+                    "description": "Duration in years for the domain renewal.",
                     "format": "uint32"
                   },
                   "force_late_renewal": {
-                    "$ref": "#/components/schemas/google.protobuf.BoolValue"
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Force the renewal to be a late renewal."
                   }
                 },
                 "required": [
@@ -4103,13 +4461,16 @@
           {
             "in": "query",
             "name": "page",
+            "description": "Page number for the returned renewable domains.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
             "in": "query",
             "name": "page_size",
+            "description": "Maximum number of renewable domains per page.",
             "schema": {
               "type": "integer",
               "format": "uint32"
@@ -4118,6 +4479,7 @@
           {
             "in": "query",
             "name": "order_by",
+            "description": "Sort order of the returned renewable domains.",
             "schema": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.ListRenewableDomainsRequest.OrderBy"
             }
@@ -4125,15 +4487,17 @@
           {
             "in": "query",
             "name": "project_id",
+            "description": "Filter renewable domains by project ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "organization_id",
+            "description": "Filter renewable domains by organization ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           }
         ],
@@ -4327,13 +4691,16 @@
           {
             "in": "query",
             "name": "page",
+            "description": "Page number for the returned tasks.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
             "in": "query",
             "name": "page_size",
+            "description": "Maximum number of tasks per page.",
             "schema": {
               "type": "integer",
               "format": "uint32"
@@ -4342,27 +4709,31 @@
           {
             "in": "query",
             "name": "project_id",
+            "description": "Filter tasks by project ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "organization_id",
+            "description": "Filter tasks by organization ID.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "domain",
+            "description": "Filter tasks by domain name.",
             "schema": {
-              "$ref": "#/components/schemas/google.protobuf.StringValue"
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "types",
+            "description": "Filter tasks by type.",
             "schema": {
               "type": "array",
               "items": {
@@ -4373,6 +4744,7 @@
           {
             "in": "query",
             "name": "statuses",
+            "description": "Filter tasks by status.",
             "schema": {
               "type": "array",
               "items": {
@@ -4383,6 +4755,7 @@
           {
             "in": "query",
             "name": "order_by",
+            "description": "Sort order of the returned tasks.",
             "schema": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.ListTasksRequest.OrderBy"
             }

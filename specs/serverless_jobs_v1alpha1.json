@@ -68,6 +68,7 @@
               "string",
               "null"
             ],
+            "pattern": "^/[a-zA-Z0-9/_-]*(\\.[a-zA-Z0-9]+)?$",
             "x-one-of": "path_or_env_var"
           },
           "env_var_name": {
@@ -75,6 +76,7 @@
               "string",
               "null"
             ],
+            "pattern": "[-._a-zA-Z0-9]+",
             "x-one-of": "path_or_env_var"
           }
         },
@@ -667,7 +669,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the job definition."
+                    "description": "Name of the job definition.",
+                    "pattern": "^[A-Za-z0-9-_]{3,50}$"
                   },
                   "cpu_limit": {
                     "type": "integer",
@@ -689,7 +692,8 @@
                   },
                   "image_uri": {
                     "type": "string",
-                    "description": "Image to use for the job."
+                    "description": "Image to use for the job.",
+                    "pattern": "^((?:(?:(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])(?:\\.(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))*|\\[(?:[a-fA-F0-9:]+)\\])(?::[0-9]+)?\\/)?[a-z0-9]+(?:(?:[._]|__|[-]+)[a-z0-9]+)*(?:\\/[a-z0-9]+(?:(?:[._]|__|[-]+)[a-z0-9]+)*)*)(?::(\\w[A-Za-z0-9_.-]{0,127}))?(?:@([A-Za-z][A-Za-z0-9]*(?:[-_+.][A-Za-z][A-Za-z0-9]*)*[:][[:xdigit:]]{32,}))?$"
                   },
                   "command": {
                     "type": "string",
@@ -883,7 +887,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the job definition."
+                    "description": "Name of the job definition.",
+                    "pattern": "^[A-Za-z0-9-_]{3,50}$"
                   },
                   "cpu_limit": {
                     "type": [
@@ -914,7 +919,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Image to use for the job."
+                    "description": "Image to use for the job.",
+                    "pattern": "^((?:(?:(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])(?:\\.(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))*|\\[(?:[a-fA-F0-9:]+)\\])(?::[0-9]+)?\\/)?[a-z0-9]+(?:(?:[._]|__|[-]+)[a-z0-9]+)*(?:\\/[a-z0-9]+(?:(?:[._]|__|[-]+)[a-z0-9]+)*)*)(?::(\\w[A-Za-z0-9_.-]{0,127}))?(?:@([A-Za-z][A-Za-z0-9]*(?:[-_+.][A-Za-z][A-Za-z0-9]*)*[:][[:xdigit:]]{32,}))?$"
                   },
                   "command": {
                     "type": [
@@ -1325,6 +1331,7 @@
                       "null"
                     ],
                     "description": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).",
+                    "pattern": "^/[a-zA-Z0-9/_-]*(\\.[a-zA-Z0-9]+)?$",
                     "x-one-of": "secret_config"
                   },
                   "env_var_name": {
@@ -1333,6 +1340,7 @@
                       "null"
                     ],
                     "description": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).",
+                    "pattern": "[-._a-zA-Z0-9]+",
                     "x-one-of": "secret_config"
                   }
                 },

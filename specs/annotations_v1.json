@@ -802,7 +802,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the annotation key."
+                    "description": "Name of the annotation key.",
+                    "pattern": "^[_\\pL][_\\pL0-9]*$"
                   },
                   "description": {
                     "type": "string",
@@ -924,7 +925,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "New name of the key."
+                    "description": "New name of the key.",
+                    "pattern": "^[_\\pL][_\\pL0-9]*$"
                   },
                   "description": {
                     "type": [
@@ -1104,7 +1106,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the value."
+                    "description": "Name of the value.",
+                    "pattern": "^[_\\pL][_\\pL0-9]*$"
                   },
                   "description": {
                     "type": "string",
@@ -1226,7 +1229,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "New name of the value."
+                    "description": "New name of the value.",
+                    "pattern": "^[_\\pL][_\\pL0-9]*$"
                   },
                   "description": {
                     "type": [

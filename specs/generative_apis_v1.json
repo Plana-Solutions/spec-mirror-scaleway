@@ -216,6 +216,26 @@
               "type": "integer",
               "format": "uint32"
             }
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "description": "Organization ID. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "organization_project_id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "description": "Project ID. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "organization_project_id"
+            }
           }
         ],
         "responses": {

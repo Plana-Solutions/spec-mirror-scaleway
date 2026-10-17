@@ -622,7 +622,8 @@
                 "properties": {
                   "username": {
                     "type": "string",
-                    "description": "The member username."
+                    "description": "The member username.",
+                    "pattern": "^[a-zA-Z0-9@._+-]+$"
                   },
                   "email": {
                     "type": "string",

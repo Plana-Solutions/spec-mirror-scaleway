@@ -2298,7 +2298,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Data source name."
+                    "description": "Data source name.",
+                    "pattern": "^[A-Za-z0-9-_. ]+$"
                   },
                   "type": {
                     "description": "Data source type.",
@@ -2462,7 +2463,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Updated name of the data source."
+                    "description": "Updated name of the data source.",
+                    "pattern": "^[A-Za-z0-9-_. ]+$"
                   },
                   "retention_days": {
                     "type": [
@@ -3295,7 +3297,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the token."
+                    "description": "Name of the token.",
+                    "pattern": "^[A-Za-z0-9-_]+$"
                   },
                   "token_scopes": {
                     "type": "array",

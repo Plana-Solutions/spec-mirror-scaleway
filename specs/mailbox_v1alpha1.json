@@ -1653,6 +1653,26 @@
             "schema": {
               "$ref": "#/components/schemas/scaleway.mailbox.v1alpha1.Forwarding.Status"
             }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "description": "ID of the Project to filter on. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "description": "ID of the Organization to filter on. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "scope"
+            }
           }
         ],
         "responses": {

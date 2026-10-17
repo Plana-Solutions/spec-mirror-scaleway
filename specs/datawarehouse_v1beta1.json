@@ -704,7 +704,8 @@
             "name": "name",
             "description": "Lists deployments that match a name pattern.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[A-Za-z0-9-_]+$"
             }
           },
           {
@@ -824,18 +825,21 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the deployment."
+                    "description": "Name of the deployment.",
+                    "pattern": "^[A-Za-z0-9-_]+$"
                   },
                   "tags": {
                     "type": "array",
                     "description": "Tags to apply to the deployment.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[0-9A-Za-z_\\-=]+$"
                     }
                   },
                   "version": {
                     "type": "string",
-                    "description": "ClickHouse® version to use for the deployment."
+                    "description": "ClickHouse® version to use for the deployment.",
+                    "pattern": "^v[0-9]+$"
                   },
                   "replica_count": {
                     "type": "integer",
@@ -1033,7 +1037,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the deployment."
+                    "description": "Name of the deployment.",
+                    "pattern": "^[A-Za-z0-9-_]+$"
                   },
                   "tags": {
                     "type": [
@@ -1256,7 +1261,8 @@
             "name": "name",
             "description": "Name of the database to filter by.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z][a-zA-Z0-9_\\-]*$"
             }
           },
           {
@@ -1362,7 +1368,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the database."
+                    "description": "Name of the database.",
+                    "pattern": "^[a-z][a-zA-Z0-9_\\-]*$"
                   }
                 },
                 "x-properties-order": [
@@ -1424,7 +1431,8 @@
             "description": "Name of the database to delete.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z][a-zA-Z0-9_\\-]*$"
             }
           }
         ],
@@ -1624,7 +1632,8 @@
             "name": "name",
             "description": "Name of the user to filter by.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-]*$"
             }
           },
           {
@@ -1730,7 +1739,8 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "description": "Name of the user."
+                    "description": "Name of the user.",
+                    "pattern": "^[a-z][a-zA-Z0-9_\\-]*$"
                   },
                   "password": {
                     "type": "string",
@@ -1802,7 +1812,8 @@
             "description": "Name of the user.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z][a-zA-Z0-9_\\-]*$"
             }
           }
         ],
@@ -1898,7 +1909,8 @@
             "description": "Name of the user to delete.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[a-z][a-zA-Z0-9_\\-]*$"
             }
           }
         ],
@@ -2150,7 +2162,8 @@
             "in": "query",
             "name": "version",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^v[0-9]+$"
             }
           },
           {

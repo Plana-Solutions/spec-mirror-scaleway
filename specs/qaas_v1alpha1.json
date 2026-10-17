@@ -1772,6 +1772,24 @@
             "schema": {
               "$ref": "#/components/schemas/scaleway.qaas.v1alpha1.ListJobsRequest.OrderBy"
             }
+          },
+          {
+            "in": "query",
+            "name": "session_id",
+            "description": "List jobs with this session ID.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "resource_id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "description": "List jobs with this project ID.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "resource_id"
+            }
           }
         ],
         "responses": {

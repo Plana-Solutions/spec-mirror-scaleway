@@ -659,11 +659,13 @@
         "properties": {
           "key": {
             "type": "string",
-            "description": "The taint key to be applied to a node."
+            "description": "The taint key to be applied to a node.",
+            "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*\\/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
           },
           "value": {
             "type": "string",
-            "description": "The taint value corresponding to the taint key."
+            "description": "The taint value corresponding to the taint key.",
+            "pattern": "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$"
           },
           "effect": {
             "description": "Effect defines the effects of Taint.",

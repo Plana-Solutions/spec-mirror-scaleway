@@ -1420,6 +1420,7 @@
                       "null"
                     ],
                     "description": "OTP of the user.",
+                    "pattern": "^[A-Z0-9]+$",
                     "x-one-of": "mfa"
                   },
                   "organization_id": {
@@ -1505,6 +1506,7 @@
                       "null"
                     ],
                     "description": "OTP of the user.",
+                    "pattern": "^[A-Z0-9]+$",
                     "x-one-of": "mfa"
                   },
                   "webauthn": {
@@ -1987,65 +1989,6 @@
         ]
       }
     },
-    "/account/v3/users/{email}/validate-email": {
-      "post": {
-        "tags": [
-          "Unauthenticated User"
-        ],
-        "operationId": "ValidateEmail",
-        "summary": "Validate the email address of an existing user",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "email",
-            "description": "Email address to validate.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "token": {
-                    "type": "string",
-                    "description": "Token received to validate the email address."
-                  }
-                },
-                "x-properties-order": [
-                  "token"
-                ]
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "scaleway": []
-          }
-        ],
-        "x-codeSamples": [
-          {
-            "lang": "cURL",
-            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"token\":\"string\"}' \\\n  \"https://api.scaleway.com/account/v3/users/{email}/validate-email\""
-          },
-          {
-            "lang": "HTTPie",
-            "source": "http POST \"https://api.scaleway.com/account/v3/users/{email}/validate-email\" \\\n  X-Auth-Token:$SCW_SECRET_KEY \\\n  token=\"string\""
-          }
-        ]
-      }
-    },
     "/account/v3/validate-account": {
       "post": {
         "tags": [
@@ -2117,7 +2060,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Country code of the organization (ISO 3166-2)."
+                    "description": "Country code of the organization (ISO 3166-2).",
+                    "pattern": "[A-Z]{2}"
                   }
                 },
                 "x-properties-order": [

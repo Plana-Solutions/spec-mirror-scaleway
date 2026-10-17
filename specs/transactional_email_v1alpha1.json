@@ -3129,6 +3129,26 @@
             "schema": {
               "$ref": "#/components/schemas/scaleway.transactional_email.v1alpha1.Offer.Name"
             }
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "description": "(Optional) ID of the Organization. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "scope"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project_id",
+            "description": "(Optional) ID of the Project. (UUID format)",
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d",
+              "x-one-of": "scope"
+            }
           }
         ],
         "responses": {

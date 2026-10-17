@@ -531,7 +531,8 @@
           },
           "subject": {
             "type": "string",
-            "description": "NATS subject to subscribe to (e.g., \"my-subject\")."
+            "description": "NATS subject to subscribe to (e.g., \"my-subject\").",
+            "pattern": "^[^\\s]+$"
           },
           "credentials_file_content": {
             "type": "string",
@@ -1398,7 +1399,8 @@
               "string",
               "null"
             ],
-            "description": "NATS subject to subscribe to (e.g., \"my-subject\")."
+            "description": "NATS subject to subscribe to (e.g., \"my-subject\").",
+            "pattern": "^[^\\s]+$"
           },
           "credentials_file_content": {
             "type": [
@@ -1643,7 +1645,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Container name."
+                    "description": "Container name.",
+                    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                   },
                   "environment_variables": {
                     "type": "object",
@@ -2867,7 +2870,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Namespace name."
+                    "description": "Namespace name.",
+                    "pattern": "^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])$"
                   },
                   "description": {
                     "type": [
@@ -3389,7 +3393,8 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "Name of the trigger."
+                    "description": "Name of the trigger.",
+                    "pattern": "^[a-zA-Z0-9]([-_a-zA-Z0-9]*[a-zA-Z0-9])$"
                   },
                   "description": {
                     "type": [
@@ -3599,7 +3604,8 @@
                       "string",
                       "null"
                     ],
-                    "description": "Name of the trigger."
+                    "description": "Name of the trigger.",
+                    "pattern": "^[a-zA-Z0-9]([-_a-zA-Z0-9]*[a-zA-Z0-9])$"
                   },
                   "description": {
                     "type": [

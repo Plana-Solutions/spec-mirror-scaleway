@@ -2257,6 +2257,42 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "in": "query",
+            "name": "global",
+            "description": "Filter global products.",
+            "schema": {
+              "type": "boolean",
+              "x-one-of": "locality"
+            }
+          },
+          {
+            "in": "query",
+            "name": "region",
+            "description": "Filter products by region.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "locality"
+            }
+          },
+          {
+            "in": "query",
+            "name": "zone",
+            "description": "Filter products by zone.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "locality"
+            }
+          },
+          {
+            "in": "query",
+            "name": "datacenter",
+            "description": "Filter products by datacenter.",
+            "schema": {
+              "type": "string",
+              "x-one-of": "locality"
+            }
           }
         ],
         "responses": {
