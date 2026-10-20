@@ -154,11 +154,11 @@
           },
           "phone_number": {
             "type": "string",
-            "description": "Phone number of the contact."
+            "description": "Phone number of the contact, normalized to +CC.NationalNumber format."
           },
           "fax_number": {
             "type": "string",
-            "description": "Fax number of the contact."
+            "description": "Fax number of the contact, normalized to +CC.NationalNumber format."
           },
           "address_line_1": {
             "type": "string",
@@ -186,7 +186,7 @@
           },
           "company_identification_code": {
             "type": "string",
-            "description": "Company identification code (e.g. SIRET/SIREN) of the contact."
+            "description": "Company identification code of the contact (SIRET/SIREN for French contacts, any format for others)."
           },
           "lang": {
             "description": "Preferred language of the contact.",
@@ -197,11 +197,11 @@
             "description": "Indicates whether the contact's information can be resold."
           },
           "extension_fr": {
-            "description": "Additional information required for .fr domains.",
+            "description": "Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR"
           },
           "extension_eu": {
-            "description": "Additional information required for .eu domains.",
+            "description": "Additional information required for .eu domains. Conditionally required.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionEU"
           },
           "whois_opt_in": {
@@ -217,7 +217,7 @@
             "description": "State or region of the contact."
           },
           "extension_nl": {
-            "description": "Additional information required for .nl domains.",
+            "description": "Additional information required for .nl domains. Auto-populated for individuals.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionNL"
           },
           "status": {
@@ -225,7 +225,7 @@
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.Status"
           },
           "extension_it": {
-            "description": "Additional information required for .it domains.",
+            "description": "Additional information required for .it domains. Contains a PIN.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionIT"
           },
           "questions": {
@@ -745,7 +745,7 @@
             "format": "uint32"
           },
           "algorithm": {
-            "description": "The cryptographic algorithm used for the DS record.",
+            "description": "The cryptographic algorithm of the DNSKEY used for the DS record.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord.Algorithm"
           },
           "digest": {
@@ -828,7 +828,7 @@
             "description": "The digest string of the DS record."
           },
           "public_key": {
-            "description": "The public key associated with the digest.",
+            "description": "The DNSKEY the digest is derived from. Optional.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord.PublicKey"
           }
         },
@@ -887,7 +887,7 @@
             "description": "The project ID associated with the domain."
           },
           "auto_renew_status": {
-            "description": "Status of the automatic renewal of the domain.",
+            "description": "Status of the automatic renewal of the domain (enabling, enabled, disabling, disabled).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.FeatureStatus"
           },
           "dnssec": {
@@ -896,7 +896,7 @@
           },
           "epp_code": {
             "type": "array",
-            "description": "List of the domain's EPP codes.",
+            "description": "List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold).",
             "items": {
               "type": "string"
             }
@@ -925,7 +925,7 @@
           },
           "is_external": {
             "type": "boolean",
-            "description": "Indicates whether Scaleway is the domain's registrar."
+            "description": "Indicates whether the domain is external (not managed by Scaleway as registrar)."
           },
           "status": {
             "description": "Status of the domain.",
@@ -963,7 +963,7 @@
             ]
           },
           "transfer_registration_status": {
-            "description": "Status of a domain, when available for transfer.",
+            "description": "Status of an in-progress domain transfer.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -980,7 +980,7 @@
           },
           "linked_products": {
             "type": "array",
-            "description": "List of Scaleway resources linked to the domain.",
+            "description": "List of Scaleway product types linked to the domain (e.g. vpc).",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.LinkedProduct"
             }
@@ -1163,16 +1163,16 @@
             "description": "The organization ID associated with the domain."
           },
           "auto_renew_status": {
-            "description": "Status of the automatic renewal of the domain.",
+            "description": "Status of the automatic renewal of the domain (enabling, enabled, disabling, disabled).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.FeatureStatus"
           },
           "dnssec_status": {
-            "description": "Status of the DNSSEC configuration of the domain.",
+            "description": "Status of the DNSSEC configuration of the domain (enabling, enabled, disabling, disabled).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.FeatureStatus"
           },
           "epp_code": {
             "type": "array",
-            "description": "List of the domain's EPP codes.",
+            "description": "List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold).",
             "items": {
               "type": "string"
             }
@@ -1210,7 +1210,7 @@
           },
           "is_external": {
             "type": "boolean",
-            "description": "Indicates whether Scaleway is the domain's registrar."
+            "description": "Indicates whether the domain is external (not managed by Scaleway as registrar)."
           },
           "status": {
             "description": "Status of the domain.",
@@ -1229,7 +1229,7 @@
             ]
           },
           "transfer_registration_status": {
-            "description": "Status of a domain, when available for transfer.",
+            "description": "Status of an in-progress domain transfer.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -1284,7 +1284,7 @@
           },
           "name": {
             "type": "string",
-            "description": "The hostname."
+            "description": "The hostname (FQDN, e.g. ns1.example.com)."
           },
           "ips": {
             "type": "array",
@@ -1495,7 +1495,7 @@
           },
           "hosts": {
             "type": "array",
-            "description": "List of hostnames matching the request.",
+            "description": "List of host objects matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.Host"
             }
@@ -1530,7 +1530,7 @@
           },
           "domains": {
             "type": "array",
-            "description": "List of domains matching the request.",
+            "description": "List of domain summaries matching the request.",
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.DomainSummary"
             }
@@ -1714,14 +1714,14 @@
           },
           "phone_number": {
             "type": "string",
-            "description": "Phone number of the contact."
+            "description": "Phone number of the contact, normalized to +CC.NationalNumber format."
           },
           "fax_number": {
             "type": [
               "string",
               "null"
             ],
-            "description": "Fax number of the contact."
+            "description": "Fax number of the contact, normalized to +CC.NationalNumber format."
           },
           "address_line_1": {
             "type": "string",
@@ -1758,7 +1758,7 @@
               "string",
               "null"
             ],
-            "description": "Company identification code (e.g. SIRET/SIREN) of the contact."
+            "description": "Company identification code of the contact (SIRET/SIREN for French contacts, any format for others)."
           },
           "lang": {
             "description": "Preferred language of the contact.",
@@ -1769,11 +1769,11 @@
             "description": "Indicates whether the contact's information can be resold."
           },
           "extension_fr": {
-            "description": "Additional information required for .fr domains.",
+            "description": "Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf).",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR"
           },
           "extension_eu": {
-            "description": "Additional information required for .eu domains.",
+            "description": "Additional information required for .eu domains. Conditionally required.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionEU"
           },
           "whois_opt_in": {
@@ -1788,11 +1788,11 @@
             "description": "State or region of the contact."
           },
           "extension_nl": {
-            "description": "Additional information required for .nl domains.",
+            "description": "Additional information required for .nl domains. Auto-populated for individuals.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionNL"
           },
           "extension_it": {
-            "description": "Additional information required for .it domains.",
+            "description": "Additional information required for .it domains. Contains a PIN.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionIT"
           },
           "questions": {
@@ -1887,7 +1887,7 @@
           },
           "validation_token": {
             "type": "string",
-            "description": "The validation token to use to validate the external domain."
+            "description": "The validation token to set as a DNS TXT record at _scaleway-challenge.<domain> to validate the external domain."
           },
           "created_at": {
             "type": [
@@ -2212,10 +2212,10 @@
           },
           "offers": {
             "type": "object",
-            "description": "Available offers (create, renew, transfer, etc.) for the TLD.",
+            "description": "Map of available offers for the TLD, keyed by action string (create, renew, transfer, etc.).",
             "properties": {
               "<offerKey>": {
-                "description": "Available offers (create, renew, transfer, etc.) for the TLD.",
+                "description": "Map of available offers for the TLD, keyed by action string (create, renew, transfer, etc.).",
                 "$ref": "#/components/schemas/scaleway.domain.v2beta1.Tld.Offer"
               }
             },
@@ -2252,7 +2252,7 @@
           },
           "operation_path": {
             "type": "string",
-            "description": "The operation path of the offer."
+            "description": "The billing SKU path of the offer (e.g. /network/domain/domains/fr/register)."
           },
           "price": {
             "description": "The price of the offer.",
@@ -2351,7 +2351,7 @@
                   },
                   "duration_in_years": {
                     "type": "integer",
-                    "description": "Duration in years for the domain registration.",
+                    "description": "Duration in years for the domain registration. Subject to TLD-specific minimum and maximum constraints.",
                     "format": "uint32"
                   },
                   "project_id": {
@@ -2383,11 +2383,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's administrative contact.",
+                    "description": "ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
-                    "description": "New contact to create and use as the domain's administrative contact.",
+                    "description": "New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -2403,11 +2403,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's technical contact.",
+                    "description": "ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
-                    "description": "New contact to create and use as the domain's technical contact.",
+                    "description": "New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {
@@ -2832,14 +2832,14 @@
                       "string",
                       "null"
                     ],
-                    "description": "Phone number of the contact."
+                    "description": "Phone number of the contact, normalized to +CC.NationalNumber format."
                   },
                   "fax_number": {
                     "type": [
                       "string",
                       "null"
                     ],
-                    "description": "Fax number of the contact."
+                    "description": "Fax number of the contact, normalized to +CC.NationalNumber format."
                   },
                   "address_line_1": {
                     "type": [
@@ -2874,7 +2874,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Country code of the contact (ISO 3166-1 alpha-2 format)."
+                    "description": "Country code of the contact (ISO 3166-1 alpha-2 format). Not updatable; returns an error if changed."
                   },
                   "vat_identification_code": {
                     "type": [
@@ -2888,7 +2888,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Company identification code (e.g. SIRET/SIREN) of the contact."
+                    "description": "Company identification code of the contact (SIRET/SIREN for French contacts, any format for others)."
                   },
                   "lang": {
                     "description": "Preferred language of the contact.",
@@ -2902,19 +2902,19 @@
                     "description": "Indicates whether the contact's information can be resold."
                   },
                   "extension_fr": {
-                    "description": "Additional information required for .fr domains.",
+                    "description": "Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf).",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR"
                   },
                   "extension_eu": {
-                    "description": "Additional information required for .eu domains.",
+                    "description": "Additional information required for .eu domains. Conditionally required.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionEU"
                   },
                   "extension_nl": {
-                    "description": "Additional information required for .nl domains.",
+                    "description": "Additional information required for .nl domains. Auto-populated for individuals.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionNL"
                   },
                   "extension_it": {
-                    "description": "Additional information required for .it domains.",
+                    "description": "Additional information required for .it domains. Contains a PIN.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionIT"
                   },
                   "whois_opt_in": {
@@ -3052,7 +3052,7 @@
           {
             "in": "query",
             "name": "is_external",
-            "description": "Filter domains by external status.",
+            "description": "Filter domains by whether they are external (not managed by Scaleway as registrar).",
             "schema": {
               "type": "boolean"
             }
@@ -3532,7 +3532,7 @@
                 "type": "object",
                 "properties": {
                   "ds_record": {
-                    "description": "The DS record to configure for DNSSEC. If omitted, the DS record will be automatically generated.",
+                    "description": "The DS record to configure for DNSSEC. Required for domains using non-Scaleway nameservers. For Scaleway nameservers, auto-generated and must be omitted.",
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord"
                   }
                 },
@@ -3754,7 +3754,7 @@
                       "array",
                       "null"
                     ],
-                    "description": "New list of glue IP addresses associated with the hostname."
+                    "description": "New list of glue IP addresses associated with the hostname. Optional."
                   }
                 },
                 "x-properties-order": [
@@ -3905,7 +3905,7 @@
           {
             "in": "path",
             "name": "domain",
-            "description": "The domain name to trade.",
+            "description": "The domain name to trade (change of owner/registrant).",
             "required": true,
             "schema": {
               "type": "string"
@@ -3936,7 +3936,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID to associate with the domain after the trade."
+                    "description": "Project ID to associate with the domain after the trade. Also used to filter the new owner's contacts."
                   },
                   "new_owner_contact_id": {
                     "type": [
@@ -4072,7 +4072,7 @@
                 "properties": {
                   "domains": {
                     "type": "array",
-                    "description": "List of domains to transfer in, each with its auth code.",
+                    "description": "List of domains to transfer in, each with its optional auth code.",
                     "items": {
                       "$ref": "#/components/schemas/scaleway.domain.v2beta1.TransferInDomainRequest.TransferRequest"
                     }
@@ -4409,7 +4409,7 @@
                   },
                   "duration_in_years": {
                     "type": "integer",
-                    "description": "Duration in years for the domain renewal.",
+                    "description": "Duration in years for the domain renewal. Subject to TLD-specific minimum and maximum constraints.",
                     "format": "uint32"
                   },
                   "force_late_renewal": {
@@ -4417,7 +4417,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Force the renewal to be a late renewal."
+                    "description": "Confirm the late renewal (incurs extra fees)."
                   }
                 },
                 "required": [
