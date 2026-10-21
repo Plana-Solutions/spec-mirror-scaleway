@@ -138,6 +138,10 @@
       "scaleway.cockpit.v1.AlertManager": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "Alert manager id."
+          },
           "alert_manager_url": {
             "type": [
               "string",
@@ -156,13 +160,20 @@
           "region": {
             "type": "string",
             "description": "Regions where the Alert manager is enabled."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the alert-manager.",
+            "pattern": "^srn://cockpit\\.[^/]+/regions/[^/]+/alert-managers/[^/]+$"
           }
         },
         "x-properties-order": [
+          "id",
           "alert_manager_url",
           "alert_manager_enabled",
           "managed_alerts_enabled",
-          "region"
+          "region",
+          "srn"
         ]
       },
       "scaleway.cockpit.v1.ContactPoint": {
@@ -273,6 +284,11 @@
             ],
             "description": "Usage of the month in bytes. (in bytes)",
             "format": "uint64"
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the data-source.",
+            "pattern": "^srn://cockpit\\.[^/]+/regions/[^/]+/data-sources/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -287,7 +303,8 @@
           "synchronized_with_grafana",
           "retention_days",
           "region",
-          "current_month_usage"
+          "current_month_usage",
+          "srn"
         ]
       },
       "scaleway.cockpit.v1.DataSource.Origin": {
@@ -439,6 +456,11 @@
           "region": {
             "type": "string",
             "description": "The region in which the export is located."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the exporter.",
+            "pattern": "^srn://cockpit\\.[^/]+/regions/[^/]+/exporters/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -452,7 +474,8 @@
           "exported_products",
           "created_at",
           "updated_at",
-          "region"
+          "region",
+          "srn"
         ]
       },
       "scaleway.cockpit.v1.Exporter.DatadogDestination": {
