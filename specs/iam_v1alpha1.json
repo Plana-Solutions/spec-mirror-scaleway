@@ -1726,6 +1726,11 @@
             "type": "string",
             "description": "Id of rule."
           },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the rule.",
+            "pattern": "^srn://iam\\.[^/]+/rules/[^/]+$"
+          },
           "permission_set_names": {
             "type": [
               "array",
@@ -1765,21 +1770,21 @@
             "description": "ID of account root user the rule is scoped to.",
             "x-one-of": "scope"
           },
-          "srn": {
-            "type": "string",
-            "description": "The SRN of the rule.",
-            "pattern": "^srn://iam\\.[^/]+/rules/[^/]+$"
+          "deny": {
+            "type": "boolean",
+            "description": "Select whether the rule should remove the permissions instead of granting them."
           }
         },
         "x-properties-order": [
           "id",
+          "srn",
           "permission_set_names",
           "permission_sets_scope_type",
           "condition",
           "project_ids",
           "organization_id",
           "account_root_user_id",
-          "srn"
+          "deny"
         ]
       },
       "scaleway.iam.v1alpha1.RuleSpecs": {
@@ -1811,13 +1816,18 @@
             ],
             "description": "ID of Organization the rule is scoped to.",
             "x-one-of": "scope"
+          },
+          "deny": {
+            "type": "boolean",
+            "description": "Select whether the rule should remove the permissions instead of granting them."
           }
         },
         "x-properties-order": [
           "permission_set_names",
           "condition",
           "project_ids",
-          "organization_id"
+          "organization_id",
+          "deny"
         ]
       },
       "scaleway.iam.v1alpha1.SSHKey": {
