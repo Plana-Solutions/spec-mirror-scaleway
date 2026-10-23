@@ -1247,12 +1247,21 @@
                     ],
                     "description": "Version of Kafka.",
                     "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+                  },
+                  "volume_size_bytes": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "New volume size for each broker, can only increase. (in bytes)",
+                    "format": "uint64"
                   }
                 },
                 "x-properties-order": [
                   "name",
                   "tags",
-                  "version"
+                  "version",
+                  "volume_size_bytes"
                 ]
               }
             }

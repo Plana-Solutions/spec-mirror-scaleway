@@ -990,6 +990,13 @@
               "$ref": "#/components/schemas/scaleway.k8s.v1.CoreV1Taint"
             }
           },
+          "private_network_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Private network where the nodes are attached. Should be member of the same VPC as the API Server."
+          },
           "max_termination_grace_period": {
             "type": [
               "string",
@@ -1036,6 +1043,7 @@
           "labels",
           "taints",
           "startup_taints",
+          "private_network_id",
           "max_termination_grace_period",
           "user_data"
         ]
@@ -1608,6 +1616,14 @@
               "$ref": "#/components/schemas/scaleway.k8s.v1.CoreV1Taint"
             }
           },
+          "private_network_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Private network where the nodes are attached. Should be member of the same VPC as the API Server. (UUID format)",
+            "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
           "error_message": {
             "type": [
               "string",
@@ -1664,6 +1680,7 @@
           "labels",
           "taints",
           "startup_taints",
+          "private_network_id",
           "error_message",
           "max_termination_grace_period",
           "srn",
@@ -3694,6 +3711,13 @@
                       "$ref": "#/components/schemas/scaleway.k8s.v1.CoreV1Taint"
                     }
                   },
+                  "private_network_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Private network where the nodes are attached. Should be member of the same VPC as the API Server."
+                  },
                   "user_data": {
                     "type": "object",
                     "description": "User data applied and reconciled with the pool.",
@@ -3740,6 +3764,7 @@
                   "labels",
                   "taints",
                   "startup_taints",
+                  "private_network_id",
                   "user_data",
                   "max_termination_grace_period"
                 ]

@@ -129,6 +129,11 @@
           "comment": {
             "type": "string",
             "description": "A comment about the organization."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the organization.",
+            "pattern": "^srn://account\\.[^/]+/organizations/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -145,7 +150,8 @@
           "locked_by",
           "locked_at",
           "picture_link",
-          "comment"
+          "comment",
+          "srn"
         ]
       },
       "scaleway.partner.v1.Organization.LockedBy": {

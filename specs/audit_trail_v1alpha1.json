@@ -155,6 +155,11 @@
             "description": "ID of the alert rule. (UUID format)",
             "example": "6170692e-7363-616c-6577-61792e636f6d"
           },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the alert rule.",
+            "pattern": "^srn://audit-trail\\.[^/]+/regions/[^/]+/alert-rules/[^/]+$"
+          },
           "name": {
             "type": "string",
             "description": "Name of the alert rule."
@@ -166,13 +171,19 @@
           "status": {
             "description": "Current status of the alert rule.",
             "$ref": "#/components/schemas/scaleway.audit_trail.v1alpha1.AlertRule.Status"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region of the alert rule."
           }
         },
         "x-properties-order": [
           "id",
+          "srn",
           "name",
           "description",
-          "status"
+          "status",
+          "region"
         ]
       },
       "scaleway.audit_trail.v1alpha1.AlertRule.Status": {
@@ -4094,6 +4105,62 @@
       }
     },
     "/audit-trail/v1alpha1/regions/{region}/custom-alert-rules/{custom_alert_rule_id}": {
+      "get": {
+        "operationId": "GetCustomAlertRule",
+        "summary": "Get custom alert rule metadata",
+        "description": "Retrieve metadata for a specified custom alert rule using the `region` and `custom_alert_rule_id` parameters.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "region",
+            "description": "The region you want to target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fr-par",
+                "nl-ams"
+              ]
+            }
+          },
+          {
+            "in": "path",
+            "name": "custom_alert_rule_id",
+            "description": "ID of the custom alert rule to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaleway.audit_trail.v1alpha1.CustomAlertRule"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scaleway": []
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  \"https://api.scaleway.com/audit-trail/v1alpha1/regions/{region}/custom-alert-rules/{custom_alert_rule_id}\""
+          },
+          {
+            "lang": "HTTPie",
+            "source": "http GET \"https://api.scaleway.com/audit-trail/v1alpha1/regions/{region}/custom-alert-rules/{custom_alert_rule_id}\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
+          }
+        ]
+      },
       "patch": {
         "operationId": "UpdateCustomAlertRule",
         "summary": "Update a custom alert rule",
