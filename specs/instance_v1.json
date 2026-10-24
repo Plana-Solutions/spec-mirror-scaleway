@@ -4015,6 +4015,22 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "server",
+            "schema": {
+              "type": "string",
+              "x-one-of": "kind"
+            }
+          },
+          {
+            "in": "query",
+            "name": "detached",
+            "schema": {
+              "type": "boolean",
+              "x-one-of": "kind"
+            }
           }
         ],
         "responses": {

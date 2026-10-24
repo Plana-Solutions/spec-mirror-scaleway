@@ -138,9 +138,9 @@
       "scaleway.cockpit.v1.AlertManager": {
         "type": "object",
         "properties": {
-          "id": {
+          "project_id": {
             "type": "string",
-            "description": "Alert manager id."
+            "description": "ID of the project."
           },
           "alert_manager_url": {
             "type": [
@@ -164,11 +164,11 @@
           "srn": {
             "type": "string",
             "description": "The SRN of the alert-manager.",
-            "pattern": "^srn://cockpit\\.[^/]+/regions/[^/]+/alert-managers/[^/]+$"
+            "pattern": "^srn://cockpit\\.[^/]+/regions/[^/]+/projects/[^/]+/alert-manager$"
           }
         },
         "x-properties-order": [
-          "id",
+          "project_id",
           "alert_manager_url",
           "alert_manager_enabled",
           "managed_alerts_enabled",

@@ -28,10 +28,21 @@
           "grafana_url": {
             "type": "string",
             "description": "URL to access your Cockpit's Grafana."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "ID of the project."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the grafana.",
+            "pattern": "^srn://cockpit\\.[^/]+/projects/[^/]+/grafana$"
           }
         },
         "x-properties-order": [
-          "grafana_url"
+          "grafana_url",
+          "project_id",
+          "srn"
         ]
       },
       "scaleway.cockpit.v1.GrafanaProductDashboard": {

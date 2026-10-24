@@ -253,10 +253,18 @@
           "private_network_id": {
             "type": "string",
             "description": "ID of the private network."
+          },
+          "security_group_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "ID of the security group for the private network."
           }
         },
         "x-properties-order": [
-          "private_network_id"
+          "private_network_id",
+          "security_group_id"
         ]
       },
       "scaleway.instance.v2alpha1.CreateTemplateRequest.VolumeTemplate": {
@@ -758,6 +766,10 @@
             "type": "string",
             "description": "ID of the Instance this interface is attached to."
           },
+          "security_group_id": {
+            "type": "string",
+            "description": "ID of the security group associated with this interface."
+          },
           "mac_address": {
             "type": "string",
             "description": "MAC address of the private network interface."
@@ -809,6 +821,7 @@
           "private_network_id",
           "project_id",
           "server_id",
+          "security_group_id",
           "mac_address",
           "status",
           "ip_ids",
@@ -868,6 +881,10 @@
             "type": "string",
             "description": "ID of the Instance this interface is attached to."
           },
+          "security_group_id": {
+            "type": "string",
+            "description": "ID of the security group associated with this interface."
+          },
           "mac_address": {
             "type": "string",
             "description": "MAC address of the private network interface."
@@ -919,6 +936,7 @@
           "private_network_id",
           "project_id",
           "server_id",
+          "security_group_id",
           "mac_address",
           "status",
           "ip_ids",
@@ -2997,6 +3015,17 @@
           },
           {
             "in": "query",
+            "name": "security_group_ids",
+            "description": "Filter by security group IDs.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
             "name": "private_network_ids",
             "description": "Filter by Private Network IDs.",
             "schema": {
@@ -3112,6 +3141,13 @@
                     ],
                     "description": "ID of the Instance to attach the interface to."
                   },
+                  "security_group_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "ID of the security group to associate with the interface."
+                  },
                   "ip_ids": {
                     "type": "array",
                     "description": "List of IP IDs to attach to the interface.",
@@ -3131,6 +3167,7 @@
                   "private_network_id",
                   "project_id",
                   "server_id",
+                  "security_group_id",
                   "ip_ids",
                   "tags"
                 ]
@@ -3285,6 +3322,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "security_group_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "New security group ID to associate with the interface."
+                  },
                   "tags": {
                     "type": [
                       "array",
@@ -3294,6 +3338,7 @@
                   }
                 },
                 "x-properties-order": [
+                  "security_group_id",
                   "tags"
                 ]
               }
