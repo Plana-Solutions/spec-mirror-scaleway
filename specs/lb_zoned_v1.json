@@ -113,6 +113,15 @@
           "description": {
             "type": "string",
             "description": "ACL description."
+          },
+          "zone": {
+            "type": "string",
+            "description": "The zone the ACL is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the ACL.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/acls/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -124,7 +133,9 @@
           "index",
           "created_at",
           "updated_at",
-          "description"
+          "description",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.AclAction": {
@@ -434,6 +445,15 @@
               "null"
             ],
             "description": "Host value to use when connecting to backend servers.\nWhen connecting to backend servers, use this value as the HTTP Host header or TLS SNI. This allows routing to specific services on the backend server that are configured to respond to particular hostnames."
+          },
+          "zone": {
+            "type": "string",
+            "description": "The zone the backend is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the backend.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/backends/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -462,7 +482,9 @@
           "max_retries",
           "max_connections",
           "timeout_queue",
-          "host"
+          "host",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.BackendServerStats": {
@@ -608,6 +630,15 @@
               "null"
             ],
             "description": "Additional information about the certificate status (useful in case of certificate generation failure, for example)."
+          },
+          "zone": {
+            "type": "string",
+            "description": "The zone the certificate is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the certificate.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/certificates/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -623,7 +654,9 @@
           "name",
           "created_at",
           "updated_at",
-          "status_details"
+          "status_details",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.Certificate.Status": {
@@ -765,6 +798,15 @@
           "enable_access_logs": {
             "type": "boolean",
             "description": "Defines whether to enable access logs on the frontend."
+          },
+          "zone": {
+            "type": "string",
+            "description": "The zone the frontend is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the frontend.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/frontends/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -780,7 +822,9 @@
           "updated_at",
           "enable_http3",
           "connection_rate_limit",
-          "enable_access_logs"
+          "enable_access_logs",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.HealthCheck": {
@@ -1133,6 +1177,11 @@
           "zone": {
             "type": "string",
             "description": "The zone the IP address is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the IP address.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/ips/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1144,7 +1193,8 @@
           "reverse",
           "tags",
           "region",
-          "zone"
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.Lb": {
@@ -1253,6 +1303,11 @@
           "zone": {
             "type": "string",
             "description": "The zone the Load Balancer is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the Load Balancer.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/lbs/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1275,7 +1330,8 @@
           "private_network_count",
           "route_count",
           "region",
-          "zone"
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.Lb.Status": {
@@ -1342,6 +1398,11 @@
           "zone": {
             "type": "string",
             "description": "The zone the Load Balancer stock is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the Load Balancer offer type.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/lb-types/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1351,7 +1412,8 @@
           "multicloud",
           "description",
           "region",
-          "zone"
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.LbType.Stock": {
@@ -1868,6 +1930,15 @@
             "description": "Date on which the route was last updated. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "zone": {
+            "type": "string",
+            "description": "The zone the route is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the route.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/routes/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1876,7 +1947,9 @@
           "backend_id",
           "match",
           "created_at",
-          "updated_at"
+          "updated_at",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.Route.Match": {
@@ -1992,13 +2065,24 @@
                 "type": "null"
               }
             ]
+          },
+          "zone": {
+            "type": "string",
+            "description": "The zone the subscriber is in."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the subscriber.",
+            "pattern": "^srn://lb\\.[^/]+/zones/[^/]+/subscribers/[^/]+$"
           }
         },
         "x-properties-order": [
           "id",
           "name",
           "email_config",
-          "webhook_config"
+          "webhook_config",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.lb.v1.Subscriber.EmailConfig": {
