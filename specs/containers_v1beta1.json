@@ -270,7 +270,7 @@
         "type": "object",
         "properties": {
           "http": {
-            "description": "HTTP health check configuration.",
+            "description": "HTTP health check configuration.\nOne of http, tcp is required.",
             "x-one-of": "probe",
             "oneOf": [
               {
@@ -282,7 +282,7 @@
             ]
           },
           "tcp": {
-            "description": "TCP health check configuration.",
+            "description": "TCP health check configuration.\nOne of http, tcp is required.",
             "x-one-of": "probe",
             "oneOf": [
               {
@@ -312,6 +312,18 @@
           "tcp",
           "failure_threshold",
           "interval"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "http"
+            ]
+          },
+          {
+            "required": [
+              "tcp"
+            ]
+          }
         ]
       },
       "scaleway.containers.v1beta1.Container.HealthCheckSpec.HTTPProbe": {
@@ -380,6 +392,7 @@
               "integer",
               "null"
             ],
+            "description": "One of concurrent_requests_threshold, cpu_usage_threshold, memory_usage_threshold is required.",
             "format": "uint32",
             "x-one-of": "scaling_rule"
           },
@@ -388,6 +401,7 @@
               "integer",
               "null"
             ],
+            "description": "One of concurrent_requests_threshold, cpu_usage_threshold, memory_usage_threshold is required.",
             "format": "uint32",
             "x-one-of": "scaling_rule"
           },
@@ -396,6 +410,7 @@
               "integer",
               "null"
             ],
+            "description": "One of concurrent_requests_threshold, cpu_usage_threshold, memory_usage_threshold is required.",
             "format": "uint32",
             "x-one-of": "scaling_rule"
           }
@@ -404,6 +419,23 @@
           "concurrent_requests_threshold",
           "cpu_usage_threshold",
           "memory_usage_threshold"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "concurrent_requests_threshold"
+            ]
+          },
+          {
+            "required": [
+              "cpu_usage_threshold"
+            ]
+          },
+          {
+            "required": [
+              "memory_usage_threshold"
+            ]
+          }
         ]
       },
       "scaleway.containers.v1beta1.Container.Status": {
@@ -994,7 +1026,7 @@
               "string",
               "null"
             ],
-            "description": "UUID of the container the token belongs to.",
+            "description": "UUID of the container the token belongs to.\nPrecisely one of container_id, namespace_id can be set.",
             "x-one-of": "scope"
           },
           "namespace_id": {
@@ -1002,7 +1034,7 @@
               "string",
               "null"
             ],
-            "description": "UUID of the namespace the token belongs to.",
+            "description": "UUID of the namespace the token belongs to.\nPrecisely one of container_id, namespace_id can be set.",
             "x-one-of": "scope"
           },
           "public_key": {
@@ -1088,7 +1120,7 @@
             "description": "Error message of the trigger."
           },
           "scw_sqs_config": {
-            "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.",
+            "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.\nPrecisely one of scw_sqs_config, scw_nats_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -1100,7 +1132,7 @@
             ]
           },
           "scw_nats_config": {
-            "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.",
+            "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.\nPrecisely one of scw_sqs_config, scw_nats_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -3363,7 +3395,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "UUID of the container to create the token for.",
+                    "description": "UUID of the container to create the token for.\nPrecisely one of container_id, namespace_id can be set.",
                     "x-one-of": "scope"
                   },
                   "namespace_id": {
@@ -3371,7 +3403,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "UUID of the namespace to create the token for.",
+                    "description": "UUID of the namespace to create the token for.\nPrecisely one of container_id, namespace_id can be set.",
                     "x-one-of": "scope"
                   },
                   "description": {
@@ -3595,7 +3627,7 @@
           {
             "in": "query",
             "name": "container_id",
-            "description": "ID of the container the triggers belongs to.",
+            "description": "ID of the container the triggers belongs to.\nOne of container_id, namespace_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -3604,7 +3636,7 @@
           {
             "in": "query",
             "name": "namespace_id",
-            "description": "ID of the namespace the triggers belongs to.",
+            "description": "ID of the namespace the triggers belongs to.\nOne of container_id, namespace_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -3613,7 +3645,7 @@
           {
             "in": "query",
             "name": "project_id",
-            "description": "ID of the project the triggers belongs to.",
+            "description": "ID of the project the triggers belongs to.\nOne of container_id, namespace_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -3707,7 +3739,7 @@
                     "description": "Description of the trigger."
                   },
                   "scw_sqs_config": {
-                    "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.",
+                    "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.\nOne of scw_sqs_config, scw_nats_config is required.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -3719,7 +3751,7 @@
                     ]
                   },
                   "scw_nats_config": {
-                    "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.",
+                    "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.\nOne of scw_sqs_config, scw_nats_config is required.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -3741,6 +3773,18 @@
                   "description",
                   "scw_sqs_config",
                   "scw_nats_config"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "scw_sqs_config"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "scw_nats_config"
+                    ]
+                  }
                 ]
               }
             }

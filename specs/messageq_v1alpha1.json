@@ -167,6 +167,7 @@
             "pattern": "^srn://messageq\\.[^/]+/regions/[^/]+/endpoints/[^/]+$"
           },
           "public": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -178,6 +179,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -239,6 +241,7 @@
         "type": "object",
         "properties": {
           "public": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -250,6 +253,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -1200,7 +1204,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Target number of nodes.",
+                    "description": "Target number of nodes.\nPrecisely one of node_count, volume_size_bytes can be set.",
                     "format": "uint32",
                     "x-one-of": "upgrade_target"
                   },
@@ -1209,7 +1213,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Target volume size. (in bytes)",
+                    "description": "Target volume size. (in bytes)\nPrecisely one of node_count, volume_size_bytes can be set.",
                     "format": "uint64",
                     "x-one-of": "upgrade_target"
                   }

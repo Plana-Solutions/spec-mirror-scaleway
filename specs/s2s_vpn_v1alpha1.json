@@ -480,6 +480,7 @@
         "type": "object",
         "properties": {
           "single_ipv4_tunnel": {
+            "description": "Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -491,6 +492,7 @@
             ]
           },
           "single_ipv6_tunnel": {
+            "description": "Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -502,6 +504,7 @@
             ]
           },
           "dual_ipv4v6_tunnel": {
+            "description": "Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -1002,7 +1005,7 @@
             "description": "Gateway type of the VPN gateway."
           },
           "public_config": {
-            "description": "Public endpoint configuration of the VPN gateway.",
+            "description": "Public endpoint configuration of the VPN gateway.\nPrecisely one of public_config, private_config can be set.",
             "x-one-of": "endpoint",
             "oneOf": [
               {
@@ -1014,6 +1017,7 @@
             ]
           },
           "private_config": {
+            "description": "Precisely one of public_config, private_config can be set.",
             "x-one-of": "endpoint",
             "oneOf": [
               {
@@ -1856,7 +1860,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the routing policy to detach from the BGP IPv4 session. (UUID format)",
+                    "description": "ID of the routing policy to detach from the BGP IPv4 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "routing_policy"
                   },
@@ -1865,7 +1869,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the routing policy to detach from the BGP IPv6 session. (UUID format)",
+                    "description": "ID of the routing policy to detach from the BGP IPv6 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "routing_policy"
                   }
@@ -2188,7 +2192,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the routing policy to set for the BGP IPv4 session. (UUID format)",
+                    "description": "ID of the routing policy to set for the BGP IPv4 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "routing_policy"
                   },
@@ -2197,7 +2201,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the routing policy to set for the BGP IPv6 session. (UUID format)",
+                    "description": "ID of the routing policy to set for the BGP IPv6 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "routing_policy"
                   }
@@ -3447,7 +3451,7 @@
                     "description": "VPN gateway type (commercial offer type)."
                   },
                   "public_config": {
-                    "description": "Public endpoint configuration of the VPN gateway.",
+                    "description": "Public endpoint configuration of the VPN gateway.\nPrecisely one of public_config, public_tunnel_config can be set.",
                     "deprecated": true,
                     "x-one-of": "endpoint",
                     "oneOf": [
@@ -3465,6 +3469,7 @@
                     "example": "6170692e-7363-616c-6577-61792e636f6d"
                   },
                   "public_tunnel_config": {
+                    "description": "Precisely one of public_config, public_tunnel_config can be set.",
                     "x-one-of": "endpoint",
                     "oneOf": [
                       {

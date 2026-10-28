@@ -3027,7 +3027,7 @@
               "string",
               "null"
             ],
-            "description": "Organization ID of the volume.",
+            "description": "Organization ID of the volume.\nPrecisely one of project, organization can be set.",
             "deprecated": true,
             "x-one-of": "ProjectIdentifier"
           },
@@ -3036,7 +3036,7 @@
               "string",
               "null"
             ],
-            "description": "Project ID of the volume.",
+            "description": "Project ID of the volume.\nPrecisely one of project, organization can be set.",
             "x-one-of": "ProjectIdentifier"
           }
         },
@@ -3461,7 +3461,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID of the image.",
+                    "description": "Organization ID of the image.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -3470,7 +3470,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID of the image.",
+                    "description": "Project ID of the image.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "tags": {
@@ -4019,6 +4019,7 @@
           {
             "in": "query",
             "name": "server",
+            "description": "Precisely one of server, detached can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "kind"
@@ -4027,6 +4028,7 @@
           {
             "in": "query",
             "name": "detached",
+            "description": "Precisely one of server, detached can be set.",
             "schema": {
               "type": "boolean",
               "x-one-of": "kind"
@@ -4115,7 +4117,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID in which the IP is reserved.",
+                    "description": "Organization ID in which the IP is reserved.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -4124,7 +4126,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID in which the IP is reserved.",
+                    "description": "Project ID in which the IP is reserved.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "tags": {
@@ -4648,7 +4650,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID of the placement group.",
+                    "description": "Organization ID of the placement group.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -4657,7 +4659,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID of the placement group.",
+                    "description": "Project ID of the placement group.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "tags": {
@@ -5704,7 +5706,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID the security group belongs to.",
+                    "description": "Organization ID the security group belongs to.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -5713,7 +5715,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID the security group belong to.",
+                    "description": "Project ID the security group belong to.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "tags": {
@@ -5728,7 +5730,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Defines whether this security group becomes the default security group for new Instances.",
+                    "description": "Defines whether this security group becomes the default security group for new Instances.\nPrecisely one of organization_default, project_default can be set.",
                     "deprecated": true,
                     "x-one-of": "DefaultIdentifier"
                   },
@@ -5737,7 +5739,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Whether this security group becomes the default security group for new Instances.",
+                    "description": "Whether this security group becomes the default security group for new Instances.\nPrecisely one of organization_default, project_default can be set.",
                     "x-one-of": "DefaultIdentifier"
                   },
                   "stateful": {
@@ -7339,7 +7341,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Instance Organization ID.",
+                    "description": "Instance Organization ID.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -7348,7 +7350,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Instance Project ID.",
+                    "description": "Instance Project ID.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "tags": {
@@ -9268,7 +9270,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID of the snapshot.",
+                    "description": "Organization ID of the snapshot.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -9277,7 +9279,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID of the snapshot.",
+                    "description": "Project ID of the snapshot.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "volume_type": {
@@ -9972,7 +9974,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Volume Organization ID.",
+                    "description": "Volume Organization ID.\nPrecisely one of project, organization can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -9981,7 +9983,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Volume Project ID.",
+                    "description": "Volume Project ID.\nPrecisely one of project, organization can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "tags": {
@@ -10000,7 +10002,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Volume disk size, must be a multiple of 512. (in bytes)",
+                    "description": "Volume disk size, must be a multiple of 512. (in bytes)\nPrecisely one of size, base_snapshot can be set.",
                     "format": "uint64",
                     "x-one-of": "from"
                   },
@@ -10009,7 +10011,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the snapshot on which this volume will be based.",
+                    "description": "ID of the snapshot on which this volume will be based.\nPrecisely one of size, base_snapshot can be set.",
                     "x-one-of": "from"
                   }
                 },

@@ -87,7 +87,7 @@
             "format": "uint32"
           },
           "private_network": {
-            "description": "Private Network endpoint details.",
+            "description": "Private Network endpoint details.\nPrecisely one of private_network, public can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -99,7 +99,7 @@
             ]
           },
           "public": {
-            "description": "Public endpoint details.",
+            "description": "Public endpoint details.\nPrecisely one of private_network, public can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -140,6 +140,7 @@
         "type": "object",
         "properties": {
           "public": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -151,6 +152,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -836,7 +838,7 @@
               "string",
               "null"
             ],
-            "description": "Name of the database on which the preset role will be used.",
+            "description": "Name of the database on which the preset role will be used.\nPrecisely one of database, any_database can be set.",
             "x-one-of": "scope"
           },
           "any_database": {
@@ -844,7 +846,7 @@
               "boolean",
               "null"
             ],
-            "description": "Flag to enable the preset role in all databases.",
+            "description": "Flag to enable the preset role in all databases.\nPrecisely one of database, any_database can be set.",
             "x-one-of": "scope"
           }
         },
@@ -1827,7 +1829,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Increase your Block Storage volume size. (in bytes)",
+                    "description": "Increase your Block Storage volume size. (in bytes)\nPrecisely one of volume_size can be set.",
                     "format": "uint64",
                     "x-one-of": "upgrade_target"
                   }

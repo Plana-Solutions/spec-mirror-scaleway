@@ -1144,7 +1144,7 @@
             "format": "uint64"
           },
           "server_info": {
-            "description": "Server info if it is a server offer.",
+            "description": "Server info if it is a server offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1156,7 +1156,7 @@
             ]
           },
           "service_level_info": {
-            "description": "Service level info if it is a service level offer.",
+            "description": "Service level info if it is a service level offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1168,7 +1168,7 @@
             ]
           },
           "rpn_info": {
-            "description": "RPN info if it is a RPN offer.",
+            "description": "RPN info if it is a RPN offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1180,7 +1180,7 @@
             ]
           },
           "san_info": {
-            "description": "SAN info if it is a SAN offer.",
+            "description": "SAN info if it is a SAN offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1192,7 +1192,7 @@
             ]
           },
           "antidos_info": {
-            "description": "AntiDOS info if it is a antiDOS offer.",
+            "description": "AntiDOS info if it is a antiDOS offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1204,7 +1204,7 @@
             ]
           },
           "backup_info": {
-            "description": "Backup info if it is a backup offer.",
+            "description": "Backup info if it is a backup offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1216,7 +1216,7 @@
             ]
           },
           "usb_storage_info": {
-            "description": "USB storage info if it is a USB storage offer.",
+            "description": "USB storage info if it is a USB storage offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1228,7 +1228,7 @@
             ]
           },
           "storage_info": {
-            "description": "Storage info if it is a storage offer.",
+            "description": "Storage info if it is a storage offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1240,7 +1240,7 @@
             ]
           },
           "license_info": {
-            "description": "License info if it is a license offer.",
+            "description": "License info if it is a license offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1252,7 +1252,7 @@
             ]
           },
           "failover_ip_info": {
-            "description": "Failover IP info if it is a failover IP offer.",
+            "description": "Failover IP info if it is a failover IP offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1264,7 +1264,7 @@
             ]
           },
           "failover_block_info": {
-            "description": "Failover block info if it is a failover block offer.",
+            "description": "Failover block info if it is a failover block offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -1276,7 +1276,7 @@
             ]
           },
           "bandwidth_info": {
-            "description": "Bandwidth info if it is a bandwidth offer.",
+            "description": "Bandwidth info if it is a bandwidth offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "x-one-of": "offer_info",
             "oneOf": [
               {
@@ -3538,7 +3538,7 @@
           {
             "in": "query",
             "name": "server_id",
-            "description": "Filter OS by compatible server ID.",
+            "description": "Filter OS by compatible server ID.\nPrecisely one of server_id, offer_id can be set.",
             "schema": {
               "type": "integer",
               "format": "uint64",
@@ -3548,7 +3548,7 @@
           {
             "in": "query",
             "name": "offer_id",
-            "description": "Filter OS by compatible offer ID.",
+            "description": "Filter OS by compatible offer ID.\nPrecisely one of server_id, offer_id can be set.",
             "schema": {
               "type": "integer",
               "format": "uint64",

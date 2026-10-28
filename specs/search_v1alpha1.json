@@ -123,7 +123,7 @@
               "boolean",
               "null"
             ],
-            "description": "Locality the resource is in if this is a global resource.",
+            "description": "Locality the resource is in if this is a global resource.\nPrecisely one of global, zone, region can be set.",
             "x-one-of": "locality"
           },
           "zone": {
@@ -131,7 +131,7 @@
               "string",
               "null"
             ],
-            "description": "Locality the resource is in if this is a zonal resource.",
+            "description": "Locality the resource is in if this is a zonal resource.\nPrecisely one of global, zone, region can be set.",
             "x-one-of": "locality"
           },
           "region": {
@@ -139,11 +139,11 @@
               "string",
               "null"
             ],
-            "description": "Locality the resource is in if this is a regional resource.",
+            "description": "Locality the resource is in if this is a regional resource.\nPrecisely one of global, zone, region can be set.",
             "x-one-of": "locality"
           },
           "vpc_private_network_info": {
-            "description": "Additional information for a VPC Private Network.",
+            "description": "Additional information for a VPC Private Network.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {
@@ -155,7 +155,7 @@
             ]
           },
           "serverless_functions_function_info": {
-            "description": "Additional information for a Serverless Function.",
+            "description": "Additional information for a Serverless Function.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {
@@ -167,7 +167,7 @@
             ]
           },
           "serverless_containers_container_info": {
-            "description": "Additional information for a Serverless Container.",
+            "description": "Additional information for a Serverless Container.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {
@@ -179,7 +179,7 @@
             ]
           },
           "serverless_sqldb_backup_info": {
-            "description": "Additional information for a Serverless SQL database backup.",
+            "description": "Additional information for a Serverless SQL database backup.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {
@@ -191,7 +191,7 @@
             ]
           },
           "baremetal_server_info": {
-            "description": "Additional information for a Baremetal server.",
+            "description": "Additional information for a Baremetal server.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {
@@ -203,7 +203,7 @@
             ]
           },
           "obs_datasource_info": {
-            "description": "Additional information for an OBS datasource.",
+            "description": "Additional information for an OBS datasource.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {
@@ -215,7 +215,7 @@
             ]
           },
           "obs_exporter_info": {
-            "description": "Additional information for an OBS exporter.",
+            "description": "Additional information for an OBS exporter.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "x-one-of": "info",
             "oneOf": [
               {

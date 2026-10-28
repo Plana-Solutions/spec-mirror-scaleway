@@ -192,7 +192,7 @@
             "description": "URL of the endpoint.\nFor private endpoints, the URL will be accessible only from the Private Network.\nIn addition, private endpoints will expose a CA certificate that can be used to verify the server's identity.\nThis CA certificate can be retrieved using the `GetDeploymentCertificate` API call."
           },
           "public_network": {
-            "description": "Defines whether the endpoint is public.",
+            "description": "Defines whether the endpoint is public.\nPrecisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -204,7 +204,7 @@
             ]
           },
           "private_network": {
-            "description": "Details of the Private Network.",
+            "description": "Details of the Private Network.\nPrecisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -248,7 +248,7 @@
         "type": "object",
         "properties": {
           "public_network": {
-            "description": "Set the endpoint as public.",
+            "description": "Set the endpoint as public.\nPrecisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -260,7 +260,7 @@
             ]
           },
           "private_network": {
-            "description": "Set the endpoint as private.\nPrivate endpoints are only accessible from the Private Network.",
+            "description": "Set the endpoint as private.\nPrivate endpoints are only accessible from the Private Network.\nPrecisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -501,6 +501,7 @@
               "string",
               "null"
             ],
+            "description": "Precisely one of secret can be set.",
             "x-one-of": "credentials"
           }
         },

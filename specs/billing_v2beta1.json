@@ -753,7 +753,7 @@
           {
             "in": "query",
             "name": "organization_id",
-            "description": "Filter by Organization ID. (UUID format)",
+            "description": "Filter by Organization ID. (UUID format)\nPrecisely one of organization_id, project_id can be set.",
             "schema": {
               "type": "string",
               "example": "6170692e-7363-616c-6577-61792e636f6d",
@@ -763,7 +763,7 @@
           {
             "in": "query",
             "name": "project_id",
-            "description": "Filter by Project ID. (UUID format)",
+            "description": "Filter by Project ID. (UUID format)\nPrecisely one of organization_id, project_id can be set.",
             "schema": {
               "type": "string",
               "example": "6170692e-7363-616c-6577-61792e636f6d",

@@ -1673,7 +1673,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`).",
+                    "description": "The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`).\nPrecisely one of perf_iops can be set.",
                     "format": "uint32",
                     "x-one-of": "requirements"
                   },
@@ -1682,7 +1682,7 @@
                     "description": "UUID of the project the volume belongs to."
                   },
                   "from_empty": {
-                    "description": "Specify the size of the new volume if creating a new one from scratch.",
+                    "description": "Specify the size of the new volume if creating a new one from scratch.\nOne of from_empty, from_snapshot is required.",
                     "x-one-of": "from",
                     "oneOf": [
                       {
@@ -1694,7 +1694,7 @@
                     ]
                   },
                   "from_snapshot": {
-                    "description": "Specify the snapshot ID of the original snapshot.",
+                    "description": "Specify the snapshot ID of the original snapshot.\nOne of from_empty, from_snapshot is required.",
                     "x-one-of": "from",
                     "oneOf": [
                       {
@@ -1724,6 +1724,18 @@
                   "from_empty",
                   "from_snapshot",
                   "tags"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "from_empty"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "from_snapshot"
+                    ]
+                  }
                 ]
               }
             }

@@ -304,7 +304,7 @@
             "example": "2.5s"
           },
           "tcp": {
-            "description": "Perform TCP check on the container.\nThe check is successful if a TCP connection can be established with the container within the specified timeout.",
+            "description": "Perform TCP check on the container.\nThe check is successful if a TCP connection can be established with the container within the specified timeout.\nOne of tcp, http is required.",
             "x-one-of": "probe",
             "oneOf": [
               {
@@ -316,7 +316,7 @@
             ]
           },
           "http": {
-            "description": "Perform HTTP check on the container.\nThe check is successful if an HTTP request to the specified path returns a successful status code (e.g. 2XX or 3XX) within the specified timeout.",
+            "description": "Perform HTTP check on the container.\nThe check is successful if an HTTP request to the specified path returns a successful status code (e.g. 2XX or 3XX) within the specified timeout.\nOne of tcp, http is required.",
             "x-one-of": "probe",
             "oneOf": [
               {
@@ -334,6 +334,18 @@
           "timeout",
           "tcp",
           "http"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "tcp"
+            ]
+          },
+          {
+            "required": [
+              "http"
+            ]
+          }
         ]
       },
       "scaleway.containers.v1.Container.Probe.HTTPProbe": {
@@ -391,7 +403,7 @@
               "integer",
               "null"
             ],
-            "description": "Scale depending on the number of concurrent requests being processed per container instance. The threshold value is the number of concurrent requests above which the container will be scaled up.",
+            "description": "Scale depending on the number of concurrent requests being processed per container instance. The threshold value is the number of concurrent requests above which the container will be scaled up.\nOne of concurrent_requests_threshold, cpu_usage_threshold, memory_usage_threshold is required.",
             "format": "uint32",
             "x-one-of": "scaling_rule"
           },
@@ -400,7 +412,7 @@
               "integer",
               "null"
             ],
-            "description": "Scale depending on the CPU usage of a container instance. The threshold value is the percentage of CPU usage above which the container will be scaled up.",
+            "description": "Scale depending on the CPU usage of a container instance. The threshold value is the percentage of CPU usage above which the container will be scaled up.\nOne of concurrent_requests_threshold, cpu_usage_threshold, memory_usage_threshold is required.",
             "format": "uint32",
             "x-one-of": "scaling_rule"
           },
@@ -409,7 +421,7 @@
               "integer",
               "null"
             ],
-            "description": "Scale depending on the memory usage of a container instance. The threshold value is the percentage of memory usage above which the container will be scaled up.",
+            "description": "Scale depending on the memory usage of a container instance. The threshold value is the percentage of memory usage above which the container will be scaled up.\nOne of concurrent_requests_threshold, cpu_usage_threshold, memory_usage_threshold is required.",
             "format": "uint32",
             "x-one-of": "scaling_rule"
           }
@@ -418,6 +430,23 @@
           "concurrent_requests_threshold",
           "cpu_usage_threshold",
           "memory_usage_threshold"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "concurrent_requests_threshold"
+            ]
+          },
+          {
+            "required": [
+              "cpu_usage_threshold"
+            ]
+          },
+          {
+            "required": [
+              "memory_usage_threshold"
+            ]
+          }
         ]
       },
       "scaleway.containers.v1.Container.Status": {
@@ -1001,7 +1030,7 @@
             "$ref": "#/components/schemas/scaleway.containers.v1.Trigger.SourceType"
           },
           "cron_config": {
-            "description": "Configuration for a cron source.",
+            "description": "Configuration for a cron source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "x-one-of": "source_config",
             "oneOf": [
               {
@@ -1013,7 +1042,7 @@
             ]
           },
           "sqs_config": {
-            "description": "Configuration for an SQS queue source.",
+            "description": "Configuration for an SQS queue source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "x-one-of": "source_config",
             "oneOf": [
               {
@@ -1025,7 +1054,7 @@
             ]
           },
           "nats_config": {
-            "description": "Configuration for a NATS source.",
+            "description": "Configuration for a NATS source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "x-one-of": "source_config",
             "oneOf": [
               {
@@ -1261,6 +1290,7 @@
             "example": "2.5s"
           },
           "http": {
+            "description": "Precisely one of http, tcp can be set.",
             "x-one-of": "probe",
             "oneOf": [
               {
@@ -1272,6 +1302,7 @@
             ]
           },
           "tcp": {
+            "description": "Precisely one of http, tcp can be set.",
             "x-one-of": "probe",
             "oneOf": [
               {
@@ -3415,7 +3446,7 @@
                     "$ref": "#/components/schemas/scaleway.containers.v1.CreateTriggerRequest.DestinationConfig"
                   },
                   "cron_config": {
-                    "description": "Configuration for a cron source.",
+                    "description": "Configuration for a cron source.\nOne of cron_config, sqs_config, nats_config is required.",
                     "x-one-of": "source_config",
                     "oneOf": [
                       {
@@ -3427,7 +3458,7 @@
                     ]
                   },
                   "sqs_config": {
-                    "description": "Configuration for an SQS queue source.",
+                    "description": "Configuration for an SQS queue source.\nOne of cron_config, sqs_config, nats_config is required.",
                     "x-one-of": "source_config",
                     "oneOf": [
                       {
@@ -3439,7 +3470,7 @@
                     ]
                   },
                   "nats_config": {
-                    "description": "Configuration for a NATS source.",
+                    "description": "Configuration for a NATS source.\nOne of cron_config, sqs_config, nats_config is required.",
                     "x-one-of": "source_config",
                     "oneOf": [
                       {
@@ -3464,6 +3495,23 @@
                   "cron_config",
                   "sqs_config",
                   "nats_config"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "cron_config"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "sqs_config"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "nats_config"
+                    ]
+                  }
                 ]
               }
             }
@@ -3626,7 +3674,7 @@
                     "$ref": "#/components/schemas/scaleway.containers.v1.UpdateTriggerRequest.DestinationConfig"
                   },
                   "cron_config": {
-                    "description": "Configuration for a cron source.",
+                    "description": "Configuration for a cron source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
                     "x-one-of": "source_config",
                     "oneOf": [
                       {
@@ -3638,7 +3686,7 @@
                     ]
                   },
                   "sqs_config": {
-                    "description": "Configuration for an SQS queue source.",
+                    "description": "Configuration for an SQS queue source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
                     "x-one-of": "source_config",
                     "oneOf": [
                       {
@@ -3650,7 +3698,7 @@
                     ]
                   },
                   "nats_config": {
-                    "description": "Configuration for a NATS source.",
+                    "description": "Configuration for a NATS source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
                     "x-one-of": "source_config",
                     "oneOf": [
                       {

@@ -551,6 +551,7 @@
             "$ref": "#/components/schemas/scaleway.apple_silicon.v1alpha1.RunnerConfigurationV2.Provider"
           },
           "github_configuration": {
+            "description": "Precisely one of github_configuration, gitlab_configuration can be set.",
             "x-one-of": "configuration",
             "oneOf": [
               {
@@ -562,6 +563,7 @@
             ]
           },
           "gitlab_configuration": {
+            "description": "Precisely one of github_configuration, gitlab_configuration can be set.",
             "x-one-of": "configuration",
             "oneOf": [
               {

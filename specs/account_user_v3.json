@@ -798,7 +798,7 @@
             "description": "Receive SMS notifications."
           },
           "predefined_template": {
-            "description": "Selected sidebar template (e.g. default, web_cloud).",
+            "description": "Selected sidebar template (e.g. default, web_cloud).\nPrecisely one of predefined_template, custom_template can be set.",
             "x-one-of": "preferred_side_bar",
             "oneOf": [
               {
@@ -810,7 +810,7 @@
             ]
           },
           "custom_template": {
-            "description": "Custom sidebar configuration defining which products are visible.",
+            "description": "Custom sidebar configuration defining which products are visible.\nPrecisely one of predefined_template, custom_template can be set.",
             "x-one-of": "preferred_side_bar",
             "oneOf": [
               {
@@ -2348,7 +2348,7 @@
                     "description": "Receive SMS notifications."
                   },
                   "predefined_template": {
-                    "description": "Pick a predefined sibe bar template.",
+                    "description": "Pick a predefined sibe bar template.\nPrecisely one of predefined_template, custom_template can be set.",
                     "x-one-of": "preferred_side_bar",
                     "oneOf": [
                       {
@@ -2360,7 +2360,7 @@
                     ]
                   },
                   "custom_template": {
-                    "description": "Define a custom side bar.",
+                    "description": "Define a custom side bar.\nPrecisely one of predefined_template, custom_template can be set.",
                     "x-one-of": "preferred_side_bar",
                     "oneOf": [
                       {

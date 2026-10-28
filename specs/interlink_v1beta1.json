@@ -287,7 +287,7 @@
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "partner": {
-            "description": "Partner host information.",
+            "description": "Partner host information.\nPrecisely one of partner, self can be set.",
             "x-one-of": "host_info",
             "oneOf": [
               {
@@ -299,7 +299,7 @@
             ]
           },
           "self": {
-            "description": "Self-host information.",
+            "description": "Self-host information.\nPrecisely one of partner, self can be set.",
             "x-one-of": "host_info",
             "oneOf": [
               {
@@ -1346,7 +1346,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "If set, creates a self-hosted link using this dedicated physical connection. As the customer, specify the ID of the physical connection you already have for this link. (UUID format)",
+                    "description": "If set, creates a self-hosted link using this dedicated physical connection. As the customer, specify the ID of the physical connection you already have for this link. (UUID format)\nPrecisely one of connection_id, partner_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "host"
                   },
@@ -1355,7 +1355,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "If set, creates a hosted link on a partner's connection. Specify the ID of the chosen partner, who already has a shared connection with available bandwidth. (UUID format)",
+                    "description": "If set, creates a hosted link on a partner's connection. Specify the ID of the chosen partner, who already has a shared connection with available bandwidth. (UUID format)\nPrecisely one of connection_id, partner_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "host"
                   },

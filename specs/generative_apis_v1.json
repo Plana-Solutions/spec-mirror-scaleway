@@ -220,7 +220,7 @@
           {
             "in": "query",
             "name": "organization_id",
-            "description": "Organization ID. (UUID format)",
+            "description": "Organization ID. (UUID format)\nOne of organization_id, project_id is required.",
             "schema": {
               "type": "string",
               "example": "6170692e-7363-616c-6577-61792e636f6d",
@@ -230,7 +230,7 @@
           {
             "in": "query",
             "name": "project_id",
-            "description": "Project ID. (UUID format)",
+            "description": "Project ID. (UUID format)\nOne of organization_id, project_id is required.",
             "schema": {
               "type": "string",
               "example": "6170692e-7363-616c-6577-61792e636f6d",

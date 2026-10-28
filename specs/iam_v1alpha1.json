@@ -88,7 +88,7 @@
               "string",
               "null"
             ],
-            "description": "ID of application that bears the API key.",
+            "description": "ID of application that bears the API key.\nPrecisely one of application_id, user_id can be set.",
             "x-one-of": "bearer"
           },
           "user_id": {
@@ -96,7 +96,7 @@
               "string",
               "null"
             ],
-            "description": "ID of user that bears the API key.",
+            "description": "ID of user that bears the API key.\nPrecisely one of application_id, user_id can be set.",
             "x-one-of": "bearer"
           },
           "description": {
@@ -288,6 +288,7 @@
               "string",
               "null"
             ],
+            "description": "One of project_id, organization_id is required.",
             "x-one-of": "scope"
           },
           "organization_id": {
@@ -295,6 +296,7 @@
               "string",
               "null"
             ],
+            "description": "One of project_id, organization_id is required.",
             "x-one-of": "scope"
           }
         },
@@ -304,6 +306,18 @@
           "action",
           "project_id",
           "organization_id"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "project_id"
+            ]
+          },
+          {
+            "required": [
+              "organization_id"
+            ]
+          }
         ]
       },
       "scaleway.iam.v1alpha1.CheckPermissionsResponse": {
@@ -1545,7 +1559,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the user attributed to the policy.",
+            "description": "ID of the user attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "x-one-of": "principal"
           },
           "group_id": {
@@ -1553,7 +1567,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the group attributed to the policy.",
+            "description": "ID of the group attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "x-one-of": "principal"
           },
           "application_id": {
@@ -1561,7 +1575,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the application attributed to the policy.",
+            "description": "ID of the application attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "x-one-of": "principal"
           },
           "no_principal": {
@@ -1569,7 +1583,7 @@
               "boolean",
               "null"
             ],
-            "description": "Defines whether or not a policy is attributed to a principal.",
+            "description": "Defines whether or not a policy is attributed to a principal.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "x-one-of": "principal"
           },
           "srn": {
@@ -1611,7 +1625,7 @@
               "integer",
               "null"
             ],
-            "description": "Maximum limit of the quota.",
+            "description": "Maximum limit of the quota.\nPrecisely one of limit, unlimited can be set.",
             "deprecated": true,
             "format": "uint64",
             "x-one-of": "value"
@@ -1621,7 +1635,7 @@
               "boolean",
               "null"
             ],
-            "description": "Defines whether or not the quota is unlimited.",
+            "description": "Defines whether or not the quota is unlimited.\nPrecisely one of limit, unlimited can be set.",
             "deprecated": true,
             "x-one-of": "value"
           },
@@ -1674,7 +1688,7 @@
               "boolean",
               "null"
             ],
-            "description": "Whether or not the limit is applied globally.",
+            "description": "Whether or not the limit is applied globally.\nPrecisely one of global, region, zone can be set.",
             "x-one-of": "locality"
           },
           "region": {
@@ -1682,7 +1696,7 @@
               "string",
               "null"
             ],
-            "description": "The region on which the limit is applied.",
+            "description": "The region on which the limit is applied.\nPrecisely one of global, region, zone can be set.",
             "x-one-of": "locality"
           },
           "zone": {
@@ -1690,7 +1704,7 @@
               "string",
               "null"
             ],
-            "description": "The zone on which the limit is applied.",
+            "description": "The zone on which the limit is applied.\nPrecisely one of global, region, zone can be set.",
             "x-one-of": "locality"
           },
           "limit": {
@@ -1698,7 +1712,7 @@
               "integer",
               "null"
             ],
-            "description": "Maximum locality limit.",
+            "description": "Maximum locality limit.\nPrecisely one of limit, unlimited can be set.",
             "format": "uint64",
             "x-one-of": "value"
           },
@@ -1707,7 +1721,7 @@
               "boolean",
               "null"
             ],
-            "description": "Whether or not the quota per locality is unlimited.",
+            "description": "Whether or not the quota per locality is unlimited.\nPrecisely one of limit, unlimited can be set.",
             "x-one-of": "value"
           }
         },
@@ -1751,7 +1765,7 @@
               "array",
               "null"
             ],
-            "description": "List of Project IDs the rule is scoped to.",
+            "description": "List of Project IDs the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set.",
             "x-one-of": "scope"
           },
           "organization_id": {
@@ -1759,7 +1773,7 @@
               "string",
               "null"
             ],
-            "description": "ID of Organization the rule is scoped to.",
+            "description": "ID of Organization the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set.",
             "x-one-of": "scope"
           },
           "account_root_user_id": {
@@ -1767,7 +1781,7 @@
               "string",
               "null"
             ],
-            "description": "ID of account root user the rule is scoped to.",
+            "description": "ID of account root user the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set.",
             "x-one-of": "scope"
           },
           "deny": {
@@ -1806,7 +1820,7 @@
               "array",
               "null"
             ],
-            "description": "List of Project IDs the rule is scoped to.",
+            "description": "List of Project IDs the rule is scoped to.\nOne of project_ids, organization_id is required.",
             "x-one-of": "scope"
           },
           "organization_id": {
@@ -1814,7 +1828,7 @@
               "string",
               "null"
             ],
-            "description": "ID of Organization the rule is scoped to.",
+            "description": "ID of Organization the rule is scoped to.\nOne of project_ids, organization_id is required.",
             "x-one-of": "scope"
           },
           "deny": {
@@ -1828,6 +1842,18 @@
           "project_ids",
           "organization_id",
           "deny"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "project_ids"
+            ]
+          },
+          {
+            "required": [
+              "organization_id"
+            ]
+          }
         ]
       },
       "scaleway.iam.v1alpha1.SSHKey": {
@@ -2403,7 +2429,7 @@
           {
             "in": "query",
             "name": "application_id",
-            "description": "ID of application that bears the API key.",
+            "description": "ID of application that bears the API key.\nPrecisely one of application_id, user_id can be set.",
             "schema": {
               "type": "string",
               "deprecated": true,
@@ -2413,7 +2439,7 @@
           {
             "in": "query",
             "name": "user_id",
-            "description": "ID of user that bears the API key.",
+            "description": "ID of user that bears the API key.\nPrecisely one of application_id, user_id can be set.",
             "schema": {
               "type": "string",
               "deprecated": true,
@@ -2480,7 +2506,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the application.",
+                    "description": "ID of the application.\nOne of application_id, user_id is required.",
                     "x-one-of": "bearer"
                   },
                   "user_id": {
@@ -2488,7 +2514,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the user.",
+                    "description": "ID of the user.\nOne of application_id, user_id is required.",
                     "x-one-of": "bearer"
                   },
                   "expires_at": {
@@ -2518,6 +2544,18 @@
                   "expires_at",
                   "default_project_id",
                   "description"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "application_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "user_id"
+                    ]
+                  }
                 ]
               }
             }
@@ -3586,7 +3624,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the user to add.",
+                    "description": "ID of the user to add.\nOne of user_id, application_id is required.",
                     "x-one-of": "member"
                   },
                   "application_id": {
@@ -3594,13 +3632,25 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the application to add.",
+                    "description": "ID of the application to add.\nOne of user_id, application_id is required.",
                     "x-one-of": "member"
                   }
                 },
                 "x-properties-order": [
                   "user_id",
                   "application_id"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "user_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "application_id"
+                    ]
+                  }
                 ]
               }
             }
@@ -3823,7 +3873,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the user to remove.",
+                    "description": "ID of the user to remove.\nOne of user_id, application_id is required.",
                     "x-one-of": "member"
                   },
                   "application_id": {
@@ -3831,13 +3881,25 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the application to remove.",
+                    "description": "ID of the application to remove.\nOne of user_id, application_id is required.",
                     "x-one-of": "member"
                   }
                 },
                 "x-properties-order": [
                   "user_id",
                   "application_id"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "user_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "application_id"
+                    ]
+                  }
                 ]
               }
             }
@@ -5024,7 +5086,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of user attributed to the policy.",
+                    "description": "ID of user attributed to the policy.\nOne of user_id, group_id, application_id, no_principal is required.",
                     "x-one-of": "principal"
                   },
                   "group_id": {
@@ -5032,7 +5094,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of group attributed to the policy.",
+                    "description": "ID of group attributed to the policy.\nOne of user_id, group_id, application_id, no_principal is required.",
                     "x-one-of": "principal"
                   },
                   "application_id": {
@@ -5040,7 +5102,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of application attributed to the policy.",
+                    "description": "ID of application attributed to the policy.\nOne of user_id, group_id, application_id, no_principal is required.",
                     "x-one-of": "principal"
                   },
                   "no_principal": {
@@ -5048,7 +5110,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Defines whether or not a policy is attributed to a principal.",
+                    "description": "Defines whether or not a policy is attributed to a principal.\nOne of user_id, group_id, application_id, no_principal is required.",
                     "x-one-of": "principal"
                   }
                 },
@@ -5065,6 +5127,28 @@
                   "group_id",
                   "application_id",
                   "no_principal"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "user_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "group_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "application_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "no_principal"
+                    ]
+                  }
                 ]
               }
             }
@@ -5198,7 +5282,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "New ID of user attributed to the policy.",
+                    "description": "New ID of user attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
                     "x-one-of": "principal"
                   },
                   "group_id": {
@@ -5206,7 +5290,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "New ID of group attributed to the policy.",
+                    "description": "New ID of group attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
                     "x-one-of": "principal"
                   },
                   "application_id": {
@@ -5214,7 +5298,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "New ID of application attributed to the policy.",
+                    "description": "New ID of application attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
                     "x-one-of": "principal"
                   },
                   "no_principal": {
@@ -5222,7 +5306,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Defines whether or not the policy is attributed to a principal.",
+                    "description": "Defines whether or not the policy is attributed to a principal.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
                     "x-one-of": "principal"
                   }
                 },
@@ -6654,7 +6738,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Email of the user.",
+                    "description": "Email of the user.\nOne of email, member is required.",
                     "x-one-of": "type"
                   },
                   "tags": {
@@ -6666,7 +6750,7 @@
                     }
                   },
                   "member": {
-                    "description": "Details of IAM member.",
+                    "description": "Details of IAM member.\nOne of email, member is required.",
                     "x-one-of": "type",
                     "oneOf": [
                       {
@@ -6686,6 +6770,18 @@
                   "email",
                   "tags",
                   "member"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "email"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "member"
+                    ]
+                  }
                 ]
               }
             }

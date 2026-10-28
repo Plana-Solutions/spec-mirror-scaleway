@@ -213,7 +213,7 @@
               "string",
               "null"
             ],
-            "description": "Organization ID with which the server will be created.",
+            "description": "Organization ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
             "deprecated": true,
             "x-one-of": "ProjectIdentifier"
           },
@@ -222,7 +222,7 @@
               "string",
               "null"
             ],
-            "description": "Project ID with which the server will be created.",
+            "description": "Project ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
             "x-one-of": "ProjectIdentifier"
           },
           "name": {
@@ -1000,7 +1000,7 @@
             "deprecated": true
           },
           "license": {
-            "description": "License option, contains the ID of the OS linked to the option.",
+            "description": "License option, contains the ID of the OS linked to the option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1012,7 +1012,7 @@
             ]
           },
           "public_bandwidth": {
-            "description": "Public_bandwidth option, contains the bandwidth_in_bps.",
+            "description": "Public_bandwidth option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1024,7 +1024,7 @@
             ]
           },
           "private_network": {
-            "description": "Private_network option, contains the bandwidth_in_bps.",
+            "description": "Private_network option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1036,7 +1036,7 @@
             ]
           },
           "remote_access": {
-            "description": "Remote_access option.",
+            "description": "Remote_access option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1048,7 +1048,7 @@
             ]
           },
           "certification": {
-            "description": "Certification option.",
+            "description": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1109,7 +1109,7 @@
             "description": "Defines whether the option is manageable (could be added or removed)."
           },
           "license": {
-            "description": "License option, contains the ID of the OS linked to the option.",
+            "description": "License option, contains the ID of the OS linked to the option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1121,7 +1121,7 @@
             ]
           },
           "public_bandwidth": {
-            "description": "Public_bandwidth option, contains the bandwidth_in_bps.",
+            "description": "Public_bandwidth option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1133,7 +1133,7 @@
             ]
           },
           "private_network": {
-            "description": "Private_network option, contains the bandwidth_in_bps.",
+            "description": "Private_network option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1145,7 +1145,7 @@
             ]
           },
           "remote_access": {
-            "description": "Remote_access option.",
+            "description": "Remote_access option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1157,7 +1157,7 @@
             ]
           },
           "certification": {
-            "description": "Certification option.",
+            "description": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1707,7 +1707,7 @@
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "license": {
-            "description": "License option, contains the ID of the OS linked to the option.",
+            "description": "License option, contains the ID of the OS linked to the option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1719,7 +1719,7 @@
             ]
           },
           "public_bandwidth": {
-            "description": "Public_bandwidth option, contains the bandwidth_in_bps.",
+            "description": "Public_bandwidth option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1731,7 +1731,7 @@
             ]
           },
           "private_network": {
-            "description": "Private_network option, contains the bandwidth_in_bps.",
+            "description": "Private_network option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1743,7 +1743,7 @@
             ]
           },
           "remote_access": {
-            "description": "Remote_access option.",
+            "description": "Remote_access option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -1755,7 +1755,7 @@
             ]
           },
           "certification": {
-            "description": "Certification option.",
+            "description": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "x-one-of": "option",
             "oneOf": [
               {
@@ -2860,7 +2860,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID with which the server will be created.",
+                    "description": "Organization ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -2869,7 +2869,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID with which the server will be created.",
+                    "description": "Project ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "name": {

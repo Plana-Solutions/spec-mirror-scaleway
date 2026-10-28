@@ -655,7 +655,7 @@
           {
             "in": "query",
             "name": "image_id",
-            "description": "Filter by image id. (UUID format)",
+            "description": "Filter by image id. (UUID format)\nPrecisely one of image_id, version_id, image_label can be set.",
             "schema": {
               "type": "string",
               "example": "6170692e-7363-616c-6577-61792e636f6d",
@@ -665,7 +665,7 @@
           {
             "in": "query",
             "name": "version_id",
-            "description": "Filter by version id. (UUID format)",
+            "description": "Filter by version id. (UUID format)\nPrecisely one of image_id, version_id, image_label can be set.",
             "schema": {
               "type": "string",
               "example": "6170692e-7363-616c-6577-61792e636f6d",
@@ -675,7 +675,7 @@
           {
             "in": "query",
             "name": "image_label",
-            "description": "Filter by image label.",
+            "description": "Filter by image label.\nPrecisely one of image_id, version_id, image_label can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"

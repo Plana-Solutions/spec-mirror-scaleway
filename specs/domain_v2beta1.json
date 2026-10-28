@@ -509,6 +509,7 @@
             "$ref": "#/components/schemas/google.protobuf.StringValue"
           },
           "geo_ip_config": {
+            "description": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "x-one-of": "dynamic_data",
             "oneOf": [
               {
@@ -520,6 +521,7 @@
             ]
           },
           "http_service_config": {
+            "description": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "x-one-of": "dynamic_data",
             "oneOf": [
               {
@@ -531,6 +533,7 @@
             ]
           },
           "weighted_config": {
+            "description": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "x-one-of": "dynamic_data",
             "oneOf": [
               {
@@ -542,6 +545,7 @@
             ]
           },
           "view_config": {
+            "description": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "x-one-of": "dynamic_data",
             "oneOf": [
               {
@@ -792,6 +796,7 @@
         "type": "object",
         "properties": {
           "add": {
+            "description": "Precisely one of add, set, delete, clear can be set.",
             "x-one-of": "change",
             "oneOf": [
               {
@@ -803,6 +808,7 @@
             ]
           },
           "set": {
+            "description": "Precisely one of add, set, delete, clear can be set.",
             "x-one-of": "change",
             "oneOf": [
               {
@@ -814,6 +820,7 @@
             ]
           },
           "delete": {
+            "description": "Precisely one of add, set, delete, clear can be set.",
             "x-one-of": "change",
             "oneOf": [
               {
@@ -825,6 +832,7 @@
             ]
           },
           "clear": {
+            "description": "Precisely one of add, set, delete, clear can be set.",
             "x-one-of": "change",
             "oneOf": [
               {
@@ -868,11 +876,12 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of id, id_fields can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "identifier"
           },
           "id_fields": {
+            "description": "Precisely one of id, id_fields can be set.",
             "x-one-of": "identifier",
             "oneOf": [
               {
@@ -897,11 +906,12 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of id, id_fields can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "identifier"
           },
           "id_fields": {
+            "description": "Precisely one of id, id_fields can be set.",
             "x-one-of": "identifier",
             "oneOf": [
               {
@@ -1570,6 +1580,7 @@
                 "type": "object",
                 "properties": {
                   "online_v1": {
+                    "description": "Precisely one of online_v1 can be set.",
                     "x-one-of": "provider",
                     "oneOf": [
                       {
@@ -1836,7 +1847,7 @@
                     "$ref": "#/components/schemas/scaleway.domain.v2beta1.RawFormat"
                   },
                   "bind_source": {
-                    "description": "Import a bind file format.",
+                    "description": "Import a bind file format.\nPrecisely one of bind_source, axfr_source can be set.",
                     "x-one-of": "source",
                     "oneOf": [
                       {
@@ -1848,7 +1859,7 @@
                     ]
                   },
                   "axfr_source": {
-                    "description": "Import from the name server given with TSIG, to use or not.",
+                    "description": "Import from the name server given with TSIG, to use or not.\nPrecisely one of bind_source, axfr_source can be set.",
                     "x-one-of": "source",
                     "oneOf": [
                       {

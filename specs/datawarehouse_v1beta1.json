@@ -235,7 +235,7 @@
             }
           },
           "private_network": {
-            "description": "Private Network endpoint details.",
+            "description": "Private Network endpoint details.\nPrecisely one of private_network, public can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -247,7 +247,7 @@
             ]
           },
           "public": {
-            "description": "Public endpoint details.",
+            "description": "Public endpoint details.\nPrecisely one of private_network, public can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -311,6 +311,7 @@
         "type": "object",
         "properties": {
           "public": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -322,6 +323,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {

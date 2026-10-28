@@ -288,7 +288,7 @@
               "boolean",
               "null"
             ],
-            "description": "Whether or not the product is global.",
+            "description": "Whether or not the product is global.\nPrecisely one of global, region, zone, datacenter can be set.",
             "x-one-of": "locality"
           },
           "region": {
@@ -296,7 +296,7 @@
               "string",
               "null"
             ],
-            "description": "The region of the product.",
+            "description": "The region of the product.\nPrecisely one of global, region, zone, datacenter can be set.",
             "x-one-of": "locality"
           },
           "zone": {
@@ -304,7 +304,7 @@
               "string",
               "null"
             ],
-            "description": "The zone of the product.",
+            "description": "The zone of the product.\nPrecisely one of global, region, zone, datacenter can be set.",
             "x-one-of": "locality"
           },
           "datacenter": {
@@ -312,7 +312,7 @@
               "string",
               "null"
             ],
-            "description": "The datacenter of the product.",
+            "description": "The datacenter of the product.\nPrecisely one of global, region, zone, datacenter can be set.",
             "x-one-of": "locality"
           }
         },
@@ -365,7 +365,7 @@
             "$ref": "#/components/schemas/scaleway.product_catalog.v2alpha1.PublicCatalogProduct.Properties.Hardware"
           },
           "dedibox": {
-            "description": "The properties of Dedibox products.",
+            "description": "The properties of Dedibox products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -377,7 +377,7 @@
             ]
           },
           "elastic_metal": {
-            "description": "The properties of Elastic Metal products.",
+            "description": "The properties of Elastic Metal products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -389,7 +389,7 @@
             ]
           },
           "apple_silicon": {
-            "description": "The properties of Apple Silicon products.",
+            "description": "The properties of Apple Silicon products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -401,7 +401,7 @@
             ]
           },
           "instance": {
-            "description": "The properties of Instance products.",
+            "description": "The properties of Instance products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -413,7 +413,7 @@
             ]
           },
           "block_storage": {
-            "description": "The properties of Block Storage products.",
+            "description": "The properties of Block Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -425,7 +425,7 @@
             ]
           },
           "object_storage": {
-            "description": "The properties of Object Storage products.",
+            "description": "The properties of Object Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -437,7 +437,7 @@
             ]
           },
           "managed_inference": {
-            "description": "The properties of Managed Inference products.",
+            "description": "The properties of Managed Inference products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -449,7 +449,7 @@
             ]
           },
           "generative_apis": {
-            "description": "The properties of Generative APIs products.",
+            "description": "The properties of Generative APIs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -461,7 +461,7 @@
             ]
           },
           "load_balancer": {
-            "description": "The properties of Load Balancer products.",
+            "description": "The properties of Load Balancer products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -473,6 +473,7 @@
             ]
           },
           "secret_manager": {
+            "description": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -484,7 +485,7 @@
             ]
           },
           "managed_redis_database": {
-            "description": "The properties of Managed Redis Database products.",
+            "description": "The properties of Managed Redis Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -496,6 +497,7 @@
             ]
           },
           "key_manager": {
+            "description": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -507,7 +509,7 @@
             ]
           },
           "kubernetes": {
-            "description": "The properties of Kubernetes products.",
+            "description": "The properties of Kubernetes products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -519,7 +521,7 @@
             ]
           },
           "managed_relational_database": {
-            "description": "The properties of Managed Relational Database products.",
+            "description": "The properties of Managed Relational Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -531,7 +533,7 @@
             ]
           },
           "serverless_functions": {
-            "description": "The properties of Serverless Functions products.",
+            "description": "The properties of Serverless Functions products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -543,7 +545,7 @@
             ]
           },
           "serverless_containers": {
-            "description": "The properties of Serverless Containers products.",
+            "description": "The properties of Serverless Containers products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -555,6 +557,7 @@
             ]
           },
           "managed_mongodb": {
+            "description": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -566,7 +569,7 @@
             ]
           },
           "serverless_jobs": {
-            "description": "The properties of Serverless Jobs products.",
+            "description": "The properties of Serverless Jobs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -578,7 +581,7 @@
             ]
           },
           "serverless_sql_database": {
-            "description": "The properties of Serverless SQL Database products.",
+            "description": "The properties of Serverless SQL Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -590,7 +593,7 @@
             ]
           },
           "apache_kafka": {
-            "description": "The properties of Apache Kafka products.",
+            "description": "The properties of Apache Kafka products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -602,7 +605,7 @@
             ]
           },
           "open_search": {
-            "description": "The properties of OpenSearch DB products.",
+            "description": "The properties of OpenSearch DB products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -614,7 +617,7 @@
             ]
           },
           "instance_local_ssd_snapshot": {
-            "description": "The properties of Instance Local SSD Snapshot products.",
+            "description": "The properties of Instance Local SSD Snapshot products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -626,7 +629,7 @@
             ]
           },
           "instance_local_ssd_storage": {
-            "description": "The properties of Instance Local SSD Storage products.",
+            "description": "The properties of Instance Local SSD Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -638,7 +641,7 @@
             ]
           },
           "file_storage": {
-            "description": "The properties of File Storage products.",
+            "description": "The properties of File Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "x-one-of": "properties",
             "oneOf": [
               {
@@ -682,7 +685,7 @@
         "type": "object",
         "properties": {
           "node": {
-            "description": "The properties related to Kafka node products.",
+            "description": "The properties related to Kafka node products.\nPrecisely one of node, storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -694,7 +697,7 @@
             ]
           },
           "storage": {
-            "description": "The properties related to Kafka storage products.",
+            "description": "The properties related to Kafka storage products.\nPrecisely one of node, storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -814,7 +817,7 @@
             "format": "uint64"
           },
           "snapshot": {
-            "description": "The properties related to Block Storage snapshot.",
+            "description": "The properties related to Block Storage snapshot.\nPrecisely one of snapshot, volume can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -826,7 +829,7 @@
             ]
           },
           "volume": {
-            "description": "The properties related to Block Storage volume.",
+            "description": "The properties related to Block Storage volume.\nPrecisely one of snapshot, volume can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1053,7 +1056,7 @@
             "description": "The type of the CPU."
           },
           "virtual": {
-            "description": "Properties if the CPU is virtual.",
+            "description": "Properties if the CPU is virtual.\nPrecisely one of virtual, physical can be set.",
             "x-one-of": "compute_unit",
             "oneOf": [
               {
@@ -1065,7 +1068,7 @@
             ]
           },
           "physical": {
-            "description": "Properties if the CPU is physical.",
+            "description": "Properties if the CPU is physical.\nPrecisely one of virtual, physical can be set.",
             "x-one-of": "compute_unit",
             "oneOf": [
               {
@@ -1319,7 +1322,7 @@
         "type": "object",
         "properties": {
           "kapsule_control_plane": {
-            "description": "The properties related to Kapsule Control Plane products.",
+            "description": "The properties related to Kapsule Control Plane products.\nPrecisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1331,7 +1334,7 @@
             ]
           },
           "kosmos_control_plane": {
-            "description": "The properties related to Kosmos Control Plane products.",
+            "description": "The properties related to Kosmos Control Plane products.\nPrecisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1343,7 +1346,7 @@
             ]
           },
           "kosmos_node": {
-            "description": "The properties related to Kosmos nodes.",
+            "description": "The properties related to Kosmos nodes.\nPrecisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1374,7 +1377,7 @@
         "type": "object",
         "properties": {
           "node": {
-            "description": "The properties related to Load Balancer nodes.",
+            "description": "The properties related to Load Balancer nodes.\nPrecisely one of node, ipv4 can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1386,7 +1389,7 @@
             ]
           },
           "ipv4": {
-            "description": "The properties related to Load Balancer IPv4.",
+            "description": "The properties related to Load Balancer IPv4.\nPrecisely one of node, ipv4 can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1438,7 +1441,7 @@
             "deprecated": true
           },
           "deployment": {
-            "description": "The properties related to Managed Inference Deployment.",
+            "description": "The properties related to Managed Inference Deployment.\nPrecisely one of deployment, custom_model_storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1450,7 +1453,7 @@
             ]
           },
           "custom_model_storage": {
-            "description": "The properties related to Managed Inference Custom Model Storage.",
+            "description": "The properties related to Managed Inference Custom Model Storage.\nPrecisely one of deployment, custom_model_storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1487,7 +1490,7 @@
         "type": "object",
         "properties": {
           "management": {
-            "description": "The properties related to MongoDB Management type.",
+            "description": "The properties related to MongoDB Management type.\nPrecisely one of management, node, storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1499,7 +1502,7 @@
             ]
           },
           "node": {
-            "description": "The properties related to MongoDB Node type.",
+            "description": "The properties related to MongoDB Node type.\nPrecisely one of management, node, storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1511,7 +1514,7 @@
             ]
           },
           "storage": {
-            "description": "The properties related to MongoDB Storage type.",
+            "description": "The properties related to MongoDB Storage type.\nPrecisely one of management, node, storage can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1574,7 +1577,7 @@
         "type": "object",
         "properties": {
           "management": {
-            "description": "The properties related to Relational Database Management type.",
+            "description": "The properties related to Relational Database Management type.\nPrecisely one of management, node, storage, multi_az can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1586,7 +1589,7 @@
             ]
           },
           "node": {
-            "description": "The properties related to Relational Database Nodes.",
+            "description": "The properties related to Relational Database Nodes.\nPrecisely one of management, node, storage, multi_az can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1598,7 +1601,7 @@
             ]
           },
           "storage": {
-            "description": "The properties related to Relational Database Storage type.",
+            "description": "The properties related to Relational Database Storage type.\nPrecisely one of management, node, storage, multi_az can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1610,7 +1613,7 @@
             ]
           },
           "multi_az": {
-            "description": "The properties related to Relational Database Multi AZ type.",
+            "description": "The properties related to Relational Database Multi AZ type.\nPrecisely one of management, node, storage, multi_az can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1682,7 +1685,7 @@
         "type": "object",
         "properties": {
           "class": {
-            "description": "The properties related to Object Storage class.",
+            "description": "The properties related to Object Storage class.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1694,7 +1697,7 @@
             ]
           },
           "restore": {
-            "description": "The properties related to Object Storage restore operations.",
+            "description": "The properties related to Object Storage restore operations.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1706,7 +1709,7 @@
             ]
           },
           "internet_traffic": {
-            "description": "The properties related to Object Storage internet traffic.",
+            "description": "The properties related to Object Storage internet traffic.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1718,7 +1721,7 @@
             ]
           },
           "region_traffic": {
-            "description": "The properties related to Object Storage region traffic.",
+            "description": "The properties related to Object Storage region traffic.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1843,7 +1846,7 @@
         "type": "object",
         "properties": {
           "memory": {
-            "description": "The properties related to Serverless containers memory products.",
+            "description": "The properties related to Serverless containers memory products.\nPrecisely one of memory, cpu can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1855,7 +1858,7 @@
             ]
           },
           "cpu": {
-            "description": "The properties related to Serverless containers CPU products.",
+            "description": "The properties related to Serverless containers CPU products.\nPrecisely one of memory, cpu can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1915,7 +1918,7 @@
             }
           },
           "consumption": {
-            "description": "The properties related to Serverless functions consumption products.",
+            "description": "The properties related to Serverless functions consumption products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1927,7 +1930,7 @@
             ]
           },
           "request": {
-            "description": "The properties related to Serverless functions request products.",
+            "description": "The properties related to Serverless functions request products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1939,7 +1942,7 @@
             ]
           },
           "provision": {
-            "description": "The properties related to Serverless functions provision products.",
+            "description": "The properties related to Serverless functions provision products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -1951,7 +1954,7 @@
             ]
           },
           "free_tier": {
-            "description": "The properties related to Serverless functions free tier products.",
+            "description": "The properties related to Serverless functions free tier products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -2006,7 +2009,7 @@
         "type": "object",
         "properties": {
           "memory": {
-            "description": "The properties related to Serverless containers memory products.",
+            "description": "The properties related to Serverless containers memory products.\nPrecisely one of memory, cpu can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -2018,7 +2021,7 @@
             ]
           },
           "cpu": {
-            "description": "The properties related to Serverless containers CPU products.",
+            "description": "The properties related to Serverless containers CPU products.\nPrecisely one of memory, cpu can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -2261,7 +2264,7 @@
           {
             "in": "query",
             "name": "global",
-            "description": "Filter global products.",
+            "description": "Filter global products.\nPrecisely one of global, region, zone, datacenter can be set.",
             "schema": {
               "type": "boolean",
               "x-one-of": "locality"
@@ -2270,7 +2273,7 @@
           {
             "in": "query",
             "name": "region",
-            "description": "Filter products by region.",
+            "description": "Filter products by region.\nPrecisely one of global, region, zone, datacenter can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "locality"
@@ -2279,7 +2282,7 @@
           {
             "in": "query",
             "name": "zone",
-            "description": "Filter products by zone.",
+            "description": "Filter products by zone.\nPrecisely one of global, region, zone, datacenter can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "locality"
@@ -2288,7 +2291,7 @@
           {
             "in": "query",
             "name": "datacenter",
-            "description": "Filter products by datacenter.",
+            "description": "Filter products by datacenter.\nPrecisely one of global, region, zone, datacenter can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "locality"

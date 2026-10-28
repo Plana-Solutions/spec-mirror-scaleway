@@ -302,6 +302,7 @@
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.ExtensionFR.Mode"
           },
           "individual_info": {
+            "description": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "x-one-of": "mode_fields",
             "oneOf": [
               {
@@ -313,6 +314,7 @@
             ]
           },
           "duns_info": {
+            "description": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "x-one-of": "mode_fields",
             "oneOf": [
               {
@@ -324,6 +326,7 @@
             ]
           },
           "association_info": {
+            "description": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "x-one-of": "mode_fields",
             "oneOf": [
               {
@@ -335,6 +338,7 @@
             ]
           },
           "trademark_info": {
+            "description": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "x-one-of": "mode_fields",
             "oneOf": [
               {
@@ -346,6 +350,7 @@
             ]
           },
           "code_auth_afnic_info": {
+            "description": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "x-one-of": "mode_fields",
             "oneOf": [
               {
@@ -749,7 +754,7 @@
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.DSRecord.Algorithm"
           },
           "digest": {
-            "description": "The digest of the DS record.",
+            "description": "The digest of the DS record.\nPrecisely one of digest, public_key can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -761,7 +766,7 @@
             ]
           },
           "public_key": {
-            "description": "The public key of the DS record.",
+            "description": "The public key of the DS record.\nPrecisely one of digest, public_key can be set.",
             "x-one-of": "type",
             "oneOf": [
               {
@@ -951,7 +956,7 @@
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact"
           },
           "external_domain_registration_status": {
-            "description": "Registration status of an external domain, if available.",
+            "description": "Registration status of an external domain, if available.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -963,7 +968,7 @@
             ]
           },
           "transfer_registration_status": {
-            "description": "Status of an in-progress domain transfer.",
+            "description": "Status of an in-progress domain transfer.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -1217,7 +1222,7 @@
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Domain.Status"
           },
           "external_domain_registration_status": {
-            "description": "Registration status of an external domain, if available.",
+            "description": "Registration status of an external domain, if available.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -1229,7 +1234,7 @@
             ]
           },
           "transfer_registration_status": {
-            "description": "Status of an in-progress domain transfer.",
+            "description": "Status of an in-progress domain transfer.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "x-one-of": "registration_status",
             "oneOf": [
               {
@@ -2363,11 +2368,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's owner.",
+                    "description": "ID of the existing contact to use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "x-one-of": "owner_contact_type"
                   },
                   "owner_contact": {
-                    "description": "New contact to create and use as the domain's owner.",
+                    "description": "New contact to create and use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "x-one-of": "owner_contact_type",
                     "oneOf": [
                       {
@@ -2383,11 +2388,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
+                    "description": "ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
-                    "description": "New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
+                    "description": "New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -2403,11 +2408,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
+                    "description": "ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
-                    "description": "New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
+                    "description": "New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {
@@ -2505,11 +2510,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to check as the domain's owner.",
+                    "description": "ID of the existing contact to check as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "x-one-of": "owner_contact_type"
                   },
                   "owner_contact": {
-                    "description": "New contact to check as the domain's owner.",
+                    "description": "New contact to check as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "x-one-of": "owner_contact_type",
                     "oneOf": [
                       {
@@ -2525,11 +2530,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to check as the domain's administrative contact.",
+                    "description": "ID of the existing contact to check as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
-                    "description": "New contact to check as the domain's administrative contact.",
+                    "description": "New contact to check as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -2545,11 +2550,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to check as the domain's technical contact.",
+                    "description": "ID of the existing contact to check as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
-                    "description": "New contact to check as the domain's technical contact.",
+                    "description": "New contact to check as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {
@@ -3184,11 +3189,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's technical contact.",
+                    "description": "ID of the existing contact to use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_info"
                   },
                   "technical_contact": {
-                    "description": "New contact to create and use as the domain's technical contact.",
+                    "description": "New contact to create and use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_info",
                     "oneOf": [
                       {
@@ -3204,12 +3209,12 @@
                       "string",
                       "null"
                     ],
-                    "description": "Deprecated. ID of the existing contact to use as the domain's owner.",
+                    "description": "Deprecated. ID of the existing contact to use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "deprecated": true,
                     "x-one-of": "owner_contact_info"
                   },
                   "owner_contact": {
-                    "description": "Deprecated. New contact to create and use as the domain's owner.",
+                    "description": "Deprecated. New contact to create and use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "deprecated": true,
                     "x-one-of": "owner_contact_info",
                     "oneOf": [
@@ -3226,11 +3231,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's administrative contact.",
+                    "description": "ID of the existing contact to use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_info"
                   },
                   "administrative_contact": {
-                    "description": "New contact to create and use as the domain's administrative contact.",
+                    "description": "New contact to create and use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_info",
                     "oneOf": [
                       {
@@ -3943,11 +3948,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's new owner.",
+                    "description": "ID of the existing contact to use as the domain's new owner.\nPrecisely one of new_owner_contact_id, new_owner_contact can be set.",
                     "x-one-of": "new_owner_contact_type"
                   },
                   "new_owner_contact": {
-                    "description": "New contact to create and use as the domain's new owner.",
+                    "description": "New contact to create and use as the domain's new owner.\nPrecisely one of new_owner_contact_id, new_owner_contact can be set.",
                     "x-one-of": "new_owner_contact_type",
                     "oneOf": [
                       {
@@ -4086,11 +4091,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's owner.",
+                    "description": "ID of the existing contact to use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "x-one-of": "owner_contact_type"
                   },
                   "owner_contact": {
-                    "description": "New contact to create and use as the domain's owner.",
+                    "description": "New contact to create and use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
                     "x-one-of": "owner_contact_type",
                     "oneOf": [
                       {
@@ -4106,11 +4111,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's administrative contact.",
+                    "description": "ID of the existing contact to use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_type"
                   },
                   "administrative_contact": {
-                    "description": "New contact to create and use as the domain's administrative contact.",
+                    "description": "New contact to create and use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
                     "x-one-of": "administrative_contact_type",
                     "oneOf": [
                       {
@@ -4126,11 +4131,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the existing contact to use as the domain's technical contact.",
+                    "description": "ID of the existing contact to use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_type"
                   },
                   "technical_contact": {
-                    "description": "New contact to create and use as the domain's technical contact.",
+                    "description": "New contact to create and use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
                     "x-one-of": "technical_contact_type",
                     "oneOf": [
                       {

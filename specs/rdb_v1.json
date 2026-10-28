@@ -452,7 +452,7 @@
               "string",
               "null"
             ],
-            "description": "IPv4 address of the endpoint. (IP address)",
+            "description": "IPv4 address of the endpoint. (IP address)\nPrecisely one of ip, hostname can be set.",
             "example": "1.2.3.4",
             "x-one-of": "address"
           },
@@ -469,7 +469,7 @@
             "description": "Name of the endpoint."
           },
           "private_network": {
-            "description": "Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).",
+            "description": "Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of private_network, load_balancer, direct_access can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -481,7 +481,7 @@
             ]
           },
           "load_balancer": {
-            "description": "Load balancer details. Public endpoint for Database Instance which is systematically present. One per Database Instance.",
+            "description": "Load balancer details. Public endpoint for Database Instance which is systematically present. One per Database Instance.\nPrecisely one of private_network, load_balancer, direct_access can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -493,7 +493,7 @@
             ]
           },
           "direct_access": {
-            "description": "Direct access details. Public endpoint reserved for Read Replicas. One per Read Replica.",
+            "description": "Direct access details. Public endpoint reserved for Read Replicas. One per Read Replica.\nPrecisely one of private_network, load_balancer, direct_access can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -509,7 +509,7 @@
               "string",
               "null"
             ],
-            "description": "Hostname of the endpoint.",
+            "description": "Hostname of the endpoint.\nPrecisely one of ip, hostname can be set.",
             "x-one-of": "address"
           }
         },
@@ -571,7 +571,7 @@
         "type": "object",
         "properties": {
           "load_balancer": {
-            "description": "Load balancer endpoint specifications. Public endpoint for Database Instance which is systematically present. One per RDB instance.",
+            "description": "Load balancer endpoint specifications. Public endpoint for Database Instance which is systematically present. One per RDB instance.\nPrecisely one of load_balancer, private_network can be set.",
             "x-one-of": "spec",
             "oneOf": [
               {
@@ -583,7 +583,7 @@
             ]
           },
           "private_network": {
-            "description": "Private Network endpoint specifications. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).",
+            "description": "Private Network endpoint specifications. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of load_balancer, private_network can be set.",
             "x-one-of": "spec",
             "oneOf": [
               {
@@ -616,12 +616,12 @@
               "string",
               "null"
             ],
-            "description": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)",
+            "description": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)\nPrecisely one of service_ip, ipam_config can be set.",
             "example": "1.2.3.4/32",
             "x-one-of": "config"
           },
           "ipam_config": {
-            "description": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).",
+            "description": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of service_ip, ipam_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -1751,7 +1751,7 @@
         "type": "object",
         "properties": {
           "direct_access": {
-            "description": "Direct access endpoint specifications. Public endpoint reserved for Read Replicas. One per Read Replica.",
+            "description": "Direct access endpoint specifications. Public endpoint reserved for Read Replicas. One per Read Replica.\nPrecisely one of direct_access, private_network can be set.",
             "x-one-of": "spec",
             "oneOf": [
               {
@@ -1763,7 +1763,7 @@
             ]
           },
           "private_network": {
-            "description": "Private Network endpoint specifications. One at the most per Read Replica. Cannot be updated (has to be deleted and recreated).",
+            "description": "Private Network endpoint specifications. One at the most per Read Replica. Cannot be updated (has to be deleted and recreated).\nPrecisely one of direct_access, private_network can be set.",
             "x-one-of": "spec",
             "oneOf": [
               {
@@ -1796,12 +1796,12 @@
               "string",
               "null"
             ],
-            "description": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)",
+            "description": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)\nPrecisely one of service_ip, ipam_config can be set.",
             "example": "1.2.3.4/32",
             "x-one-of": "config"
           },
           "ipam_config": {
-            "description": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different private networks). Cannot be updated (has to be deleted and recreated).",
+            "description": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different private networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of service_ip, ipam_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -3165,7 +3165,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Please use project_id instead.",
+                    "description": "Please use project_id instead.\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -3174,7 +3174,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "The Project ID on which the Database Instance will be created.",
+                    "description": "The Project ID on which the Database Instance will be created.\nPrecisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "name": {
@@ -5582,7 +5582,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Node type of the Database Instance you want to upgrade to.",
+                    "description": "Node type of the Database Instance you want to upgrade to.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "x-one-of": "UpgradeTarget"
                   },
                   "enable_ha": {
@@ -5590,12 +5590,12 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Defines whether or not high availability should be enabled on the Database Instance.",
+                    "description": "Defines whether or not high availability should be enabled on the Database Instance.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "deprecated": true,
                     "x-one-of": "UpgradeTarget"
                   },
                   "high_availability_mode": {
-                    "description": "Defines the High-Availability mode of the instance.",
+                    "description": "Defines the High-Availability mode of the instance.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "x-one-of": "UpgradeTarget",
                     "oneOf": [
                       {
@@ -5611,12 +5611,12 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Increase your block storage volume size.",
+                    "description": "Increase your block storage volume size.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "format": "uint64",
                     "x-one-of": "UpgradeTarget"
                   },
                   "volume_type": {
-                    "description": "Change your Database Instance storage type.",
+                    "description": "Change your Database Instance storage type.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "x-one-of": "UpgradeTarget",
                     "oneOf": [
                       {
@@ -5632,12 +5632,12 @@
                       "string",
                       "null"
                     ],
-                    "description": "Update your database engine to a newer version.\nThis will create a new Database Instance with same specifications as the current one and perform a Database Engine upgrade. (UUID format)",
+                    "description": "Update your database engine to a newer version.\nThis will create a new Database Instance with same specifications as the current one and perform a Database Engine upgrade. (UUID format)\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "UpgradeTarget"
                   },
                   "major_upgrade_workflow": {
-                    "description": "Upgrade your database engine to a new major version including instance endpoints.",
+                    "description": "Upgrade your database engine to a new major version including instance endpoints.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "x-one-of": "UpgradeTarget",
                     "oneOf": [
                       {
@@ -5653,7 +5653,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Defines whether or not encryption should be enabled on the Database Instance.",
+                    "description": "Defines whether or not encryption should be enabled on the Database Instance.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
                     "x-one-of": "UpgradeTarget"
                   }
                 },

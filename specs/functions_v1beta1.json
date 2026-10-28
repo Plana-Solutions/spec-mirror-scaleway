@@ -991,7 +991,7 @@
               "string",
               "null"
             ],
-            "description": "UUID of the function the token is associated with.",
+            "description": "UUID of the function the token is associated with.\nPrecisely one of function_id, namespace_id can be set.",
             "x-one-of": "scope"
           },
           "namespace_id": {
@@ -999,7 +999,7 @@
               "string",
               "null"
             ],
-            "description": "UUID of the namespace the token is associated with.",
+            "description": "UUID of the namespace the token is associated with.\nPrecisely one of function_id, namespace_id can be set.",
             "x-one-of": "scope"
           },
           "public_key": {
@@ -1090,7 +1090,7 @@
             "description": "Error message of the trigger."
           },
           "scw_sqs_config": {
-            "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.",
+            "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.\nPrecisely one of scw_sqs_config, scw_nats_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -1102,7 +1102,7 @@
             ]
           },
           "scw_nats_config": {
-            "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.",
+            "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.\nPrecisely one of scw_sqs_config, scw_nats_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -3435,7 +3435,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "UUID of the function to associate the token with.",
+                    "description": "UUID of the function to associate the token with.\nPrecisely one of function_id, namespace_id can be set.",
                     "x-one-of": "scope"
                   },
                   "namespace_id": {
@@ -3443,7 +3443,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "UUID of the namespace to associate the token with.",
+                    "description": "UUID of the namespace to associate the token with.\nPrecisely one of function_id, namespace_id can be set.",
                     "x-one-of": "scope"
                   },
                   "description": {
@@ -3663,7 +3663,7 @@
           {
             "in": "query",
             "name": "function_id",
-            "description": "ID of the function the triggers belongs to.",
+            "description": "ID of the function the triggers belongs to.\nOne of function_id, namespace_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -3672,7 +3672,7 @@
           {
             "in": "query",
             "name": "namespace_id",
-            "description": "ID of the namespace the triggers belongs to.",
+            "description": "ID of the namespace the triggers belongs to.\nOne of function_id, namespace_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -3681,7 +3681,7 @@
           {
             "in": "query",
             "name": "project_id",
-            "description": "ID of the project the triggers belongs to.",
+            "description": "ID of the project the triggers belongs to.\nOne of function_id, namespace_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -3774,7 +3774,7 @@
                     "description": "Description of the trigger."
                   },
                   "scw_sqs_config": {
-                    "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.",
+                    "description": "Configuration for a Scaleway Messaging and Queuing SQS queue.\nOne of scw_sqs_config, scw_nats_config is required.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -3786,7 +3786,7 @@
                     ]
                   },
                   "scw_nats_config": {
-                    "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.",
+                    "description": "Configuration for a Scaleway Messaging and Queuing NATS subject.\nOne of scw_sqs_config, scw_nats_config is required.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -3808,6 +3808,18 @@
                   "description",
                   "scw_sqs_config",
                   "scw_nats_config"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "scw_sqs_config"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "scw_nats_config"
+                    ]
+                  }
                 ]
               }
             }

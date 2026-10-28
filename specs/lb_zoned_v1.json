@@ -851,7 +851,7 @@
             "format": "int32"
           },
           "tcp_config": {
-            "description": "Object to configure a basic TCP health check.",
+            "description": "Object to configure a basic TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -863,7 +863,7 @@
             ]
           },
           "mysql_config": {
-            "description": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.",
+            "description": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -875,7 +875,7 @@
             ]
           },
           "pgsql_config": {
-            "description": "Object to configure a PostgreSQL health check.",
+            "description": "Object to configure a PostgreSQL health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -887,7 +887,7 @@
             ]
           },
           "ldap_config": {
-            "description": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.",
+            "description": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -899,7 +899,7 @@
             ]
           },
           "redis_config": {
-            "description": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.",
+            "description": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -911,7 +911,7 @@
             ]
           },
           "http_config": {
-            "description": "Object to configure an HTTP health check.",
+            "description": "Object to configure an HTTP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -923,7 +923,7 @@
             ]
           },
           "https_config": {
-            "description": "Object to configure an HTTPS health check.",
+            "description": "Object to configure an HTTPS health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -1768,7 +1768,7 @@
             }
           },
           "static_config": {
-            "description": "Object containing an array of a local IP address for the Load Balancer on this Private Network.",
+            "description": "Object containing an array of a local IP address for the Load Balancer on this Private Network.\nPrecisely one of static_config, dhcp_config can be set.",
             "deprecated": true,
             "x-one-of": "Config",
             "oneOf": [
@@ -1781,7 +1781,7 @@
             ]
           },
           "dhcp_config": {
-            "description": "Object containing DHCP-assigned IP addresses.",
+            "description": "Object containing DHCP-assigned IP addresses.\nPrecisely one of static_config, dhcp_config can be set.",
             "deprecated": true,
             "x-one-of": "Config",
             "oneOf": [
@@ -1960,7 +1960,7 @@
               "string",
               "null"
             ],
-            "description": "Server Name Indication (SNI) value to match.\nValue to match in the Server Name Indication TLS extension (SNI) field from an incoming connection made via an SSL/TLS transport layer. This field should be set for routes on TCP Load Balancers.",
+            "description": "Server Name Indication (SNI) value to match.\nValue to match in the Server Name Indication TLS extension (SNI) field from an incoming connection made via an SSL/TLS transport layer. This field should be set for routes on TCP Load Balancers.\nPrecisely one of sni, host_header, path_begin can be set.",
             "x-one-of": "MatchType"
           },
           "host_header": {
@@ -1968,7 +1968,7 @@
               "string",
               "null"
             ],
-            "description": "HTTP host header to match.\nValue to match in the HTTP Host request header from an incoming request. This field should be set for routes on HTTP Load Balancers.",
+            "description": "HTTP host header to match.\nValue to match in the HTTP Host request header from an incoming request. This field should be set for routes on HTTP Load Balancers.\nPrecisely one of sni, host_header, path_begin can be set.",
             "x-one-of": "MatchType"
           },
           "match_subdomains": {
@@ -1980,7 +1980,7 @@
               "string",
               "null"
             ],
-            "description": "Path begin value to match.\nValue to match in the URL beginning path from an incoming request.",
+            "description": "Path begin value to match.\nValue to match in the URL beginning path from an incoming request.\nPrecisely one of sni, host_header, path_begin can be set.",
             "x-one-of": "MatchType"
           }
         },
@@ -2043,7 +2043,7 @@
             "description": "Subscriber name."
           },
           "email_config": {
-            "description": "Email address of subscriber.",
+            "description": "Email address of subscriber.\nPrecisely one of email_config, webhook_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -2055,7 +2055,7 @@
             ]
           },
           "webhook_config": {
-            "description": "Webhook URI of subscriber.",
+            "description": "Webhook URI of subscriber.\nPrecisely one of email_config, webhook_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -2778,7 +2778,7 @@
                     "description": "Defines whether proxy protocol should be activated for the health check."
                   },
                   "tcp_config": {
-                    "description": "Object to configure a basic TCP health check.",
+                    "description": "Object to configure a basic TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -2790,7 +2790,7 @@
                     ]
                   },
                   "mysql_config": {
-                    "description": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.",
+                    "description": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -2802,7 +2802,7 @@
                     ]
                   },
                   "pgsql_config": {
-                    "description": "Object to configure a PostgreSQL health check.",
+                    "description": "Object to configure a PostgreSQL health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -2814,7 +2814,7 @@
                     ]
                   },
                   "ldap_config": {
-                    "description": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.",
+                    "description": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -2826,7 +2826,7 @@
                     ]
                   },
                   "redis_config": {
-                    "description": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.",
+                    "description": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -2838,7 +2838,7 @@
                     ]
                   },
                   "http_config": {
-                    "description": "Object to configure an HTTP health check.",
+                    "description": "Object to configure an HTTP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -2850,7 +2850,7 @@
                     ]
                   },
                   "https_config": {
-                    "description": "Object to configure an HTTPS health check.",
+                    "description": "Object to configure an HTTPS health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -4136,7 +4136,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID of the Organization where the IP address should be created.",
+                    "description": "Organization ID of the Organization where the IP address should be created.\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -4145,7 +4145,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID of the Project where the IP address should be created.",
+                    "description": "Project ID of the Project where the IP address should be created.\nPrecisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "reverse": {
@@ -4896,7 +4896,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Scaleway Organization to create the Load Balancer in.",
+                    "description": "Scaleway Organization to create the Load Balancer in.\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -4905,7 +4905,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Scaleway Project to create the Load Balancer in.",
+                    "description": "Scaleway Project to create the Load Balancer in.\nPrecisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "name": {
@@ -5924,7 +5924,7 @@
                     "description": "Name for the certificate."
                   },
                   "letsencrypt": {
-                    "description": "Object to define a new Let's Encrypt certificate to be generated.",
+                    "description": "Object to define a new Let's Encrypt certificate to be generated.\nPrecisely one of letsencrypt, custom_certificate can be set.",
                     "x-one-of": "type",
                     "oneOf": [
                       {
@@ -5936,7 +5936,7 @@
                     ]
                   },
                   "custom_certificate": {
-                    "description": "Object to define an existing custom certificate to be imported.",
+                    "description": "Object to define an existing custom certificate to be imported.\nPrecisely one of letsencrypt, custom_certificate can be set.",
                     "x-one-of": "type",
                     "oneOf": [
                       {
@@ -7108,7 +7108,7 @@
                     "description": "Subscriber name."
                   },
                   "email_config": {
-                    "description": "Email address configuration.",
+                    "description": "Email address configuration.\nPrecisely one of email_config, webhook_config can be set.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -7120,7 +7120,7 @@
                     ]
                   },
                   "webhook_config": {
-                    "description": "WebHook URI configuration.",
+                    "description": "WebHook URI configuration.\nPrecisely one of email_config, webhook_config can be set.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -7136,7 +7136,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID to create the subscriber in.",
+                    "description": "Organization ID to create the subscriber in.\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -7145,7 +7145,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID to create the subscriber in.",
+                    "description": "Project ID to create the subscriber in.\nPrecisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   }
                 },
@@ -7307,7 +7307,7 @@
                     "description": "Subscriber name."
                   },
                   "email_config": {
-                    "description": "Email address configuration.",
+                    "description": "Email address configuration.\nPrecisely one of email_config, webhook_config can be set.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -7319,7 +7319,7 @@
                     ]
                   },
                   "webhook_config": {
-                    "description": "Webhook URI configuration.",
+                    "description": "Webhook URI configuration.\nPrecisely one of email_config, webhook_config can be set.",
                     "x-one-of": "config",
                     "oneOf": [
                       {

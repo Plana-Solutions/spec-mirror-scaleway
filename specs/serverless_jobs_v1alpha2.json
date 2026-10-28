@@ -59,6 +59,7 @@
               "string",
               "null"
             ],
+            "description": "One of path, env_var_name is required.",
             "pattern": "^/[a-zA-Z0-9/_.-]*(\\.[a-zA-Z0-9]+)?$",
             "x-one-of": "path_or_env_var"
           },
@@ -67,6 +68,7 @@
               "string",
               "null"
             ],
+            "description": "One of path, env_var_name is required.",
             "pattern": "[-._a-zA-Z0-9]+",
             "x-one-of": "path_or_env_var"
           }
@@ -76,6 +78,18 @@
           "secret_manager_version",
           "path",
           "env_var_name"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "path"
+            ]
+          },
+          {
+            "required": [
+              "env_var_name"
+            ]
+          }
         ]
       },
       "scaleway.serverless_jobs.v1alpha2.CreateSecretsResponse": {
@@ -621,7 +635,7 @@
             "example": "6170692e-7363-616c-6577-61792e636f6d"
           },
           "file": {
-            "description": "File secret mounted inside the job.",
+            "description": "File secret mounted inside the job.\nOne of file, env_var is required.",
             "x-one-of": "secret_config",
             "oneOf": [
               {
@@ -633,7 +647,7 @@
             ]
           },
           "env_var": {
-            "description": "Environment variable used to expose the secret.",
+            "description": "Environment variable used to expose the secret.\nOne of file, env_var is required.",
             "x-one-of": "secret_config",
             "oneOf": [
               {
@@ -655,6 +669,18 @@
           "job_definition_id",
           "file",
           "env_var"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "file"
+            ]
+          },
+          {
+            "required": [
+              "env_var"
+            ]
+          }
         ]
       },
       "scaleway.serverless_jobs.v1alpha2.Secret.EnvVar": {
@@ -733,7 +759,7 @@
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "cron_config": {
-            "description": "Configuration of the CRON trigger.",
+            "description": "Configuration of the CRON trigger.\nPrecisely one of cron_config can be set.",
             "x-one-of": "config",
             "oneOf": [
               {
@@ -2063,7 +2089,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).",
+                    "description": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).\nPrecisely one of path, env_var_name can be set.",
                     "pattern": "^/[a-zA-Z0-9/_-]*(\\.[a-zA-Z0-9]+)?$",
                     "x-one-of": "secret_config"
                   },
@@ -2072,7 +2098,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).",
+                    "description": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).\nPrecisely one of path, env_var_name can be set.",
                     "pattern": "[-._a-zA-Z0-9]+",
                     "x-one-of": "secret_config"
                   }
@@ -2292,7 +2318,7 @@
                     "pattern": "^[A-Za-z0-9-_]*$"
                   },
                   "cron_config": {
-                    "description": "Configuration of the CRON trigger.",
+                    "description": "Configuration of the CRON trigger.\nOne of cron_config is required.",
                     "x-one-of": "config",
                     "oneOf": [
                       {
@@ -2312,6 +2338,13 @@
                   "job_definition_id",
                   "name",
                   "cron_config"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "cron_config"
+                    ]
+                  }
                 ]
               }
             }
@@ -2453,7 +2486,7 @@
                     "pattern": "^[A-Za-z0-9-_]*$"
                   },
                   "cron_config": {
-                    "description": "Configuration of the CRON trigger.",
+                    "description": "Configuration of the CRON trigger.\nPrecisely one of cron_config can be set.",
                     "x-one-of": "config",
                     "oneOf": [
                       {

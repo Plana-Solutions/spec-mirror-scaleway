@@ -1185,7 +1185,7 @@
           {
             "in": "query",
             "name": "organization_id",
-            "description": "Search for an organization using its ID.",
+            "description": "Search for an organization using its ID.\nOne of organization_id, organization_alias is required.",
             "schema": {
               "type": "string",
               "x-one-of": "filter"
@@ -1194,7 +1194,7 @@
           {
             "in": "query",
             "name": "organization_alias",
-            "description": "Search for an organization using its alias.",
+            "description": "Search for an organization using its alias.\nOne of organization_id, organization_alias is required.",
             "schema": {
               "type": "string",
               "pattern": "^[a-z0-9]+$",

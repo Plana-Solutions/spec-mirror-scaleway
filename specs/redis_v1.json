@@ -458,7 +458,7 @@
             "format": "uint32"
           },
           "private_network": {
-            "description": "Private Network details.",
+            "description": "Private Network details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -470,7 +470,7 @@
             ]
           },
           "public_network": {
-            "description": "Public network details.",
+            "description": "Public network details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -509,7 +509,7 @@
         "type": "object",
         "properties": {
           "private_network": {
-            "description": "Private Network specification details.",
+            "description": "Private Network specification details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "endpoint_type",
             "oneOf": [
               {
@@ -521,7 +521,7 @@
             ]
           },
           "public_network": {
-            "description": "Public network specification details.",
+            "description": "Public network specification details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "endpoint_type",
             "oneOf": [
               {
@@ -2184,7 +2184,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Redis™ engine version of the Database Instance.",
+                    "description": "Redis™ engine version of the Database Instance.\nPrecisely one of version, node_type, cluster_size can be set.",
                     "x-one-of": "action"
                   },
                   "node_type": {
@@ -2192,7 +2192,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Type of node to use for the Database Instance.",
+                    "description": "Type of node to use for the Database Instance.\nPrecisely one of version, node_type, cluster_size can be set.",
                     "x-one-of": "action"
                   },
                   "cluster_size": {
@@ -2200,7 +2200,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Number of nodes for the Database Instance.",
+                    "description": "Number of nodes for the Database Instance.\nPrecisely one of version, node_type, cluster_size can be set.",
                     "format": "uint32",
                     "x-one-of": "action"
                   }
@@ -2683,7 +2683,7 @@
                 "type": "object",
                 "properties": {
                   "private_network": {
-                    "description": "Private Network details.",
+                    "description": "Private Network details.\nPrecisely one of private_network, public_network can be set.",
                     "x-one-of": "endpoint_type",
                     "oneOf": [
                       {
@@ -2695,7 +2695,7 @@
                     ]
                   },
                   "public_network": {
-                    "description": "Public network details.",
+                    "description": "Public network details.\nPrecisely one of private_network, public_network can be set.",
                     "x-one-of": "endpoint_type",
                     "oneOf": [
                       {

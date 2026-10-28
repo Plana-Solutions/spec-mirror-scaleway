@@ -174,6 +174,7 @@
             "pattern": "^srn://searchdb\\.[^/]+/regions/[^/]+/endpoints/[^/]+$"
           },
           "public": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -185,6 +186,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -246,6 +248,7 @@
         "type": "object",
         "properties": {
           "public": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -257,6 +260,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -1223,7 +1227,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "DEPRECATED: Use node_count instead. Amount of node upgrade target.",
+                    "description": "DEPRECATED: Use node_count instead. Amount of node upgrade target.\nPrecisely one of node_amount, node_count, volume_size_bytes can be set.",
                     "deprecated": true,
                     "format": "uint32",
                     "x-one-of": "upgrade_target"
@@ -1233,7 +1237,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "The target number of nodes for the upgrade.",
+                    "description": "The target number of nodes for the upgrade.\nPrecisely one of node_amount, node_count, volume_size_bytes can be set.",
                     "format": "uint32",
                     "x-one-of": "upgrade_target"
                   },
@@ -1242,7 +1246,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Volume size upgrade target.",
+                    "description": "Volume size upgrade target.\nPrecisely one of node_amount, node_count, volume_size_bytes can be set.",
                     "format": "uint64",
                     "x-one-of": "upgrade_target"
                   }

@@ -954,7 +954,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Namespace owner (deprecated).",
+                    "description": "Namespace owner (deprecated).\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -963,7 +963,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID on which the namespace will be created.",
+                    "description": "Project ID on which the namespace will be created.\nPrecisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "is_public": {

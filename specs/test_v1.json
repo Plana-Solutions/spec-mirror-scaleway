@@ -426,7 +426,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of project_id, organization_id can be set.",
                     "deprecated": true,
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "ProjectIdentifier"
@@ -439,6 +439,7 @@
                       "string",
                       "null"
                     ],
+                    "description": "Precisely one of project_id, organization_id can be set.",
                     "x-one-of": "ProjectIdentifier"
                   }
                 },

@@ -1205,7 +1205,7 @@
           {
             "in": "query",
             "name": "project_id",
-            "description": "Filter by project ID.",
+            "description": "Filter by project ID.\nOne of project_id, organization_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -1214,7 +1214,7 @@
           {
             "in": "query",
             "name": "organization_id",
-            "description": "Filter by organization ID.",
+            "description": "Filter by organization ID.\nOne of project_id, organization_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"

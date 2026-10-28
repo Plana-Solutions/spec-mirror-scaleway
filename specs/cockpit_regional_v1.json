@@ -180,7 +180,7 @@
         "type": "object",
         "properties": {
           "email": {
-            "description": "Email address to send alerts to.",
+            "description": "Email address to send alerts to.\nPrecisely one of email can be set.",
             "x-one-of": "configuration",
             "oneOf": [
               {
@@ -401,7 +401,7 @@
             "example": "6170692e-7363-616c-6577-61792e636f6d"
           },
           "datadog_destination": {
-            "description": "Datadog destination configuration for the data export.",
+            "description": "Datadog destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
             "x-one-of": "destination",
             "oneOf": [
               {
@@ -413,7 +413,7 @@
             ]
           },
           "otlp_destination": {
-            "description": "OTLP destination configuration for the data export.",
+            "description": "OTLP destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
             "x-one-of": "destination",
             "oneOf": [
               {
@@ -1095,7 +1095,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -1157,7 +1158,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -1235,7 +1237,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1264,7 +1267,7 @@
                     "description": "ID of the Project to create the contact point in."
                   },
                   "email": {
-                    "description": "Email address of the contact point to create.",
+                    "description": "Email address of the contact point to create.\nPrecisely one of email can be set.",
                     "x-one-of": "configuration",
                     "oneOf": [
                       {
@@ -1324,7 +1327,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1353,7 +1357,7 @@
                     "description": "ID of the Project containing the contact point to update."
                   },
                   "email": {
-                    "description": "Email address of the contact point to update.",
+                    "description": "Email address of the contact point to update.\nPrecisely one of email can be set.",
                     "x-one-of": "configuration",
                     "oneOf": [
                       {
@@ -1420,7 +1424,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1442,7 +1447,7 @@
                     "description": "ID of the Project containing the contact point to delete."
                   },
                   "email": {
-                    "description": "Email address of the contact point to delete.",
+                    "description": "Email address of the contact point to delete.\nPrecisely one of email can be set.",
                     "x-one-of": "configuration",
                     "oneOf": [
                       {
@@ -1501,7 +1506,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1576,7 +1582,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1662,7 +1669,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1737,7 +1745,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1823,7 +1832,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1899,7 +1909,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -1975,7 +1986,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -2043,7 +2055,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2133,7 +2146,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -2186,7 +2200,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2291,7 +2306,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -2388,7 +2404,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2448,7 +2465,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2540,7 +2558,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2595,7 +2614,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2689,7 +2709,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -2718,7 +2739,7 @@
                     "description": "ID of the data source linked to the data export."
                   },
                   "datadog_destination": {
-                    "description": "Datadog destination configuration for the data export.",
+                    "description": "Datadog destination configuration for the data export.\nOne of datadog_destination, otlp_destination is required.",
                     "x-one-of": "destination",
                     "oneOf": [
                       {
@@ -2730,7 +2751,7 @@
                     ]
                   },
                   "otlp_destination": {
-                    "description": "OTLP destination configuration for the data export.",
+                    "description": "OTLP destination configuration for the data export.\nOne of datadog_destination, otlp_destination is required.",
                     "x-one-of": "destination",
                     "oneOf": [
                       {
@@ -2772,6 +2793,18 @@
                   "exported_products",
                   "name",
                   "description"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "datadog_destination"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "otlp_destination"
+                    ]
+                  }
                 ]
               }
             }
@@ -2813,7 +2846,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2873,7 +2907,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -2907,7 +2942,7 @@
                 "type": "object",
                 "properties": {
                   "datadog_destination": {
-                    "description": "Updated Datadog destination configuration for the data export.",
+                    "description": "Updated Datadog destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
                     "x-one-of": "destination",
                     "oneOf": [
                       {
@@ -2919,7 +2954,7 @@
                     ]
                   },
                   "otlp_destination": {
-                    "description": "Updated OTLP destination configuration for the data export.",
+                    "description": "Updated OTLP destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
                     "x-one-of": "destination",
                     "oneOf": [
                       {
@@ -2997,7 +3032,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -3052,7 +3088,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -3131,7 +3168,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -3193,7 +3231,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -3290,7 +3329,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           }
@@ -3380,7 +3420,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -3440,7 +3481,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },
@@ -3495,7 +3537,8 @@
               "enum": [
                 "fr-par",
                 "nl-ams",
-                "pl-waw"
+                "pl-waw",
+                "it-mil"
               ]
             }
           },

@@ -68,6 +68,7 @@
               "string",
               "null"
             ],
+            "description": "One of path, env_var_name is required.",
             "pattern": "^/[a-zA-Z0-9/_-]*(\\.[a-zA-Z0-9]+)?$",
             "x-one-of": "path_or_env_var"
           },
@@ -76,6 +77,7 @@
               "string",
               "null"
             ],
+            "description": "One of path, env_var_name is required.",
             "pattern": "[-._a-zA-Z0-9]+",
             "x-one-of": "path_or_env_var"
           }
@@ -85,6 +87,18 @@
           "secret_manager_version",
           "path",
           "env_var_name"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "path"
+            ]
+          },
+          {
+            "required": [
+              "env_var_name"
+            ]
+          }
         ]
       },
       "scaleway.serverless_jobs.v1alpha1.CreateJobDefinitionSecretsResponse": {
@@ -440,7 +454,7 @@
             "description": "Version of the secret in Secret Manager."
           },
           "file": {
-            "description": "File secret mounted inside the job.",
+            "description": "File secret mounted inside the job.\nOne of file, env_var is required.",
             "x-one-of": "secret_config",
             "oneOf": [
               {
@@ -452,7 +466,7 @@
             ]
           },
           "env_var": {
-            "description": "Environment variable used to expose the secret.",
+            "description": "Environment variable used to expose the secret.\nOne of file, env_var is required.",
             "x-one-of": "secret_config",
             "oneOf": [
               {
@@ -470,6 +484,18 @@
           "secret_manager_version",
           "file",
           "env_var"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "file"
+            ]
+          },
+          {
+            "required": [
+              "env_var"
+            ]
+          }
         ]
       },
       "scaleway.serverless_jobs.v1alpha1.Secret.EnvVar": {
@@ -1330,7 +1356,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).",
+                    "description": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).\nPrecisely one of path, env_var_name can be set.",
                     "pattern": "^/[a-zA-Z0-9/_-]*(\\.[a-zA-Z0-9]+)?$",
                     "x-one-of": "secret_config"
                   },
@@ -1339,7 +1365,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).",
+                    "description": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).\nPrecisely one of path, env_var_name can be set.",
                     "pattern": "[-._a-zA-Z0-9]+",
                     "x-one-of": "secret_config"
                   }

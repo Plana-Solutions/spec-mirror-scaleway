@@ -75,7 +75,7 @@
             "format": "uint32"
           },
           "private_network": {
-            "description": "Private Network endpoint details.",
+            "description": "Private Network endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -87,7 +87,7 @@
             ]
           },
           "public_network": {
-            "description": "Public Network endpoint details.",
+            "description": "Public Network endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -127,7 +127,7 @@
         "type": "object",
         "properties": {
           "public_network": {
-            "description": "Expose the Database Instance publicly (empty object).",
+            "description": "Expose the Database Instance publicly (empty object).\nPrecisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -139,7 +139,7 @@
             ]
           },
           "private_network": {
-            "description": "Attach the Database Instance to a Private Network.",
+            "description": "Attach the Database Instance to a Private Network.\nPrecisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -984,7 +984,7 @@
               "string",
               "null"
             ],
-            "description": "Name of the database on which the preset role will be used.",
+            "description": "Name of the database on which the preset role will be used.\nPrecisely one of database_name, any_database can be set.",
             "x-one-of": "scope"
           },
           "any_database": {
@@ -992,7 +992,7 @@
               "boolean",
               "null"
             ],
-            "description": "Flag to enable the preset role in all databases.",
+            "description": "Flag to enable the preset role in all databases.\nPrecisely one of database_name, any_database can be set.",
             "x-one-of": "scope"
           }
         },
@@ -1076,6 +1076,7 @@
         "type": "object",
         "properties": {
           "engine_upgrade": {
+            "description": "Precisely one of engine_upgrade, service_update, infrastructure_update can be set.",
             "x-one-of": "workflow_type",
             "oneOf": [
               {
@@ -1087,6 +1088,7 @@
             ]
           },
           "service_update": {
+            "description": "Precisely one of engine_upgrade, service_update, infrastructure_update can be set.",
             "x-one-of": "workflow_type",
             "oneOf": [
               {
@@ -1098,6 +1100,7 @@
             ]
           },
           "infrastructure_update": {
+            "description": "Precisely one of engine_upgrade, service_update, infrastructure_update can be set.",
             "x-one-of": "workflow_type",
             "oneOf": [
               {
@@ -2049,7 +2052,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Increase your Block Storage volume size. (in bytes)",
+                    "description": "Increase your Block Storage volume size. (in bytes)\nPrecisely one of volume_size_bytes, version can be set.",
                     "format": "uint64",
                     "x-one-of": "upgrade_target"
                   },
@@ -2058,7 +2061,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`).",
+                    "description": "MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`).\nPrecisely one of volume_size_bytes, version can be set.",
                     "pattern": "^[0-9]+\\.[0-9]+$",
                     "x-one-of": "upgrade_target"
                   }

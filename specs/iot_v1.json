@@ -470,7 +470,7 @@
             "description": "Defines whether the hub is using a custom certificate authority.\nFlag is automatically set to `false` after Hub creation, as Hub certificates are managed by Scaleway. Once a custom certificate authority is set, the flag will be set to `true`."
           },
           "twins_graphite_config": {
-            "description": "BETA - not implemented yet.",
+            "description": "BETA - not implemented yet.\nPrecisely one of twins_graphite_config can be set.",
             "x-one-of": "twins_db_config",
             "oneOf": [
               {
@@ -818,7 +818,7 @@
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "s3_config": {
-            "description": "When using Amazon S3 Routes, Amazon S3-specific configuration fields.",
+            "description": "When using Amazon S3 Routes, Amazon S3-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "x-one-of": "Config",
             "oneOf": [
               {
@@ -830,7 +830,7 @@
             ]
           },
           "db_config": {
-            "description": "When using Database Route, DB-specific configuration fields.",
+            "description": "When using Database Route, DB-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "x-one-of": "Config",
             "oneOf": [
               {
@@ -842,7 +842,7 @@
             ]
           },
           "rest_config": {
-            "description": "When using Rest Route, Rest-specific configuration fields.",
+            "description": "When using Rest Route, Rest-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "x-one-of": "Config",
             "oneOf": [
               {
@@ -2289,7 +2289,7 @@
                     "description": "Topic prefix (default '$SCW/events') of Hub events."
                   },
                   "twins_graphite_config": {
-                    "description": "BETA - not implemented yet.",
+                    "description": "BETA - not implemented yet.\nPrecisely one of twins_graphite_config can be set.",
                     "x-one-of": "twins_db_config",
                     "oneOf": [
                       {
@@ -2476,7 +2476,7 @@
                     "description": "Enable device auto provisioning."
                   },
                   "twins_graphite_config": {
-                    "description": "BETA - not implemented yet.",
+                    "description": "BETA - not implemented yet.\nPrecisely one of twins_graphite_config can be set.",
                     "x-one-of": "twins_db_config",
                     "oneOf": [
                       {
@@ -3377,7 +3377,7 @@
                     "description": "Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters."
                   },
                   "s3_config": {
-                    "description": "If creating Amazon S3 Routes, Amazon S3-specific configuration fields.",
+                    "description": "If creating Amazon S3 Routes, Amazon S3-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -3389,7 +3389,7 @@
                     ]
                   },
                   "db_config": {
-                    "description": "If creating Database Route, DB-specific configuration fields.",
+                    "description": "If creating Database Route, DB-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -3401,7 +3401,7 @@
                     ]
                   },
                   "rest_config": {
-                    "description": "If creating Rest Route, Rest-specific configuration fields.",
+                    "description": "If creating Rest Route, Rest-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -3565,7 +3565,7 @@
                     "description": "Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters."
                   },
                   "s3_config": {
-                    "description": "When updating Amazon S3 Route, Amazon S3-specific configuration fields.",
+                    "description": "When updating Amazon S3 Route, Amazon S3-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -3577,7 +3577,7 @@
                     ]
                   },
                   "db_config": {
-                    "description": "When updating Database Route, DB-specific configuration fields.",
+                    "description": "When updating Database Route, DB-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {
@@ -3589,7 +3589,7 @@
                     ]
                   },
                   "rest_config": {
-                    "description": "When updating Rest Route, Rest-specific configuration fields.",
+                    "description": "When updating Rest Route, Rest-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
                     "x-one-of": "Config",
                     "oneOf": [
                       {

@@ -122,7 +122,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the base snapshot for the volume.",
+            "description": "ID of the base snapshot for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "x-one-of": "from"
           },
           "image_label": {
@@ -130,7 +130,7 @@
               "string",
               "null"
             ],
-            "description": "Label of the image to use for the volume.",
+            "description": "Label of the image to use for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "x-one-of": "from"
           },
           "perf_iops": {
@@ -182,11 +182,11 @@
               "string",
               "null"
             ],
-            "description": "ID of the IPAM IP to attach.",
+            "description": "ID of the IPAM IP to attach.\nPrecisely one of ipam_ip_id, new_ip can be set.",
             "x-one-of": "server_ip"
           },
           "new_ip": {
-            "description": "Configuration for a new IP to book.",
+            "description": "Configuration for a new IP to book.\nPrecisely one of ipam_ip_id, new_ip can be set.",
             "x-one-of": "server_ip",
             "oneOf": [
               {
@@ -215,11 +215,11 @@
               "string",
               "null"
             ],
-            "description": "ID of the volume to attach.",
+            "description": "ID of the volume to attach.\nPrecisely one of volume_id, new_volume can be set.",
             "x-one-of": "server_volume"
           },
           "new_volume": {
-            "description": "Configuration for a new volume to create.",
+            "description": "Configuration for a new volume to create.\nPrecisely one of volume_id, new_volume can be set.",
             "x-one-of": "server_volume",
             "oneOf": [
               {
@@ -298,7 +298,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the base snapshot for the volume.",
+            "description": "ID of the base snapshot for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "x-one-of": "from"
           },
           "image_label": {
@@ -306,7 +306,7 @@
               "string",
               "null"
             ],
-            "description": "Label of the image used as base for the volume.",
+            "description": "Label of the image used as base for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "x-one-of": "from"
           },
           "perf_iops": {
@@ -3535,7 +3535,7 @@
           {
             "in": "query",
             "name": "organization_id",
-            "description": "Organization ID to filter resource counts.",
+            "description": "Organization ID to filter resource counts.\nPrecisely one of organization_id, project_id can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "project_identifier"
@@ -3544,7 +3544,7 @@
           {
             "in": "query",
             "name": "project_id",
-            "description": "Project ID to filter resource counts.",
+            "description": "Project ID to filter resource counts.\nPrecisely one of organization_id, project_id can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "project_identifier"
@@ -5137,7 +5137,7 @@
           {
             "in": "query",
             "name": "delete_all_ips",
-            "description": "Whether to delete all IPs attached to the server.",
+            "description": "Whether to delete all IPs attached to the server.\nPrecisely one of delete_all_ips, delete_ip_ids can be set.",
             "schema": {
               "type": "boolean",
               "x-one-of": "ips"
@@ -5146,7 +5146,7 @@
           {
             "in": "query",
             "name": "delete_ip_ids",
-            "description": "List of IP IDs to delete.",
+            "description": "List of IP IDs to delete.\nPrecisely one of delete_all_ips, delete_ip_ids can be set.",
             "schema": {
               "type": "array",
               "x-one-of": "ips",
@@ -5158,7 +5158,7 @@
           {
             "in": "query",
             "name": "delete_all_volumes",
-            "description": "Whether to delete all volumes attached to the server. Deletion of SBS volumes is not supported yet.",
+            "description": "Whether to delete all volumes attached to the server. Deletion of SBS volumes is not supported yet.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set.",
             "schema": {
               "type": "boolean",
               "x-one-of": "volumes"
@@ -5167,7 +5167,7 @@
           {
             "in": "query",
             "name": "delete_volume_ids",
-            "description": "List of volume IDs to delete. Deletion of SBS volumes is not supported yet.",
+            "description": "List of volume IDs to delete. Deletion of SBS volumes is not supported yet.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set.",
             "schema": {
               "type": "array",
               "x-one-of": "volumes",
@@ -5179,7 +5179,7 @@
           {
             "in": "query",
             "name": "keep_all_private_nics",
-            "description": "Whether to keep all private network interfaces.",
+            "description": "Whether to keep all private network interfaces.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set.",
             "schema": {
               "type": "boolean",
               "x-one-of": "private_nics"
@@ -5188,7 +5188,7 @@
           {
             "in": "query",
             "name": "delete_private_nic_ids",
-            "description": "List of private network interface IDs to delete.",
+            "description": "List of private network interface IDs to delete.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set.",
             "schema": {
               "type": "array",
               "x-one-of": "private_nics",
@@ -6518,7 +6518,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Whether to delete all IPs attached to the server.",
+                    "description": "Whether to delete all IPs attached to the server.\nPrecisely one of delete_all_ips, delete_ip_ids can be set.",
                     "x-one-of": "ips"
                   },
                   "delete_ip_ids": {
@@ -6526,7 +6526,7 @@
                       "array",
                       "null"
                     ],
-                    "description": "List of IP IDs to delete.",
+                    "description": "List of IP IDs to delete.\nPrecisely one of delete_all_ips, delete_ip_ids can be set.",
                     "x-one-of": "ips"
                   },
                   "delete_all_volumes": {
@@ -6534,7 +6534,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Whether to delete all volumes attached to the server.",
+                    "description": "Whether to delete all volumes attached to the server.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set.",
                     "x-one-of": "volumes"
                   },
                   "delete_volume_ids": {
@@ -6542,7 +6542,7 @@
                       "array",
                       "null"
                     ],
-                    "description": "List of volume IDs to delete.",
+                    "description": "List of volume IDs to delete.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set.",
                     "x-one-of": "volumes"
                   },
                   "keep_all_private_nics": {
@@ -6550,7 +6550,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Whether to keep all private network interfaces.",
+                    "description": "Whether to keep all private network interfaces.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set.",
                     "x-one-of": "private_nics"
                   },
                   "delete_private_nic_ids": {
@@ -6558,7 +6558,7 @@
                       "array",
                       "null"
                     ],
-                    "description": "List of private network interface IDs to delete.",
+                    "description": "List of private network interface IDs to delete.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set.",
                     "x-one-of": "private_nics"
                   }
                 },

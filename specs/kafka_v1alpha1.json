@@ -121,7 +121,7 @@
             "description": "Region the Kafka cluster is in."
           },
           "multi_az": {
-            "description": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.",
+            "description": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.\nPrecisely one of multi_az, mono_az can be set.",
             "x-one-of": "availability",
             "oneOf": [
               {
@@ -133,7 +133,7 @@
             ]
           },
           "mono_az": {
-            "description": "MonoAZ details.",
+            "description": "MonoAZ details.\nPrecisely one of multi_az, mono_az can be set.",
             "x-one-of": "availability",
             "oneOf": [
               {
@@ -195,7 +195,7 @@
               "boolean",
               "null"
             ],
-            "description": "Boolean value of the setting.",
+            "description": "Boolean value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "x-one-of": "value"
           },
           "string_value": {
@@ -203,7 +203,7 @@
               "string",
               "null"
             ],
-            "description": "String value of the setting.",
+            "description": "String value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "x-one-of": "value"
           },
           "int_value": {
@@ -211,7 +211,7 @@
               "integer",
               "null"
             ],
-            "description": "Integer value of the setting.",
+            "description": "Integer value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "format": "int32",
             "x-one-of": "value"
           },
@@ -220,7 +220,7 @@
               "number",
               "null"
             ],
-            "description": "Float value of the setting.",
+            "description": "Float value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "format": "float",
             "x-one-of": "value"
           }
@@ -287,7 +287,7 @@
             "format": "uint32"
           },
           "private_network": {
-            "description": "Private Network endpoint details.",
+            "description": "Private Network endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -299,7 +299,7 @@
             ]
           },
           "public_network": {
-            "description": "Public endpoint details.",
+            "description": "Public endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -339,6 +339,7 @@
         "type": "object",
         "properties": {
           "public_network": {
+            "description": "Precisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -350,6 +351,7 @@
             ]
           },
           "private_network": {
+            "description": "Precisely one of public_network, private_network can be set.",
             "x-one-of": "details",
             "oneOf": [
               {
@@ -642,7 +644,7 @@
             "description": "Setting description."
           },
           "bool_property": {
-            "description": "Boolean property, if the setting is a boolean.",
+            "description": "Boolean property, if the setting is a boolean.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "x-one-of": "property",
             "oneOf": [
               {
@@ -654,7 +656,7 @@
             ]
           },
           "string_property": {
-            "description": "String property, if the setting is a string.",
+            "description": "String property, if the setting is a string.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "x-one-of": "property",
             "oneOf": [
               {
@@ -666,7 +668,7 @@
             ]
           },
           "int_property": {
-            "description": "Integer property, if the setting is an integer.",
+            "description": "Integer property, if the setting is an integer.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "x-one-of": "property",
             "oneOf": [
               {
@@ -678,7 +680,7 @@
             ]
           },
           "float_property": {
-            "description": "Float property, if the setting is a float.",
+            "description": "Float property, if the setting is a float.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "x-one-of": "property",
             "oneOf": [
               {
@@ -1053,7 +1055,7 @@
                     "description": "Password for the kafka user."
                   },
                   "multi_az": {
-                    "description": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.",
+                    "description": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.\nPrecisely one of multi_az, mono_az can be set.",
                     "x-one-of": "availability",
                     "oneOf": [
                       {
@@ -1065,7 +1067,7 @@
                     ]
                   },
                   "mono_az": {
-                    "description": "MonoAZ details.",
+                    "description": "MonoAZ details.\nPrecisely one of multi_az, mono_az can be set.",
                     "x-one-of": "availability",
                     "oneOf": [
                       {

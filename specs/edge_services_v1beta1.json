@@ -120,7 +120,7 @@
             "example": "2022-03-22T12:34:56.123456Z"
           },
           "scaleway_s3": {
-            "description": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.",
+            "description": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "x-one-of": "backend_config",
             "oneOf": [
               {
@@ -132,7 +132,7 @@
             ]
           },
           "scaleway_lb": {
-            "description": "Scaleway Load Balancer origin linked to the backend stage.",
+            "description": "Scaleway Load Balancer origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "x-one-of": "backend_config",
             "oneOf": [
               {
@@ -144,7 +144,7 @@
             ]
           },
           "scaleway_serverless_container": {
-            "description": "Scaleway Serverless container origin linked to the backend stage.",
+            "description": "Scaleway Serverless container origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "x-one-of": "backend_config",
             "oneOf": [
               {
@@ -156,7 +156,7 @@
             ]
           },
           "scaleway_serverless_function": {
-            "description": "Scaleway Serverless function origin linked to the backend stage.",
+            "description": "Scaleway Serverless function origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "x-one-of": "backend_config",
             "oneOf": [
               {
@@ -230,7 +230,7 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of waf_stage_id, backend_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -239,7 +239,7 @@
               "string",
               "null"
             ],
-            "description": "Backend stage ID the cache stage is linked to. (UUID format)",
+            "description": "Backend stage ID the cache stage is linked to. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -248,7 +248,7 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of waf_stage_id, backend_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           }
@@ -319,7 +319,7 @@
               "string",
               "null"
             ],
-            "description": "TLS stage ID the DNS stage is linked to. (UUID format)",
+            "description": "TLS stage ID the DNS stage is linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -328,7 +328,7 @@
               "string",
               "null"
             ],
-            "description": "Cache stage ID the DNS stage is linked to. (UUID format)",
+            "description": "Cache stage ID the DNS stage is linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -337,7 +337,7 @@
               "string",
               "null"
             ],
-            "description": "Backend stage ID the DNS stage is linked to. (UUID format)",
+            "description": "Backend stage ID the DNS stage is linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -483,7 +483,7 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of dns_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "head"
           }
@@ -626,7 +626,7 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of dns_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "head"
           }
@@ -1153,7 +1153,7 @@
               "array",
               "null"
             ],
-            "description": "List of asserts to purge.",
+            "description": "List of asserts to purge.\nPrecisely one of assets, all can be set.",
             "x-one-of": "target"
           },
           "all": {
@@ -1161,7 +1161,7 @@
               "boolean",
               "null"
             ],
-            "description": "Defines whether to purge all content.",
+            "description": "Defines whether to purge all content.\nPrecisely one of assets, all can be set.",
             "x-one-of": "target"
           },
           "created_at": {
@@ -1215,7 +1215,7 @@
         "type": "object",
         "properties": {
           "rule_http_match": {
-            "description": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.",
+            "description": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.\nPrecisely one of rule_http_match can be set.",
             "x-one-of": "match",
             "oneOf": [
               {
@@ -1231,7 +1231,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)",
+            "description": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1249,7 +1249,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)",
+            "description": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           }
@@ -1278,7 +1278,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "description": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1287,7 +1287,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "description": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1621,7 +1621,7 @@
         "type": "object",
         "properties": {
           "rule_http_match": {
-            "description": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.",
+            "description": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.\nPrecisely one of rule_http_match can be set.",
             "x-one-of": "match",
             "oneOf": [
               {
@@ -1637,7 +1637,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)",
+            "description": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1646,7 +1646,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)",
+            "description": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           }
@@ -1775,7 +1775,7 @@
               "string",
               "null"
             ],
-            "description": "Cache stage ID the TLS stage is linked to. (UUID format)",
+            "description": "Cache stage ID the TLS stage is linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1784,7 +1784,7 @@
               "string",
               "null"
             ],
-            "description": "Backend stage ID the TLS stage is linked to. (UUID format)",
+            "description": "Backend stage ID the TLS stage is linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1793,7 +1793,7 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -1802,7 +1802,7 @@
               "string",
               "null"
             ],
-            "description": "(UUID format)",
+            "description": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           }
@@ -1895,7 +1895,7 @@
               "string",
               "null"
             ],
-            "description": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)",
+            "description": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)\nPrecisely one of backend_stage_id can be set.",
             "example": "6170692e-7363-616c-6577-61792e636f6d",
             "x-one-of": "next"
           },
@@ -2032,7 +2032,7 @@
                 "type": "object",
                 "properties": {
                   "scaleway_s3": {
-                    "description": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.",
+                    "description": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -2044,7 +2044,7 @@
                     ]
                   },
                   "scaleway_lb": {
-                    "description": "Scaleway Load Balancer origin linked to the backend stage.",
+                    "description": "Scaleway Load Balancer origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -2056,7 +2056,7 @@
                     ]
                   },
                   "scaleway_serverless_container": {
-                    "description": "Scaleway Serverless container origin linked to the backend stage.",
+                    "description": "Scaleway Serverless container origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -2068,7 +2068,7 @@
                     ]
                   },
                   "scaleway_serverless_function": {
-                    "description": "Scaleway Serverless function origin linked to the backend stage.",
+                    "description": "Scaleway Serverless function origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -2304,7 +2304,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Backend stage ID the cache stage will be linked to. (UUID format)",
+                    "description": "Backend stage ID the cache stage will be linked to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -2313,7 +2313,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -2322,7 +2322,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -2640,7 +2640,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "TLS stage ID the DNS stage will be linked to. (UUID format)",
+                    "description": "TLS stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -2649,7 +2649,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Cache stage ID the DNS stage will be linked to. (UUID format)",
+                    "description": "Cache stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -2658,7 +2658,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Backend stage ID the DNS stage will be linked to. (UUID format)",
+                    "description": "Backend stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3234,7 +3234,7 @@
                 "type": "object",
                 "properties": {
                   "scaleway_s3": {
-                    "description": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.",
+                    "description": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -3246,7 +3246,7 @@
                     ]
                   },
                   "scaleway_lb": {
-                    "description": "Scaleway Load Balancer origin linked to the backend stage.",
+                    "description": "Scaleway Load Balancer origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -3258,7 +3258,7 @@
                     ]
                   },
                   "scaleway_serverless_container": {
-                    "description": "Scaleway Serverless container origin linked to the backend stage.",
+                    "description": "Scaleway Serverless container origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -3270,7 +3270,7 @@
                     ]
                   },
                   "scaleway_serverless_function": {
-                    "description": "Scaleway Serverless function origin linked to the backend stage.",
+                    "description": "Scaleway Serverless function origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
                     "x-one-of": "backend_config",
                     "oneOf": [
                       {
@@ -3440,7 +3440,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Backend stage ID the cache stage will be linked to. (UUID format)",
+                    "description": "Backend stage ID the cache stage will be linked to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3449,7 +3449,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3458,7 +3458,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -3622,7 +3622,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "TLS stage ID the DNS stage will be linked to. (UUID format)",
+                    "description": "TLS stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3631,7 +3631,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Cache stage ID the DNS stage will be linked to. (UUID format)",
+                    "description": "Cache stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3640,7 +3640,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Backend stage ID the DNS stage will be linked to. (UUID format)",
+                    "description": "Backend stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3862,7 +3862,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+                    "description": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -3871,7 +3871,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+                    "description": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -3941,7 +3941,7 @@
                 "type": "object",
                 "properties": {
                   "add_new_head_stage": {
-                    "description": "Add a new head stage.",
+                    "description": "Add a new head stage.\nPrecisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set.",
                     "x-one-of": "action",
                     "oneOf": [
                       {
@@ -3953,7 +3953,7 @@
                     ]
                   },
                   "remove_head_stage": {
-                    "description": "Remove a head stage.",
+                    "description": "Remove a head stage.\nPrecisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set.",
                     "x-one-of": "action",
                     "oneOf": [
                       {
@@ -3965,7 +3965,7 @@
                     ]
                   },
                   "swap_head_stage": {
-                    "description": "Replace a head stage with a new one.",
+                    "description": "Replace a head stage with a new one.\nPrecisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set.",
                     "x-one-of": "action",
                     "oneOf": [
                       {
@@ -4149,7 +4149,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Cache stage ID the TLS stage will be linked to. (UUID format)",
+                    "description": "Cache stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -4158,7 +4158,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Backend stage ID the TLS stage will be linked to. (UUID format)",
+                    "description": "Backend stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -4167,7 +4167,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -4176,7 +4176,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -4339,7 +4339,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)",
+                    "description": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)\nPrecisely one of backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -4532,7 +4532,7 @@
                       "array",
                       "null"
                     ],
-                    "description": "List of asserts to purge.",
+                    "description": "List of asserts to purge.\nPrecisely one of assets, all can be set.",
                     "x-one-of": "target"
                   },
                   "all": {
@@ -4540,7 +4540,7 @@
                       "boolean",
                       "null"
                     ],
-                    "description": "Defines whether to purge all content.",
+                    "description": "Defines whether to purge all content.\nPrecisely one of assets, all can be set.",
                     "x-one-of": "target"
                   }
                 },
@@ -4711,7 +4711,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+                    "description": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -4720,7 +4720,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+                    "description": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -4886,7 +4886,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Add rules after the given position.",
+                    "description": "Add rules after the given position.\nPrecisely one of after_position, before_position can be set.",
                     "format": "uint64",
                     "x-one-of": "position"
                   },
@@ -4895,7 +4895,7 @@
                       "integer",
                       "null"
                     ],
-                    "description": "Add rules before the given position.",
+                    "description": "Add rules before the given position.\nPrecisely one of after_position, before_position can be set.",
                     "format": "uint64",
                     "x-one-of": "position"
                   }
@@ -5095,7 +5095,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Cache stage ID the TLS stage will be linked to. (UUID format)",
+                    "description": "Cache stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -5104,7 +5104,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Backend stage ID the TLS stage will be linked to. (UUID format)",
+                    "description": "Backend stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -5113,7 +5113,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   },
@@ -5122,7 +5122,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "(UUID format)",
+                    "description": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }
@@ -5300,7 +5300,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)",
+                    "description": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)\nPrecisely one of backend_stage_id can be set.",
                     "example": "6170692e-7363-616c-6577-61792e636f6d",
                     "x-one-of": "next"
                   }

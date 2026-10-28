@@ -430,10 +430,6 @@
           "size_bytes": {
             "type": "number",
             "description": "Size of the Volume."
-          },
-          "deployment_id": {
-            "type": "string",
-            "description": "ID of the deployment."
           }
         }
       },

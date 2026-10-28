@@ -68,7 +68,7 @@
               "string",
               "null"
             ],
-            "description": "IP subnet to allow. (IP network)",
+            "description": "IP subnet to allow. (IP network)\nPrecisely one of ip, scaleway_ranges can be set.",
             "example": "1.2.3.4/32",
             "x-one-of": "allowed"
           },
@@ -77,7 +77,7 @@
               "boolean",
               "null"
             ],
-            "description": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.",
+            "description": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.\nPrecisely one of ip, scaleway_ranges can be set.",
             "x-one-of": "allowed"
           },
           "description": {
@@ -106,7 +106,7 @@
               "string",
               "null"
             ],
-            "description": "IP subnet to allow. (IP network)",
+            "description": "IP subnet to allow. (IP network)\nPrecisely one of ip, scaleway_ranges can be set.",
             "example": "1.2.3.4/32",
             "x-one-of": "allowed"
           },
@@ -115,7 +115,7 @@
               "boolean",
               "null"
             ],
-            "description": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.",
+            "description": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.\nPrecisely one of ip, scaleway_ranges can be set.",
             "x-one-of": "allowed"
           },
           "description": {
@@ -2439,7 +2439,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Organization ID in which the cluster will be created.",
+                    "description": "Organization ID in which the cluster will be created.\nOne of project_id, organization_id is required.",
                     "deprecated": true,
                     "x-one-of": "ProjectIdentifier"
                   },
@@ -2448,7 +2448,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Project ID in which the cluster will be created.",
+                    "description": "Project ID in which the cluster will be created.\nOne of project_id, organization_id is required.",
                     "x-one-of": "ProjectIdentifier"
                   },
                   "type": {
@@ -2575,6 +2575,18 @@
                   "pod_cidr",
                   "service_cidr",
                   "service_dns_ip"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "project_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "organization_id"
+                    ]
+                  }
                 ]
               }
             }

@@ -208,6 +208,7 @@
           "instance_ip",
           "instance_private_nic",
           "lb_server",
+          "lb_ip",
           "fip_ip",
           "vpc_gateway",
           "vpc_gateway_network",
@@ -267,7 +268,7 @@
               "string",
               "null"
             ],
-            "description": "Zone the IP lives in if the IP is a public zoned IP.\nThis source is global.",
+            "description": "Zone the IP lives in if the IP is a public zoned IP.\nThis source is global.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "x-one-of": "source"
           },
           "private_network_id": {
@@ -275,7 +276,7 @@
               "string",
               "null"
             ],
-            "description": "Private Network the IP lives in if the IP is a private IP.\nThis source is specific.",
+            "description": "Private Network the IP lives in if the IP is a private IP.\nThis source is specific.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "x-one-of": "source"
           },
           "subnet_id": {
@@ -283,7 +284,7 @@
               "string",
               "null"
             ],
-            "description": "Private Network subnet the IP lives in if the IP is a private IP in a Private Network.\nThis source is specific.",
+            "description": "Private Network subnet the IP lives in if the IP is a private IP in a Private Network.\nThis source is specific.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "x-one-of": "source"
           },
           "vpc_id": {
@@ -291,6 +292,7 @@
               "string",
               "null"
             ],
+            "description": "Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "x-one-of": "source"
           },
           "regional": {
@@ -298,7 +300,7 @@
               "boolean",
               "null"
             ],
-            "description": "Defines whether the IP is a public regional IP.\nThis source is global.",
+            "description": "Defines whether the IP is a public regional IP.\nThis source is global.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "x-one-of": "source"
           }
         },
@@ -559,7 +561,7 @@
           {
             "in": "query",
             "name": "zonal",
-            "description": "Zone to filter for. Only IPs that are zonal, and in this zone, will be returned.",
+            "description": "Zone to filter for. Only IPs that are zonal, and in this zone, will be returned.\nPrecisely one of zonal, regional, private_network_id, subnet_id, source_vpc_id can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "source"
@@ -568,7 +570,7 @@
           {
             "in": "query",
             "name": "regional",
-            "description": "Filter on regional IPs only.",
+            "description": "Filter on regional IPs only.\nPrecisely one of zonal, regional, private_network_id, subnet_id, source_vpc_id can be set.",
             "schema": {
               "type": "boolean",
               "x-one-of": "source"
@@ -577,7 +579,7 @@
           {
             "in": "query",
             "name": "private_network_id",
-            "description": "Private Network to filter for.\nOnly IPs that are private, and in this Private Network, will be returned.",
+            "description": "Private Network to filter for.\nOnly IPs that are private, and in this Private Network, will be returned.\nPrecisely one of zonal, regional, private_network_id, subnet_id, source_vpc_id can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "source"
@@ -586,7 +588,7 @@
           {
             "in": "query",
             "name": "subnet_id",
-            "description": "Subnet ID to filter for.\nOnly IPs inside this exact subnet will be returned.",
+            "description": "Subnet ID to filter for.\nOnly IPs inside this exact subnet will be returned.\nPrecisely one of zonal, regional, private_network_id, subnet_id, source_vpc_id can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "source"
@@ -595,6 +597,7 @@
           {
             "in": "query",
             "name": "source_vpc_id",
+            "description": "Precisely one of zonal, regional, private_network_id, subnet_id, source_vpc_id can be set.",
             "schema": {
               "type": "string",
               "x-one-of": "source"

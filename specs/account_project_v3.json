@@ -164,6 +164,7 @@
             "$ref": "#/components/schemas/scaleway.account.v3.Qualification.ArchitectureType"
           },
           "host_website": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -175,6 +176,7 @@
             ]
           },
           "host_application": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -186,6 +188,7 @@
             ]
           },
           "deploy_software": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -197,6 +200,7 @@
             ]
           },
           "set_scaleway_environment": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -208,6 +212,7 @@
             ]
           },
           "ai_machine": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -219,6 +224,7 @@
             ]
           },
           "container": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -230,6 +236,7 @@
             ]
           },
           "archive_data": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -241,6 +248,7 @@
             ]
           },
           "share_data": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {
@@ -252,6 +260,7 @@
             ]
           },
           "other_use_case": {
+            "description": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "x-one-of": "use_case",
             "oneOf": [
               {

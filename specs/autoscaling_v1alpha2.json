@@ -363,6 +363,7 @@
             "format": "uint32"
           },
           "fixed_size": {
+            "description": "Precisely one of fixed_size, cpu_target, memory_target can be set.",
             "x-one-of": "target",
             "oneOf": [
               {
@@ -374,6 +375,7 @@
             ]
           },
           "cpu_target": {
+            "description": "Precisely one of fixed_size, cpu_target, memory_target can be set.",
             "x-one-of": "target",
             "oneOf": [
               {
@@ -385,6 +387,7 @@
             ]
           },
           "memory_target": {
+            "description": "Precisely one of fixed_size, cpu_target, memory_target can be set.",
             "x-one-of": "target",
             "oneOf": [
               {
@@ -851,7 +854,7 @@
             "format": "uint32"
           },
           "fixed_size": {
-            "description": "Fixed size scaling policy configuration.",
+            "description": "Fixed size scaling policy configuration.\nPrecisely one of fixed_size, cpu_target, memory_target can be set.",
             "x-one-of": "target",
             "oneOf": [
               {
@@ -863,7 +866,7 @@
             ]
           },
           "cpu_target": {
-            "description": "CPU target scaling policy configuration.",
+            "description": "CPU target scaling policy configuration.\nPrecisely one of fixed_size, cpu_target, memory_target can be set.",
             "x-one-of": "target",
             "oneOf": [
               {
@@ -875,7 +878,7 @@
             ]
           },
           "memory_target": {
-            "description": "Memory target scaling policy configuration.",
+            "description": "Memory target scaling policy configuration.\nPrecisely one of fixed_size, cpu_target, memory_target can be set.",
             "x-one-of": "target",
             "oneOf": [
               {
@@ -971,6 +974,7 @@
           {
             "in": "query",
             "name": "group_id",
+            "description": "One of group_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"
@@ -979,6 +983,7 @@
           {
             "in": "query",
             "name": "project_id",
+            "description": "One of group_id, project_id is required.",
             "schema": {
               "type": "string",
               "x-one-of": "scope"

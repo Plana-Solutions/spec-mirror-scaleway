@@ -372,6 +372,7 @@
             }
           },
           "webauthn": {
+            "description": "Precisely one of webauthn can be set.",
             "x-one-of": "method_metadata",
             "oneOf": [
               {
@@ -956,11 +957,11 @@
                       "string",
                       "null"
                     ],
-                    "description": "Email of the user.",
+                    "description": "Email of the user.\nPrecisely one of email, oidc can be set.",
                     "x-one-of": "method"
                   },
                   "oidc": {
-                    "description": "OpenID Connect authentication information that allows a user to authenticate through an external identity provider.\nIf this field is used, the `email` field must not be set.",
+                    "description": "OpenID Connect authentication information that allows a user to authenticate through an external identity provider.\nIf this field is used, the `email` field must not be set.\nPrecisely one of email, oidc can be set.",
                     "x-one-of": "method",
                     "oneOf": [
                       {
@@ -1419,7 +1420,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "OTP of the user.",
+                    "description": "OTP of the user.\nPrecisely one of otp, webauthn can be set.",
                     "pattern": "^[A-Z0-9]+$",
                     "x-one-of": "mfa"
                   },
@@ -1431,7 +1432,7 @@
                     "description": "Optional organization_id to specify the organization we want to log in."
                   },
                   "webauthn": {
-                    "description": "WebAuthn response to the authentication ceremony.",
+                    "description": "WebAuthn response to the authentication ceremony.\nPrecisely one of otp, webauthn can be set.",
                     "x-one-of": "mfa",
                     "oneOf": [
                       {
@@ -1505,12 +1506,12 @@
                       "string",
                       "null"
                     ],
-                    "description": "OTP of the user.",
+                    "description": "OTP of the user.\nPrecisely one of otp, webauthn can be set.",
                     "pattern": "^[A-Z0-9]+$",
                     "x-one-of": "mfa"
                   },
                   "webauthn": {
-                    "description": "WebAuthn response to the authentication ceremony.",
+                    "description": "WebAuthn response to the authentication ceremony.\nPrecisely one of otp, webauthn can be set.",
                     "x-one-of": "mfa",
                     "oneOf": [
                       {
@@ -1575,7 +1576,7 @@
                 "type": "object",
                 "properties": {
                   "password": {
-                    "description": "Log in with password.",
+                    "description": "Log in with password.\nOne of password, passwordless, oidc, authentication_code is required.",
                     "x-one-of": "method",
                     "oneOf": [
                       {
@@ -1587,7 +1588,7 @@
                     ]
                   },
                   "passwordless": {
-                    "description": "Log in with passwordless.",
+                    "description": "Log in with passwordless.\nOne of password, passwordless, oidc, authentication_code is required.",
                     "x-one-of": "method",
                     "oneOf": [
                       {
@@ -1599,7 +1600,7 @@
                     ]
                   },
                   "oidc": {
-                    "description": "Log in with OpenID Connect.",
+                    "description": "Log in with OpenID Connect.\nOne of password, passwordless, oidc, authentication_code is required.",
                     "x-one-of": "method",
                     "oneOf": [
                       {
@@ -1611,6 +1612,7 @@
                     ]
                   },
                   "authentication_code": {
+                    "description": "One of password, passwordless, oidc, authentication_code is required.",
                     "x-one-of": "method",
                     "oneOf": [
                       {
@@ -1627,6 +1629,28 @@
                   "passwordless",
                   "oidc",
                   "authentication_code"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "password"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "passwordless"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "oidc"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "authentication_code"
+                    ]
+                  }
                 ]
               }
             }
@@ -2024,7 +2048,7 @@
                     "description": "Token received to validate the account."
                   },
                   "professional_organization": {
-                    "description": "Details of the professional organization.",
+                    "description": "Details of the professional organization.\nPrecisely one of professional_organization, personal_organization can be set.",
                     "x-one-of": "organization_type",
                     "oneOf": [
                       {
@@ -2036,7 +2060,7 @@
                     ]
                   },
                   "personal_organization": {
-                    "description": "Details of the personal organization.",
+                    "description": "Details of the personal organization.\nPrecisely one of professional_organization, personal_organization can be set.",
                     "x-one-of": "organization_type",
                     "oneOf": [
                       {
