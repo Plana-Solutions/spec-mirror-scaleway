@@ -599,16 +599,11 @@
             "type": "integer",
             "description": "Size of the Volume. (in bytes)",
             "format": "uint64"
-          },
-          "deployment_id": {
-            "type": "string",
-            "description": "ID of the deployment."
           }
         },
         "x-properties-order": [
           "type",
-          "size_bytes",
-          "deployment_id"
+          "size_bytes"
         ]
       },
       "scaleway.messageq.v1alpha1.Volume.Type": {

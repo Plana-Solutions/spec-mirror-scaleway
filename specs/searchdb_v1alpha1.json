@@ -608,16 +608,11 @@
             "type": "integer",
             "description": "Define the size of the Volume. (in bytes)",
             "format": "uint64"
-          },
-          "deployment_id": {
-            "type": "string",
-            "description": "ID of the Deployment."
           }
         },
         "x-properties-order": [
           "type",
-          "size_bytes",
-          "deployment_id"
+          "size_bytes"
         ]
       },
       "scaleway.searchdb.v1alpha1.Volume.Type": {

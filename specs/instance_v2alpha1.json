@@ -1802,10 +1802,15 @@
           "spot": {
             "type": "boolean",
             "description": "True if the Instance is running as Spot."
+          },
+          "physical_host_id": {
+            "type": "string",
+            "description": "The unique identifier of the physical server hosting this Instance."
           }
         },
         "x-properties-order": [
-          "spot"
+          "spot",
+          "physical_host_id"
         ]
       },
       "scaleway.instance.v2alpha1.Server.Status": {

@@ -162,7 +162,7 @@
     "output": "baremetal_v1.json",
     "title": "Elastic Metal API",
     "openapi": "3.1.0",
-    "paths": 23
+    "paths": 25
   },
   {
     "proto": "scaleway.billing.v2beta1.FinOpsApi",

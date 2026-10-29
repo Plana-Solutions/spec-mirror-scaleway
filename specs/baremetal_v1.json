@@ -38,6 +38,10 @@
     {
       "name": "Partitioning-schemas",
       "description": "You have the possibility to customize server partitioning schema on some offers/os."
+    },
+    {
+      "name": "Commitment",
+      "description": "Lists and manages the available commitment plans for this server."
     }
   ],
   "components": {
@@ -186,6 +190,18 @@
       "scaleway.baremetal.v1.CertificationOption": {
         "type": "object"
       },
+      "scaleway.baremetal.v1.CommitmentPeriod": {
+        "type": "string",
+        "enum": [
+          "unknown_period",
+          "one_month",
+          "six_months",
+          "one_year",
+          "two_years",
+          "three_years"
+        ],
+        "default": "unknown_period"
+      },
       "scaleway.baremetal.v1.CreateServerRequest": {
         "type": "object",
         "properties": {
@@ -258,6 +274,10 @@
           "user_data": {
             "description": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
             "$ref": "#/components/schemas/google.protobuf.BytesValue"
+          },
+          "commitment_period": {
+            "description": "Commitment period to subscribe.",
+            "$ref": "#/components/schemas/scaleway.baremetal.v1.CommitmentPeriod"
           }
         },
         "required": [
@@ -277,7 +297,8 @@
           "install",
           "option_ids",
           "protected",
-          "user_data"
+          "user_data",
+          "commitment_period"
         ]
       },
       "scaleway.baremetal.v1.CreateServerRequest.Install": {
@@ -922,6 +943,13 @@
             ],
             "description": "Exist only for hourly offers, to migrate to the monthly offer."
           },
+          "commitments_available": {
+            "type": "array",
+            "description": "List all available commitments on the offer.",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.baremetal.v1.Offer.Commitment"
+            }
+          },
           "zone": {
             "type": "string",
             "description": "Zone in which is the offer is available."
@@ -960,8 +988,32 @@
           "tags",
           "gpus",
           "monthly_offer_id",
+          "commitments_available",
           "zone",
           "dual_attach"
+        ]
+      },
+      "scaleway.baremetal.v1.Offer.Commitment": {
+        "type": "object",
+        "properties": {
+          "period": {
+            "description": "Commitment period.",
+            "$ref": "#/components/schemas/scaleway.baremetal.v1.CommitmentPeriod"
+          },
+          "discount_rate_percent": {
+            "type": "integer",
+            "description": "Discount rate for the commitment period.",
+            "format": "uint32"
+          },
+          "no_fee": {
+            "type": "boolean",
+            "description": "Fee not mandatory."
+          }
+        },
+        "x-properties-order": [
+          "period",
+          "discount_rate_percent",
+          "no_fee"
         ]
       },
       "scaleway.baremetal.v1.Offer.OptionOffer": {
@@ -1572,6 +1624,23 @@
           "user_data": {
             "description": "Optional configuration data passed to cloud-init.",
             "$ref": "#/components/schemas/google.protobuf.BytesValue"
+          },
+          "commitment": {
+            "description": "Commitment subscribed for the server.",
+            "$ref": "#/components/schemas/scaleway.baremetal.v1.Server.Commitment"
+          },
+          "scheduled_deletion_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Date on which the server will be deleted. (RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "scheduled_deletion": {
+            "type": "boolean",
+            "description": "True if a deletion is scheduled."
           }
         },
         "x-properties-order": [
@@ -1595,7 +1664,10 @@
           "options",
           "rescue_server",
           "protected",
-          "user_data"
+          "user_data",
+          "commitment",
+          "scheduled_deletion_at",
+          "scheduled_deletion"
         ]
       },
       "scaleway.baremetal.v1.Server.BootType": {
@@ -1606,6 +1678,59 @@
           "rescue"
         ],
         "default": "unknown_boot_type"
+      },
+      "scaleway.baremetal.v1.Server.Commitment": {
+        "type": "object",
+        "properties": {
+          "period": {
+            "description": "Commitment period subscribed.",
+            "$ref": "#/components/schemas/scaleway.baremetal.v1.CommitmentPeriod"
+          },
+          "started_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Start of commitment subscribed. (RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "renew_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Next renew of commitment subscribed. (RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "end_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "End of commitment subscribed. (RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "discount_rate_percent": {
+            "type": "integer",
+            "description": "Discount rate for the commitment period.",
+            "format": "uint32"
+          },
+          "auto_renewal": {
+            "type": "boolean",
+            "description": "Flag for automatic renewal commitment."
+          }
+        },
+        "x-properties-order": [
+          "period",
+          "started_at",
+          "renew_at",
+          "end_at",
+          "discount_rate_percent",
+          "auto_renewal"
+        ]
       },
       "scaleway.baremetal.v1.Server.Install": {
         "type": "object",
@@ -2905,6 +3030,10 @@
                   "user_data": {
                     "description": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
                     "$ref": "#/components/schemas/google.protobuf.BytesValue"
+                  },
+                  "commitment_period": {
+                    "description": "Commitment period to subscribe.",
+                    "$ref": "#/components/schemas/scaleway.baremetal.v1.CommitmentPeriod"
                   }
                 },
                 "required": [
@@ -2922,7 +3051,8 @@
                   "install",
                   "option_ids",
                   "protected",
-                  "user_data"
+                  "user_data",
+                  "commitment_period"
                 ]
               }
             }
@@ -3094,6 +3224,13 @@
                   "user_data": {
                     "description": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
                     "$ref": "#/components/schemas/google.protobuf.BytesValue"
+                  },
+                  "scheduled_deletion": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Set false to cancel the scheduled deletion of the server."
                   }
                 },
                 "x-properties-order": [
@@ -3101,7 +3238,8 @@
                   "description",
                   "tags",
                   "protected",
-                  "user_data"
+                  "user_data",
+                  "scheduled_deletion"
                 ]
               }
             }
@@ -4297,6 +4435,170 @@
           {
             "lang": "HTTPie",
             "source": "http POST \"https://api.scaleway.com/baremetal/v1/zones/{zone}/servers/{server_id}/stop\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
+          }
+        ]
+      }
+    },
+    "/baremetal/v1/zones/{zone}/servers/{server_id}/update-commitment": {
+      "post": {
+        "tags": [
+          "Commitment"
+        ],
+        "operationId": "UpdateServerCommitment",
+        "summary": "Update a commitment",
+        "description": "Update an existing commitment on a server to enable/disable auto-renewal.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "zone",
+            "description": "The zone you want to target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fr-par-1",
+                "fr-par-2",
+                "nl-ams-1",
+                "nl-ams-2",
+                "pl-waw-2",
+                "pl-waw-3"
+              ]
+            }
+          },
+          {
+            "in": "path",
+            "name": "server_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaleway.baremetal.v1.Server"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "auto_renewal": {
+                    "type": "boolean"
+                  }
+                },
+                "x-properties-order": [
+                  "auto_renewal"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scaleway": []
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"auto_renewal\":false}' \\\n  \"https://api.scaleway.com/baremetal/v1/zones/{zone}/servers/{server_id}/update-commitment\""
+          },
+          {
+            "lang": "HTTPie",
+            "source": "http POST \"https://api.scaleway.com/baremetal/v1/zones/{zone}/servers/{server_id}/update-commitment\" \\\n  X-Auth-Token:$SCW_SECRET_KEY \\\n  auto_renewal:=false"
+          }
+        ]
+      }
+    },
+    "/baremetal/v1/zones/{zone}/servers/{server_id}/upgrade-commitment": {
+      "post": {
+        "tags": [
+          "Commitment"
+        ],
+        "operationId": "UpgradeServerCommitment",
+        "summary": "Upgrade a commitment",
+        "description": "Start a commitment or upgrade an existing commitment on a server.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "zone",
+            "description": "The zone you want to target",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fr-par-1",
+                "fr-par-2",
+                "nl-ams-1",
+                "nl-ams-2",
+                "pl-waw-2",
+                "pl-waw-3"
+              ]
+            }
+          },
+          {
+            "in": "path",
+            "name": "server_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaleway.baremetal.v1.Server"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "period": {
+                    "$ref": "#/components/schemas/scaleway.baremetal.v1.CommitmentPeriod"
+                  }
+                },
+                "x-properties-order": [
+                  "period"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scaleway": []
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X POST \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}' \\\n  \"https://api.scaleway.com/baremetal/v1/zones/{zone}/servers/{server_id}/upgrade-commitment\""
+          },
+          {
+            "lang": "HTTPie",
+            "source": "http POST \"https://api.scaleway.com/baremetal/v1/zones/{zone}/servers/{server_id}/upgrade-commitment\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
           }
         ]
       }

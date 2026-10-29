@@ -381,7 +381,10 @@
             "$ref": "#/components/schemas/scaleway.file.v1alpha1.Snapshot.ParentFilesystem"
           },
           "size": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Snapshot size in bytes. (in bytes)",
             "format": "uint64"
           },
