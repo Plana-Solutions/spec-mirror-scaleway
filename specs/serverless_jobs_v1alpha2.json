@@ -173,6 +173,11 @@
             "description": "UUID of the job definition. (UUID format)",
             "example": "6170692e-7363-616c-6577-61792e636f6d"
           },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the job definition.",
+            "pattern": "^srn://jobs\\.[^/]+/regions/[^/]+/job-definitions/[^/]+$"
+          },
           "name": {
             "type": "string",
             "description": "Name of the job definition."
@@ -271,11 +276,12 @@
           },
           "region": {
             "type": "string",
-            "description": "The region you want to target"
+            "description": "Region in which the job definition exists."
           }
         },
         "x-properties-order": [
           "id",
+          "srn",
           "name",
           "project_id",
           "created_at",
@@ -302,6 +308,11 @@
             "type": "string",
             "description": "UUID of the job run. (UUID format)",
             "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the job run.",
+            "pattern": "^srn://jobs\\.[^/]+/regions/[^/]+/job-runs/[^/]+$"
           },
           "job_definition_id": {
             "type": "string",
@@ -430,11 +441,12 @@
           },
           "region": {
             "type": "string",
-            "description": "The region you want to target"
+            "description": "Region in which the job run exists."
           }
         },
         "x-properties-order": [
           "id",
+          "srn",
           "job_definition_id",
           "created_at",
           "updated_at",
@@ -620,6 +632,11 @@
             "description": "UUID of the secret reference within the job. (UUID format)",
             "example": "6170692e-7363-616c-6577-61792e636f6d"
           },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the secret reference.",
+            "pattern": "^srn://jobs\\.[^/]+/regions/[^/]+/secrets/[^/]+$"
+          },
           "secret_manager_id": {
             "type": "string",
             "description": "UUID of the secret in Secret Manager. (UUID format)",
@@ -657,6 +674,10 @@
                 "type": "null"
               }
             ]
+          },
+          "region": {
+            "type": "string",
+            "description": "Region in which the secret reference exists."
           }
         },
         "required": [
@@ -664,11 +685,13 @@
         ],
         "x-properties-order": [
           "secret_id",
+          "srn",
           "secret_manager_id",
           "secret_manager_version",
           "job_definition_id",
           "file",
-          "env_var"
+          "env_var",
+          "region"
         ],
         "oneOf": [
           {
@@ -731,6 +754,11 @@
             "description": "UUID of the trigger. (UUID format)",
             "example": "6170692e-7363-616c-6577-61792e636f6d"
           },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the trigger.",
+            "pattern": "^srn://jobs\\.[^/]+/regions/[^/]+/triggers/[^/]+$"
+          },
           "job_definition_id": {
             "type": "string",
             "description": "UUID of the job definition. (UUID format)",
@@ -769,15 +797,21 @@
                 "type": "null"
               }
             ]
+          },
+          "region": {
+            "type": "string",
+            "description": "Region in which the trigger exists."
           }
         },
         "x-properties-order": [
           "id",
+          "srn",
           "job_definition_id",
           "name",
           "created_at",
           "updated_at",
-          "cron_config"
+          "cron_config",
+          "region"
         ]
       },
       "scaleway.serverless_jobs.v1alpha2.Trigger.CronConfig": {

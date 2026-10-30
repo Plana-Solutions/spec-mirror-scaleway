@@ -28,7 +28,7 @@
           "organization_rate_limit": {
             "type": "integer",
             "description": "Rate limit quota per minute applied across the entire Organization.",
-            "format": "uint32"
+            "format": "int64"
           },
           "project_rate_limit": {
             "description": "Secondary rate limit quota per minute applied to the Project.",
@@ -93,7 +93,7 @@
           "value": {
             "type": "integer",
             "description": "The amount of processing units to allocate for this limit.",
-            "format": "uint32"
+            "format": "int64"
           }
         },
         "x-properties-order": [
