@@ -325,7 +325,9 @@
           "sedb_cluster",
           "autoscaling_group",
           "wofl_definition",
-          "wofl_run"
+          "wofl_run",
+          "kvdb_instance",
+          "kvdb_snapshot"
         ],
         "x-enum-descriptions": {
           "values": {

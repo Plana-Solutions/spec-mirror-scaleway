@@ -101,6 +101,11 @@
           "input_template": {
             "type": "string",
             "description": "JSON format describing the expected input."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the application.",
+            "pattern": "^srn://quantum\\.[^/]+/applications/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -108,7 +113,8 @@
           "name",
           "type",
           "compatible_platform_ids",
-          "input_template"
+          "input_template",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Application.Type": {
@@ -185,6 +191,11 @@
               "null"
             ],
             "description": "Time zone for the booking schedule, in tz database format (e.g. 'Europe/Paris')."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the booking.",
+            "pattern": "^srn://quantum\\.[^/]+/bookings/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -196,7 +207,8 @@
           "status",
           "description",
           "progress_message",
-          "time_zone"
+          "time_zone",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Booking.Status": {
@@ -335,6 +347,11 @@
               "null"
             ],
             "description": "Execution parameters for this job."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the job.",
+            "pattern": "^srn://quantum\\.[^/]+/jobs/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -350,7 +367,8 @@
           "job_duration",
           "result_distribution",
           "model_id",
-          "parameters"
+          "parameters",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Job.Status": {
@@ -775,13 +793,19 @@
           "project_id": {
             "type": "string",
             "description": "Project ID in which the model has been created."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the model.",
+            "pattern": "^srn://quantum\\.[^/]+/models/[^/]+$"
           }
         },
         "x-properties-order": [
           "id",
           "created_at",
           "url",
-          "project_id"
+          "project_id",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Platform": {
@@ -869,6 +893,11 @@
           "is_bookable": {
             "type": "boolean",
             "description": "Specify if the platform is bookable."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the platform.",
+            "pattern": "^srn://quantum\\.[^/]+/platforms/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -891,7 +920,8 @@
           "booking_requirement",
           "description",
           "documentation_url",
-          "is_bookable"
+          "is_bookable",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Platform.Availability": {
@@ -1136,6 +1166,11 @@
               "null"
             ],
             "description": "Input payload of the process as JSON string."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the process.",
+            "pattern": "^srn://quantum\\.[^/]+/processes/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1153,7 +1188,8 @@
           "tags",
           "progress",
           "progress_message",
-          "input"
+          "input",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Process.Status": {
@@ -1330,6 +1366,11 @@
               "null"
             ],
             "description": "Platform configuration parameters applied to this session."
+          },
+          "srn": {
+            "type": "string",
+            "description": "SRN of the session.",
+            "pattern": "^srn://quantum\\.[^/]+/sessions/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1353,7 +1394,8 @@
           "progress_message",
           "booking_id",
           "model_id",
-          "parameters"
+          "parameters",
+          "srn"
         ]
       },
       "scaleway.qaas.v1alpha1.Session.Access": {

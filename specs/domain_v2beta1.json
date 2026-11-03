@@ -102,6 +102,13 @@
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.LinkedProduct"
             }
+          },
+          "srn": {
+            "type": "string",
+            "pattern": "^srn://domain\\.[^/]+/dns-zones/[^/]+$"
+          },
+          "dns_zone": {
+            "type": "string"
           }
         },
         "x-properties-order": [
@@ -114,7 +121,9 @@
           "message",
           "updated_at",
           "project_id",
-          "linked_products"
+          "linked_products",
+          "srn",
+          "dns_zone"
         ]
       },
       "scaleway.domain.v2beta1.DNSZone.Status": {
@@ -1014,6 +1023,10 @@
             "description": "(RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "srn": {
+            "type": "string",
+            "pattern": "^srn://domain\\.[^/]+/dns-zones/[^/]+/ssl-certificate$"
           }
         },
         "x-properties-order": [
@@ -1023,7 +1036,8 @@
           "private_key",
           "certificate_chain",
           "created_at",
-          "expired_at"
+          "expired_at",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.SSLCertificate.Status": {

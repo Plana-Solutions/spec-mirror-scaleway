@@ -234,6 +234,11 @@
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.Contact.Question"
             }
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the contact.",
+            "pattern": "^srn://domain\\.[^/]+/contacts/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -263,7 +268,8 @@
           "extension_nl",
           "status",
           "extension_it",
-          "questions"
+          "questions",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.Contact.EmailStatus": {
@@ -706,6 +712,13 @@
             "items": {
               "$ref": "#/components/schemas/scaleway.domain.v2beta1.LinkedProduct"
             }
+          },
+          "srn": {
+            "type": "string",
+            "pattern": "^srn://domain\\.[^/]+/dns-zones/[^/]+$"
+          },
+          "dns_zone": {
+            "type": "string"
           }
         },
         "x-properties-order": [
@@ -718,7 +731,9 @@
           "message",
           "updated_at",
           "project_id",
-          "linked_products"
+          "linked_products",
+          "srn",
+          "dns_zone"
         ]
       },
       "scaleway.domain.v2beta1.DNSZone.Status": {
@@ -993,6 +1008,11 @@
           "pending_trade": {
             "type": "boolean",
             "description": "Indicates if a trade is ongoing."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the domain.",
+            "pattern": "^srn://domain\\.[^/]+/domains/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1015,7 +1035,8 @@
           "transfer_registration_status",
           "tld",
           "linked_products",
-          "pending_trade"
+          "pending_trade",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.Domain.DNSSEC": {
@@ -1248,6 +1269,11 @@
           "pending_trade": {
             "type": "boolean",
             "description": "Indicates if a trade is ongoing."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the domain.",
+            "pattern": "^srn://domain\\.[^/]+/domains/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1265,7 +1291,8 @@
           "status",
           "external_domain_registration_status",
           "transfer_registration_status",
-          "pending_trade"
+          "pending_trade",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.GetDomainAuthCodeResponse": {
@@ -1978,6 +2005,11 @@
           "tld": {
             "description": "TLD information of the domain.",
             "$ref": "#/components/schemas/scaleway.domain.v2beta1.Tld"
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the domain.",
+            "pattern": "^srn://domain\\.[^/]+/domains/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1990,7 +2022,8 @@
           "limit_renew_at",
           "limit_redemption_at",
           "estimated_delete_at",
-          "tld"
+          "tld",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.RenewableDomain.Status": {
@@ -2095,6 +2128,11 @@
               "null"
             ],
             "description": "Human-friendly contact identifier used when the task concerns a contact."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the task.",
+            "pattern": "^srn://domain\\.[^/]+/tasks/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -2107,7 +2145,8 @@
           "started_at",
           "updated_at",
           "message",
-          "contact_identifier"
+          "contact_identifier",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.Task.Status": {
@@ -2236,6 +2275,11 @@
               }
             },
             "additionalProperties": true
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the TLD.",
+            "pattern": "^srn://domain\\.[^/]+/tlds/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -2245,7 +2289,8 @@
           "duration_in_years_max",
           "idn_support",
           "offers",
-          "specifications"
+          "specifications",
+          "srn"
         ]
       },
       "scaleway.domain.v2beta1.Tld.Offer": {

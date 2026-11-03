@@ -26,7 +26,8 @@
         "type": "object",
         "properties": {
           "username": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$"
           },
           "password": {
             "type": "string"
@@ -440,10 +441,11 @@
                 "properties": {
                   "database_name": {
                     "type": "string",
-                    "description": "Name of the database to be created."
+                    "description": "Name of the database to be created. If it is not already prefixed with the hosting's cPanel username followed by an underscore (e.g. `cpe1234_`), this prefix is automatically added. The resulting name must not exceed 64 characters.",
+                    "pattern": "^([A-Za-z0-9]+_)?[A-Za-z0-9-]+$"
                   },
                   "new_user": {
-                    "description": "(Optional) Username and password to create a user and link to the database.\nPrecisely one of new_user, existing_username can be set.",
+                    "description": "(Optional) Username and password to create a user and link to the database. The username is prefixed the same way as `database_name`.\nPrecisely one of new_user, existing_username can be set.",
                     "x-one-of": "user",
                     "oneOf": [
                       {
@@ -542,7 +544,8 @@
                 "properties": {
                   "username": {
                     "type": "string",
-                    "description": "Name of the user to create."
+                    "description": "Name of the user to create. If it is not already prefixed with the hosting's cPanel username followed by an underscore (e.g. `cpe1234_`), this prefix is automatically added. The resulting name must not exceed 32 characters.",
+                    "pattern": "^[A-Za-z0-9_-]+$"
                   },
                   "password": {
                     "type": "string",
