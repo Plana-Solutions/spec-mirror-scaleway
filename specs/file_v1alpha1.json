@@ -108,6 +108,46 @@
         ],
         "default": "unknown_resource_type"
       },
+      "scaleway.file.v1alpha1.CreateFileSystemRequest.FromEmpty": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "description": "Filesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size. (in bytes)",
+            "format": "uint64"
+          }
+        },
+        "required": [
+          "size"
+        ],
+        "x-properties-order": [
+          "size"
+        ]
+      },
+      "scaleway.file.v1alpha1.CreateFileSystemRequest.FromSnapshot": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Filesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size.\nSize is optional. When not set, the current size of the parent filesystem is used.\nWhen set, it must be greater than or equal to the snapshot size. (in bytes)",
+            "format": "uint64"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "description": "Source snapshot from which the filesystem will be created."
+          }
+        },
+        "required": [
+          "snapshot_id"
+        ],
+        "x-properties-order": [
+          "size",
+          "snapshot_id"
+        ]
+      },
       "scaleway.file.v1alpha1.FileSystem": {
         "type": "object",
         "properties": {
@@ -813,7 +853,7 @@
         ],
         "operationId": "CreateFileSystem",
         "summary": "Create a new filesystem",
-        "description": "To create a new filesystem, you must specify a name, a size, and a project ID.",
+        "description": "To create a new filesystem, you must specify a name, a project ID, and either a size (`from_empty`) or a source snapshot (`from_snapshot`).",
         "parameters": [
           {
             "in": "path",
@@ -858,8 +898,33 @@
                   },
                   "size": {
                     "type": "integer",
-                    "description": "Filesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size.",
+                    "description": "Deprecated: use `from_empty.size` instead.\nFilesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size.\nMust not be set along with `from_empty` or `from_snapshot`.",
+                    "deprecated": true,
                     "format": "uint64"
+                  },
+                  "from_empty": {
+                    "description": "Specify the size of the new filesystem if creating a new one from scratch.\nPrecisely one of from_empty, from_snapshot can be set.",
+                    "x-one-of": "from",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.file.v1alpha1.CreateFileSystemRequest.FromEmpty"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "from_snapshot": {
+                    "description": "Specify the snapshot ID of the original snapshot to create the filesystem from.\nPrecisely one of from_empty, from_snapshot can be set.",
+                    "x-one-of": "from",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.file.v1alpha1.CreateFileSystemRequest.FromSnapshot"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   },
                   "type": {
                     "type": [
@@ -878,13 +943,14 @@
                 },
                 "required": [
                   "name",
-                  "project_id",
-                  "size"
+                  "project_id"
                 ],
                 "x-properties-order": [
                   "name",
                   "project_id",
                   "size",
+                  "from_empty",
+                  "from_snapshot",
                   "type",
                   "tags"
                 ]
