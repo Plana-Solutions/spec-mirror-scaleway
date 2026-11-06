@@ -21,7 +21,7 @@
     },
     {
       "name": "Domains",
-      "description": "A container is provided with an automatically generated domain through which it is accessible.\n    \nAlternatively, custom domains can be assigned to containers in order to facilitate their use.\n"
+      "description": "A container is provided with an automatically generated domain through which it is accessible.\n\nAlternatively, custom domains can be assigned to containers in order to facilitate their use.\n"
     },
     {
       "name": "Triggers",
@@ -146,7 +146,7 @@
           },
           "image": {
             "type": "string",
-            "description": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\")."
+            "description": "Image reference (e.g. with sample image: \"rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest\")."
           },
           "protocol": {
             "description": "Protocol the container uses.",
@@ -1754,7 +1754,7 @@
                   },
                   "image": {
                     "type": "string",
-                    "description": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\")."
+                    "description": "Image reference (e.g. with sample image: \"rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest\")."
                   },
                   "protocol": {
                     "description": "Protocol the container uses.",
@@ -2089,7 +2089,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\")."
+                    "description": "Image reference (e.g. with sample image: \"rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest\")."
                   },
                   "protocol": {
                     "description": "Protocol the container uses.",
@@ -2365,7 +2365,7 @@
         ],
         "operationId": "ListDomains",
         "summary": "List all custom domains the caller can access (read permission).",
-        "description": "By default, the custom domains listed are ordered by creation date in ascending order. This can be modified via the `order_by` field.\n    \nAdditional parameters can be set in the query to filter the output, such as `organization_id`, `project_id`, `namespace_id`, or `container_id`.",
+        "description": "By default, the custom domains listed are ordered by creation date in ascending order. This can be modified via the `order_by` field.\n\nAdditional parameters can be set in the query to filter the output, such as `organization_id`, `project_id`, `namespace_id`, or `container_id`.",
         "parameters": [
           {
             "in": "path",

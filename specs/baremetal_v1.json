@@ -107,13 +107,29 @@
             "description": "The date after which the BMC (Baseboard Management Controller) access will be closed. (RFC 3339 format)",
             "format": "date-time",
             "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "server_id": {
+            "type": "string",
+            "description": "ID of the server."
+          },
+          "zone": {
+            "type": "string",
+            "description": "Zone in which the server is located."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the BMC access.",
+            "pattern": "^srn://elastic-metal\\.[^/]+/zones/[^/]+/servers/[^/]+/bmc-access$"
           }
         },
         "x-properties-order": [
           "url",
           "login",
           "password",
-          "expires_at"
+          "expires_at",
+          "server_id",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.baremetal.v1.BatchCreateServersRequest.ServerConfig": {
@@ -765,6 +781,11 @@
           "zone": {
             "type": "string",
             "description": "Zone in which is the OS is available."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the OS.",
+            "pattern": "^srn://elastic-metal\\.[^/]+/zones/[^/]+/os/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -785,7 +806,8 @@
           "cloud_init_version",
           "network_boot",
           "network_boot_persistent_editable",
-          "zone"
+          "zone",
+          "srn"
         ]
       },
       "scaleway.baremetal.v1.OS.OSField": {
@@ -960,6 +982,11 @@
               "null"
             ],
             "description": "Describe the network topology of the offer."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the offer.",
+            "pattern": "^srn://elastic-metal\\.[^/]+/zones/[^/]+/offers/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -990,7 +1017,8 @@
           "monthly_offer_id",
           "commitments_available",
           "zone",
-          "dual_attach"
+          "dual_attach",
+          "srn"
         ]
       },
       "scaleway.baremetal.v1.Offer.Commitment": {
@@ -1219,6 +1247,15 @@
                 "type": "null"
               }
             ]
+          },
+          "zone": {
+            "type": "string",
+            "description": "Zone in which is the option is available."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the option.",
+            "pattern": "^srn://elastic-metal\\.[^/]+/zones/[^/]+/options/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1229,7 +1266,9 @@
           "public_bandwidth",
           "private_network",
           "remote_access",
-          "certification"
+          "certification",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.baremetal.v1.PersistentMemory": {
@@ -1641,6 +1680,11 @@
           "scheduled_deletion": {
             "type": "boolean",
             "description": "True if a deletion is scheduled."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the server.",
+            "pattern": "^srn://elastic-metal\\.[^/]+/zones/[^/]+/servers/[^/]+$"
           }
         },
         "x-properties-order": [
@@ -1667,7 +1711,8 @@
           "user_data",
           "commitment",
           "scheduled_deletion_at",
-          "scheduled_deletion"
+          "scheduled_deletion",
+          "srn"
         ]
       },
       "scaleway.baremetal.v1.Server.BootType": {
@@ -2016,13 +2061,24 @@
           "enabled": {
             "type": "boolean",
             "description": "Defines whether the setting is enabled."
+          },
+          "zone": {
+            "type": "string",
+            "description": "Zone in which is the setting is located."
+          },
+          "srn": {
+            "type": "string",
+            "description": "The SRN of the setting.",
+            "pattern": "^srn://elastic-metal\\.[^/]+/zones/[^/]+/settings/[^/]+$"
           }
         },
         "x-properties-order": [
           "id",
           "type",
           "project_id",
-          "enabled"
+          "enabled",
+          "zone",
+          "srn"
         ]
       },
       "scaleway.baremetal.v1.Setting.Type": {

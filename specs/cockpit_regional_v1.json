@@ -289,6 +289,42 @@
             "type": "string",
             "description": "The SRN of the data-source.",
             "pattern": "^srn://cockpit\\.[^/]+/regions/[^/]+/data-sources/[^/]+$"
+          },
+          "metrics_limits": {
+            "description": "Limits applied to the metrics data source, including the default values of the limits not set.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "x-one-of": "limits",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.MetricsLimits"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "logs_limits": {
+            "description": "Limits applied to the logs data source, including the default values of the limits not set.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "x-one-of": "limits",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.LogsLimits"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "traces_limits": {
+            "description": "Limits applied to the traces data source, including the default values of the limits not set.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "x-one-of": "limits",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.TracesLimits"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "x-properties-order": [
@@ -304,7 +340,51 @@
           "retention_days",
           "region",
           "current_month_usage",
-          "srn"
+          "srn",
+          "metrics_limits",
+          "logs_limits",
+          "traces_limits"
+        ]
+      },
+      "scaleway.cockpit.v1.DataSource.LogsLimits": {
+        "type": "object",
+        "properties": {
+          "ingestion_rate_limit_bytes_per_second": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Maximum number of bytes ingested per second.",
+            "format": "uint64"
+          }
+        },
+        "x-properties-order": [
+          "ingestion_rate_limit_bytes_per_second"
+        ]
+      },
+      "scaleway.cockpit.v1.DataSource.MetricsLimits": {
+        "type": "object",
+        "properties": {
+          "ingestion_rate_limit_samples_per_second": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Maximum number of samples ingested per second.",
+            "format": "uint64"
+          },
+          "max_series": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Maximum number of active series.",
+            "format": "uint32"
+          }
+        },
+        "x-properties-order": [
+          "ingestion_rate_limit_samples_per_second",
+          "max_series"
         ]
       },
       "scaleway.cockpit.v1.DataSource.Origin": {
@@ -324,6 +404,22 @@
           }
         },
         "default": "unknown_origin"
+      },
+      "scaleway.cockpit.v1.DataSource.TracesLimits": {
+        "type": "object",
+        "properties": {
+          "ingestion_rate_limit_bytes_per_second": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Maximum number of bytes ingested per second.",
+            "format": "uint64"
+          }
+        },
+        "x-properties-order": [
+          "ingestion_rate_limit_bytes_per_second"
+        ]
       },
       "scaleway.cockpit.v1.DataSource.Type": {
         "type": "string",
@@ -561,6 +657,22 @@
           "product_logs_retention": {
             "description": "Scaleway logs retention configuration.",
             "$ref": "#/components/schemas/scaleway.cockpit.v1.GetConfigResponse.Retention"
+          },
+          "custom_metrics_ingestion_rate_limit_samples_per_second": {
+            "description": "Bounds of the custom metrics ingestion rate limit, in samples per second.",
+            "$ref": "#/components/schemas/scaleway.cockpit.v1.GetConfigResponse.Bounds"
+          },
+          "custom_metrics_max_series": {
+            "description": "Bounds of the custom metrics maximum number of active series.",
+            "$ref": "#/components/schemas/scaleway.cockpit.v1.GetConfigResponse.Bounds"
+          },
+          "custom_logs_ingestion_rate_limit_bytes_per_second": {
+            "description": "Bounds of the custom logs ingestion rate limit, in bytes per second.",
+            "$ref": "#/components/schemas/scaleway.cockpit.v1.GetConfigResponse.Bounds"
+          },
+          "custom_traces_ingestion_rate_limit_bytes_per_second": {
+            "description": "Bounds of the custom traces ingestion rate limit, in bytes per second.",
+            "$ref": "#/components/schemas/scaleway.cockpit.v1.GetConfigResponse.Bounds"
           }
         },
         "x-properties-order": [
@@ -568,7 +680,36 @@
           "custom_logs_retention",
           "custom_traces_retention",
           "product_metrics_retention",
-          "product_logs_retention"
+          "product_logs_retention",
+          "custom_metrics_ingestion_rate_limit_samples_per_second",
+          "custom_metrics_max_series",
+          "custom_logs_ingestion_rate_limit_bytes_per_second",
+          "custom_traces_ingestion_rate_limit_bytes_per_second"
+        ]
+      },
+      "scaleway.cockpit.v1.GetConfigResponse.Bounds": {
+        "type": "object",
+        "properties": {
+          "min_value": {
+            "type": "integer",
+            "description": "Minimum allowed value.",
+            "format": "uint64"
+          },
+          "max_value": {
+            "type": "integer",
+            "description": "Maximum allowed value.",
+            "format": "uint64"
+          },
+          "default_value": {
+            "type": "integer",
+            "description": "Value applied to a data source that does not set the limit.",
+            "format": "uint64"
+          }
+        },
+        "x-properties-order": [
+          "min_value",
+          "max_value",
+          "default_value"
         ]
       },
       "scaleway.cockpit.v1.GetConfigResponse.Retention": {
@@ -2351,6 +2492,42 @@
                     ],
                     "description": "Duration for which the data will be retained in the data source.\nDefault values are 31 days for metrics, 7 days for logs and traces.",
                     "format": "uint32"
+                  },
+                  "metrics_limits": {
+                    "description": "Limits of the data source. Only allowed for a metrics data source. A limit not set gets its default value (see GetConfig).\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+                    "x-one-of": "limits",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.MetricsLimits"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "logs_limits": {
+                    "description": "Limits of the data source. Only allowed for a logs data source. A limit not set gets its default value (see GetConfig).\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+                    "x-one-of": "limits",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.LogsLimits"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "traces_limits": {
+                    "description": "Limits of the data source. Only allowed for a traces data source. A limit not set gets its default value (see GetConfig).\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+                    "x-one-of": "limits",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.TracesLimits"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
                 },
                 "required": [
@@ -2362,7 +2539,10 @@
                   "project_id",
                   "name",
                   "type",
-                  "retention_days"
+                  "retention_days",
+                  "metrics_limits",
+                  "logs_limits",
+                  "traces_limits"
                 ]
               }
             }
@@ -2453,7 +2633,7 @@
         ],
         "operationId": "UpdateDataSource",
         "summary": "Update a data source",
-        "description": "Update a given data source attributes (name and/or retention_days).",
+        "description": "Update a given data source attributes (name, retention_days and/or limits).",
         "parameters": [
           {
             "in": "path",
@@ -2514,11 +2694,50 @@
                     ],
                     "description": "Duration for which the data will be retained in the data source.",
                     "format": "uint32"
+                  },
+                  "metrics_limits": {
+                    "description": "Updated limits of the data source. Only allowed on a metrics data source. A limit not set keeps its current value.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+                    "x-one-of": "limits",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.MetricsLimits"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "logs_limits": {
+                    "description": "Updated limits of the data source. Only allowed on a logs data source. A limit not set keeps its current value.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+                    "x-one-of": "limits",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.LogsLimits"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "traces_limits": {
+                    "description": "Updated limits of the data source. Only allowed on a traces data source. A limit not set keeps its current value.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+                    "x-one-of": "limits",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/scaleway.cockpit.v1.DataSource.TracesLimits"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
                 },
                 "x-properties-order": [
                   "name",
-                  "retention_days"
+                  "retention_days",
+                  "metrics_limits",
+                  "logs_limits",
+                  "traces_limits"
                 ]
               }
             }
