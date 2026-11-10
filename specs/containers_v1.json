@@ -170,7 +170,7 @@
             "$ref": "#/components/schemas/scaleway.containers.v1.Container.ScalingOption"
           },
           "liveness_probe": {
-            "description": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container.",
+            "description": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container.",
             "$ref": "#/components/schemas/scaleway.containers.v1.Container.Probe"
           },
           "startup_probe": {
@@ -1792,7 +1792,7 @@
                     "$ref": "#/components/schemas/scaleway.containers.v1.Container.ScalingOption"
                   },
                   "liveness_probe": {
-                    "description": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container.",
+                    "description": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container.",
                     "$ref": "#/components/schemas/scaleway.containers.v1.Container.Probe"
                   },
                   "startup_probe": {
@@ -2127,7 +2127,7 @@
                     "$ref": "#/components/schemas/scaleway.containers.v1.Container.ScalingOption"
                   },
                   "liveness_probe": {
-                    "description": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container.",
+                    "description": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container.",
                     "$ref": "#/components/schemas/scaleway.containers.v1.Container.Probe"
                   },
                   "startup_probe": {

@@ -184,7 +184,7 @@
     "output": "billing_v2beta1.json",
     "title": "Billing API",
     "openapi": "3.1.0",
-    "paths": 8
+    "paths": 10
   },
   {
     "proto": "scaleway.block.v1.Api",

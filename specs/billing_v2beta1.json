@@ -42,6 +42,13 @@
           "value"
         ]
       },
+      "google.protobuf.Int32Value": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "format": "int32"
+      },
       "google.type.Money": {
         "type": "object",
         "properties": {
@@ -230,6 +237,44 @@
         },
         "default": "unknown_type"
       },
+      "scaleway.billing.v2beta1.DiscountLine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "invoice_line_id": {
+            "type": "string",
+            "description": "(UUID format)",
+            "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/scaleway.billing.v2beta1.DiscountLine.Origin"
+          },
+          "value": {
+            "$ref": "#/components/schemas/google.type.Money"
+          }
+        },
+        "x-properties-order": [
+          "id",
+          "invoice_line_id",
+          "origin",
+          "value"
+        ]
+      },
+      "scaleway.billing.v2beta1.DiscountLine.Origin": {
+        "type": "string",
+        "enum": [
+          "unknown_origin",
+          "discount",
+          "contractual_commitment_range",
+          "savings_plan_activation",
+          "credit_note_rebate",
+          "reserved_resource_activation",
+          "offer_included"
+        ],
+        "default": "unknown_origin"
+      },
       "scaleway.billing.v2beta1.DownloadInvoiceRequest.FileType": {
         "type": "string",
         "enum": [
@@ -393,6 +438,106 @@
         ],
         "default": "unknown_type"
       },
+      "scaleway.billing.v2beta1.InvoiceLine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "(UUID format)",
+            "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
+          "invoice_id": {
+            "type": "string",
+            "description": "(UUID format)",
+            "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "(UUID format)",
+            "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
+          "organization_name": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "(UUID format)",
+            "example": "6170692e-7363-616c-6577-61792e636f6d"
+          },
+          "project_name": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "category_name": {
+            "type": "string"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "resource_name": {
+            "type": "string"
+          },
+          "start_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "(RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "stop_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "(RFC 3339 format)",
+            "format": "date-time",
+            "example": "2022-03-22T12:34:56.123456Z"
+          },
+          "unit_price": {
+            "$ref": "#/components/schemas/google.type.Money"
+          },
+          "untaxed_value": {
+            "$ref": "#/components/schemas/google.type.Money"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "unit_quantity": {
+            "type": "string"
+          },
+          "billed_quantity": {
+            "type": "string"
+          },
+          "resource_count": {
+            "type": "integer",
+            "format": "uint32"
+          }
+        },
+        "x-properties-order": [
+          "id",
+          "invoice_id",
+          "organization_id",
+          "organization_name",
+          "project_id",
+          "project_name",
+          "sku",
+          "category_name",
+          "product_name",
+          "resource_name",
+          "start_date",
+          "stop_date",
+          "unit_price",
+          "untaxed_value",
+          "unit",
+          "unit_quantity",
+          "billed_quantity",
+          "resource_count"
+        ]
+      },
       "scaleway.billing.v2beta1.ListConsumptionsRequest.OrderBy": {
         "type": "string",
         "enum": [
@@ -510,6 +655,25 @@
           "organization_name"
         ]
       },
+      "scaleway.billing.v2beta1.ListDiscountLinesResponse": {
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "discount_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.billing.v2beta1.DiscountLine"
+            }
+          }
+        },
+        "x-properties-order": [
+          "total_count",
+          "discount_lines"
+        ]
+      },
       "scaleway.billing.v2beta1.ListDiscountsRequest.OrderBy": {
         "type": "string",
         "enum": [
@@ -551,6 +715,25 @@
         "x-properties-order": [
           "total_count",
           "discounts"
+        ]
+      },
+      "scaleway.billing.v2beta1.ListInvoiceLinesResponse": {
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "invoice_lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaleway.billing.v2beta1.InvoiceLine"
+            }
+          }
+        },
+        "x-properties-order": [
+          "total_count",
+          "invoice_lines"
         ]
       },
       "scaleway.billing.v2beta1.ListInvoicesRequest.OrderBy": {
@@ -1135,6 +1318,65 @@
         ]
       }
     },
+    "/billing/v2beta1/invoices/{invoice_id}/discount-lines": {
+      "get": {
+        "operationId": "ListDiscountLines",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "invoice_id",
+            "description": "(UUID format)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "type": "integer",
+              "format": "uint32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaleway.billing.v2beta1.ListDiscountLinesResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scaleway": []
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  \"https://api.scaleway.com/billing/v2beta1/invoices/{invoice_id}/discount-lines\""
+          },
+          {
+            "lang": "HTTPie",
+            "source": "http GET \"https://api.scaleway.com/billing/v2beta1/invoices/{invoice_id}/discount-lines\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
+          }
+        ]
+      }
+    },
     "/billing/v2beta1/invoices/{invoice_id}/download": {
       "get": {
         "tags": [
@@ -1188,6 +1430,65 @@
           {
             "lang": "HTTPie",
             "source": "http GET \"https://api.scaleway.com/billing/v2beta1/invoices/{invoice_id}/download\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
+          }
+        ]
+      }
+    },
+    "/billing/v2beta1/invoices/{invoice_id}/lines": {
+      "get": {
+        "operationId": "ListInvoiceLines",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "invoice_id",
+            "description": "(UUID format)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "6170692e-7363-616c-6577-61792e636f6d"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "$ref": "#/components/schemas/google.protobuf.Int32Value"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "type": "integer",
+              "format": "uint32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaleway.billing.v2beta1.ListInvoiceLinesResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scaleway": []
+          }
+        ],
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": "curl -X GET \\\n  -H \"X-Auth-Token: $SCW_SECRET_KEY\" \\\n  \"https://api.scaleway.com/billing/v2beta1/invoices/{invoice_id}/lines\""
+          },
+          {
+            "lang": "HTTPie",
+            "source": "http GET \"https://api.scaleway.com/billing/v2beta1/invoices/{invoice_id}/lines\" \\\n  X-Auth-Token:$SCW_SECRET_KEY"
           }
         ]
       }
